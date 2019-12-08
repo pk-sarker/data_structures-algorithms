@@ -151,3 +151,7 @@ if __name__ == "__main__":
     list.print_list()
     list.swap(4, -3)
     list.print_list()
+    list.remove(5)
+    list.print_list()
+    list.remove(4)
+    list.print_list()
