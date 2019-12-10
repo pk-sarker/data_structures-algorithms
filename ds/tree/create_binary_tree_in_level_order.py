@@ -19,6 +19,7 @@
 # Post Order:
 # 8 9 4 10 5 2 6 7 3 1
 #
+from queue import Queue
 
 
 class Node:
@@ -67,6 +68,38 @@ def traverse_post_order(root_node):
         print(root_node.data, end=" ")
 
 
+def add_new_node(root_node, data):
+    if root_node is None:
+        print("Root node is None.")
+    if data is None:
+        print("Data node is None.")
+    node_queue = Queue()
+    candidate_node = Queue()
+    node_queue.put(root_node)
+    while not node_queue.empty():
+        node = node_queue.get()
+        if node is None:
+            node_queue = Queue()
+        else:
+            if node.left is not None and node.right is None:
+                node.right = Node(data)
+                return root_node
+            if node.left is None and node.right is not None:
+                node.left = Node(data)
+                return root_node
+
+            if node.left is None and node.right is None:
+                candidate_node.put(node)
+
+            node_queue.put(node.left)
+            node_queue.put(node.right)
+
+    if not candidate_node.empty():
+        node = candidate_node.get()
+        node.left = Node(data)
+    return root_node
+
+
 if __name__ == '__main__':
     items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     n = len(items)
@@ -78,7 +111,20 @@ if __name__ == '__main__':
     traverse_pre_order(root)
     print("\n\nPost Order:")
     traverse_post_order(root)
+    print("\n\nInsert new node 12 ")
+    root1 = add_new_node(root, 12)
+    print("In Order:")
+    traverse_in_order(root1)
 
+    print("\n\n")
+    root2 = None
+    root2 = add_node_in_level_order([1, 2, 3, 4, 5, 6, 7], root2, 0, 7)
+    print("Tree: ")
+    traverse_in_order(root2)
+    print("\nInsert new node 8 in a full binary tree.")
+    root2 = add_new_node(root2, 8)
+    print("In Order:")
+    traverse_in_order(root2)
 
 
 
