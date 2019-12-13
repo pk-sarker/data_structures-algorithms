@@ -10,28 +10,36 @@ Another way of defining a full binary tree is a recursive definition. A full bin
 * A single vertex.
 * A tree whose root node has two subtrees, both of which are full binary trees.
 
-The number of nodes {\displaystyle n}n in a full binary tree, is at least {\displaystyle n=2h+1}n=2h+1 and at most {\displaystyle n=2^{h+1}-1}{\displaystyle n=2^{h+1}-1}, where {\displaystyle h}h is the height of the tree. A tree consisting of only a root node has a height of *0*.
+The number of nodes *n* in a full binary tree, is at least <img src="https://latex.codecogs.com/gif.latex?n=2h+1" /> and at-most <img src="https://latex.codecogs.com/gif.latex?n=2^{h+1}-1" /> where *h* is the height of the tree. 
+A tree consisting of only a root node has a height of *0*.
 
-A full binary tree with {\displaystyle l}l leaves has {\displaystyle n=2l-1}n=2l-1 nodes.
+A full binary tree with *l* leaves has <img src="https://latex.codecogs.com/gif.latex?n=2l-1" /> nodes.
 
 ### Complete Binary Tree
 In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. 
 It can have between 1 and 2^h nodes at the last level *h*. 
 
-The number of internal nodes in a complete binary tree of n nodes is {\displaystyle \lfloor n/2\rfloor }\lfloor n/2\rfloor .
+The number of internal nodes in a complete binary tree of *n* nodes is <img src="https://latex.codecogs.com/gif.latex?n/2" />.
 
 
 ### Perfect Tree
 A perfect binary tree is a binary tree in which all interior nodes have two children and all leaves have the same depth or same level.
 
-The number of leaf nodes {\displaystyle l}l in a perfect binary tree, is {\displaystyle l=(n+1)/2}l=(n+1)/2 because the number of non-leaf (a.k.a. internal) nodes
+The number of leaf nodes *l* in a perfect binary tree, is  <img src="https://latex.codecogs.com/gif.latex?l=(n+1)/2" /> because the number of non-leaf (a.k.a. internal) nodes
 ![ScreenShot](perfect_tree_eq1.png)
 
-In a perfect full binary tree, {\displaystyle l=2^{h}}l=2^{h} thus {\displaystyle n=2^{h+1}-1}n=2^{h+1}-1.
+In a perfect full binary tree, <img src="https://latex.codecogs.com/gif.latex?l=2^h" /> thus <img src="https://latex.codecogs.com/gif.latex?n=2^{h+1}-1" />
 
 ### Balanced Binary Tree
-A balanced binary tree is a binary tree structure in which the left and right subtrees of every node differ in height by no more than 1.
+A binary tree is balanced if the height of the tree is <img src="https://latex.codecogs.com/gif.latex?O(Log n)" /> where *n* is the number of nodes. 
 
+### Complete Binary Tree: 
+A Binary Tree is complete Binary Tree if all levels are completely filled except possibly the last level and the last level has all keys as left as possibleA balanced binary tree is a binary tree structure in which the left and right subtrees of every node differ in height by no more than 1.
+
+
+
+* The maximum number of nodes at level `L` of a binary tree is <img src="https://latex.codecogs.com/gif.latex?2^{L-1}" />
+* Maximum number of nodes in a binary tree of height `H` is <img src="https://latex.codecogs.com/gif.latex?2^{H}-1" />
 
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree
