@@ -58,9 +58,15 @@ def insert_node_in_level_order(arr, root_node, i, n):
 def traverse_in_order(root_node):
     if root_node is not None:
         traverse_in_order(root_node.left)
-        print(root_node.data, end=" ")
+        print(root_node.data, end=", ")
         traverse_in_order(root_node.right)
 
+# Traverse root node first, then Left child and then right child
+def traverse_pre_order(root_node):
+    if root_node is not None:
+        print(root_node.data, end=", ")
+        traverse_pre_order(root_node.left)
+        traverse_pre_order(root_node.right)
 
 if __name__ == "__main__":
 
@@ -72,7 +78,10 @@ if __name__ == "__main__":
     root = None
     arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     root = insert_node_in_level_order(arr, root, 0, len(arr))
-    print("\n")
+    print("\nPre-order: ")
+    traverse_pre_order(root)
+
+    print("\nIn-order: ")
     traverse_in_order(root)
 
 
