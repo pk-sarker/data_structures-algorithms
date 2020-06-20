@@ -66,5 +66,13 @@ For given tree where root node is *R*,
 2. check if the right subtree is BST or not? and maintain the same range, lowest and highest keys.
 3. if highest key in the range from left subtree is less than the node *R*, and if the lowest key in the range from right subtree is greater than the node *R* then tree is BST.
 
+**Time Complexity:**
+In the above approach we are evaluating each node exactly once. The approach is linear time. So the time complexity will be __O(n)__.
+
+**Space Complexity:**
+We have to solve this in recursive way, where we will have a validate function where we pass the node. So the space complexity will be based on call-stack for recursive calls. 
+Space complexity of recursion process is the depth of the recursion. For binary tree the recursion depth is height of the tree. 
+In a balanced binary tree the height of the tree is __log_2(n)__. In worse case we have to go till the lowest level and evaluate each node, then the complexity will be __O(n)__.
+
 [Implementation](./problems/validate_binary_search_tree.py)
   
