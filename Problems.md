@@ -14,7 +14,7 @@ The Binary Search Tree has the following properties:
 * The right subtree of a node(A) contains the nodes which are greater than parent node(A)
 * Both left and right subtrees must be binary search tree
 
-Example Tree:
+**Example:**
 ```
 a)          8 
            / \
@@ -59,6 +59,11 @@ Tree *b)* is invalid BST. Right subtree, *[7 10 12]*, of node `8` is BST but all
 Tree *c)* is invalid BST because all the nodes in left subtree of node `8` is not less than 8. In *[4 6 9]* is a valid BST but node `9` greater than node `8`, which implies that all the nodes in left subtree of node `8` is not smaller than `8`. \
 
 Tree *d)* and *e)* is valid BST.
- 
+
+**Solution:**
+For given tree where root node is *R*, 
+1. check if left subtree is BST or not, and maintain a range of node values, node with lowest key and node with highest key.
+2. check if the right subtree is BST or not? and maintain the same range, lowest and highest keys.
+3. if highest key in the range from left subtree is less than the node *R*, and if the lowest key in the range from right subtree is greater than the node *R* then tree is BST.
 
   
