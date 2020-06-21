@@ -1,5 +1,6 @@
 # Test Problems
 - [Validate Binary Search Tree](#validate-binary-search-tree)
+- [Ransom Note Problem](#ransom-note-problem)
 
 
 
@@ -50,13 +51,13 @@ e)           8
 
 In the above trees a) b) c) are invalid BST. 
 
-Tree notation: `[L N R]`; `L` - Left child, `R` - Right Child, `N` - Parent node\
+Tree notation: `[L N R]`; `L` - Left child, `R` - Right Child, `N` - Parent node
 
-Tree *a)* is invalid BST because left subtree of node `8` *[1 6 5]* is not binary search tree as right child `5` of node `6` is not greater than 6.\
+Tree *a)* is invalid BST because left subtree of node `8` *[1 6 5]* is not binary search tree as right child `5` of node `6` is not greater than 6.
 
-Tree *b)* is invalid BST. Right subtree, *[7 10 12]*, of node `8` is BST but all the nodes in right subtree of node `8` is not greater than `8`. Node `7`, left child of node `10` is less than node `8`.\
+Tree *b)* is invalid BST. Right subtree, *[7 10 12]*, of node `8` is BST but all the nodes in right subtree of node `8` is not greater than `8`. Node `7`, left child of node `10` is less than node `8`.
 
-Tree *c)* is invalid BST because all the nodes in left subtree of node `8` is not less than 8. In *[4 6 9]* is a valid BST but node `9` greater than node `8`, which implies that all the nodes in left subtree of node `8` is not smaller than `8`. \
+Tree *c)* is invalid BST because all the nodes in left subtree of node `8` is not less than 8. In *[4 6 9]* is a valid BST but node `9` greater than node `8`, which implies that all the nodes in left subtree of node `8` is not smaller than `8`. 
 
 Tree *d)* and *e)* is valid BST.
 
@@ -75,4 +76,23 @@ Space complexity of recursion process is the depth of the recursion. For binary 
 In a balanced binary tree the height of the tree is __log_2(n)__. In worse case we have to go till the lowest level and evaluate each node, then the complexity will be __O(n)__.
 
 [Implementation](./problems/validate_binary_search_tree.py)
-  
+
+
+#### Ransom Note Problem
+**Problem**\
+Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines; otherwise, it will return false.\
+Each letter in the magazine string can only be used once in your ransom note.Each letter in the magazine string can only be used once in your ransom note.
+
+Consider the ransom note contains only letters and lowercase. 
+
+**Example**
+```
+(Ransom Note, Magazine)
+('abadc', 'aazzbccdy') - True
+('zabd', 'aazzbccdy') - True
+('aebe', 'aazebccdy') - False
+('aebei', 'aazebecdy') - False
+```
+**Solutions:**\
+Brute Force Approach:\
+Take each letter from ransom note string and search in the magazine, if that exists. If exists then update the magazine by removing the letter. 
