@@ -95,4 +95,73 @@ Consider the ransom note contains only letters and lowercase.
 ```
 **Solutions:**\
 Brute Force Approach:\
-Take each letter from ransom note string and search in the magazine, if that exists. If exists then update the magazine by removing the letter. 
+Take each letter from ransom note string and search in the magazine, if that exists. If exists then update the magazine by removing the letter. In this case the complexity will be
+<img src="https://render.githubusercontent.com/render/math?math=O(m * n)"> where *m* is the number of letters in ransom note and *n* is the total number of letters in the magazine. So the complexity will be around <img src="https://render.githubusercontent.com/render/math?math=O(n^2)">.
+
+**Better Approach:**\
+We have to read all the characters in the ransom note, so the complexity is <img src="https://render.githubusercontent.com/render/math?math=O(n)">. Now we can optimize the searching in magazine. Store the magazine such a way that a letter can be found at constant time. To do that we can use hash map, scan the magazine once and store the letters and number of occurrence in the hash map.
+For every letter in ransom note we check the letter in the hash map:\
+    - if not found, then return false\
+    - if found, then deduct number of occurrence. If number of occurrence is less than 0 then return false otherwise true.\
+For `('abadc', 'aazzbccdy')`
+Hash Map will be 
+```
+{
+    a -> 2,
+    z -> 2
+    b -> 1,
+    c -> 2,
+    d -> 1,
+    y -> 1
+}
+```
+After reading the first letter a:
+```
+{
+    a -> 1,
+    z -> 2
+    b -> 1,
+    c -> 2,
+    d -> 1,
+    y -> 1
+}
+```
+After reading the 2nd letter :b
+```
+{
+    a -> 1,
+    z -> 2
+    b -> 0,
+    c -> 2,
+    d -> 1,
+    y -> 1
+}
+```
+After reading the 3rd letter :a
+```
+{
+    a -> 0,
+    z -> 2
+    b -> 0,
+    c -> 2,
+    d -> 1,
+    y -> 1
+}
+```
+Like these after matching all the letters the magazine will be: 
+```
+{
+    a -> 0,
+    z -> 2
+    b -> 0,
+    c -> 1,
+    d -> 0,
+    y -> 1
+}
+```
+**Time Complexity:**
+<img src="https://render.githubusercontent.com/render/math?math=O(m)"> for creating the hash map and <img src="https://render.githubusercontent.com/render/math?math=O(n)"> for iterating over the ransom note.\
+So the complexity will be <img src="https://render.githubusercontent.com/render/math?math=O(m)">+<img src="https://render.githubusercontent.com/render/math?math=O(n)=O(n)">
+
+**Space Complexity:**
+Space complexity will depend on the hash map. If there are 26 characters in magazine then the space complexity will be <img src="https://render.githubusercontent.com/render/math?math=O(26)=O(k)=O(1)">
