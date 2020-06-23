@@ -178,3 +178,41 @@ Given two link list where each link list represents a number in reverse order. W
  807                  7 -> 0 -> 8  
 
 ```
+**Time Complexity:**\
+**Space Complexity:**
+#### Find if sum of two exits in a list
+
+*Problem:*\
+Given a list/array of numbers and a target number. Write a function that returns true if sum of any two number in the list is equal to the target number.
+
+*Example*
+```
+ar = [2,1,9,5,7,2,4] target number = 5
+1 + 4 = 5
+The result: true
+```
+
+*Solution*
+The brute force approach is to check any combination of two number and check their sum with target number.
+For the example above: 
+```
+ar = [2,1,9,5,7,2,4] target number = 5
+pick 2
+    check sum(2,1) = 3 != 5
+    check sum(2,9) = 11 != 5
+    check sum(2,5) = 7 != 5
+    check sum(2,7) = 9 != 5
+    check sum(2,2) = 4 != 5
+    check sum(2,4) = 6 != 5
+
+pick 1
+    check sum(1,9) = 10 != 5
+    check sum(1,5) = 6 != 5
+    check sum(1,7) = 8 != 5
+    check sum(1,2) = 3 != 5
+    check sum(1,4) = 5 = 5  -> RETURN TRUE
+    
+```
+
+For this approach the time complexity is <img src="https://render.githubusercontent.com/render/math?math=O(n^2)">. For each number in the array you are comparing all the remaining numbers in the list. If you have n numbers then the complexity is <img src="https://render.githubusercontent.com/render/math?math=O(n)*O(n)=O(n*n)=O(n^2)">
+
