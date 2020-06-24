@@ -2,7 +2,9 @@
 - [Validate Binary Search Tree](#validate-binary-search-tree)
 - [Ransom Note Problem](#ransom-note-problem)
 - [Add two numbers represented in link list](#add-two-numbers-represented-in-link-list)
-
+- [Find if sum of two exits in a list](#find-if-sum-of-two-exits-in-a-list)
+- [Find a number in a sorted array - Binary Search](./Problems.md#find-a-number-in-a-sorted-array---binary-search)
+- [Find first and last index of a number in a sorted array](#find-first-and-last-index-of-a-number-in-a-sorted-array)
 
 
 #### Validate Binary Search Tree
@@ -167,6 +169,8 @@ So the complexity will be <img src="https://render.githubusercontent.com/render/
 **Space Complexity:**
 Space complexity will depend on the hash map. If there are 26 characters in magazine then the space complexity will be <img src="https://render.githubusercontent.com/render/math?math=O(26)=O(k)=O(1)">
 
+[Implementation](./problems/ransom_note.py)
+
 #### Add two numbers represented in link list
 Given two link list where each link list represents a number in reverse order. Write a function that takes two numbers in reverse order and represented in link list and returns sum of the numbers represented in link list.
 
@@ -180,6 +184,9 @@ Given two link list where each link list represents a number in reverse order. W
 ```
 **Time Complexity:**\
 **Space Complexity:**
+
+[Implementation](./problems/add_two_number_in_link_list.py)
+
 #### Find if sum of two exits in a list
 
 *Problem:*\
@@ -232,4 +239,27 @@ Its a linear approach as we check each number once only. So the time complexity 
 **Space Complexity**\
 We need the space for the hash map, and the size of the hash map will be number of elements in the array. So the space complexity will be  <img src="https://render.githubusercontent.com/render/math?math=O(n)">.
 
+[Implementation - Brute-force](./problems/sum_of_two_numbers_brute_force.py)
+[Implementation](./problems/sum_off_two_numbers.py)
 
+#### Find first and last index of a number in a sorted array
+**Problem:**\
+Given a array/list of sorted number and a target number. Write a function to find the first and last index of the target number in the array.
+
+**Solution:**\
+A linear time solution will be read each number in the array and check if current number is the target number. On first occurrence add the index as first index and on the last occurrence add the index as last index. 
+First and last occurrence can be determined by: 
+* first: if the last number is less than the target number and current number is target number.
+* last: if the next number is greater than the target number or null/end of array and current number is the target number.   
+
+The time complexity for this approach will be <img src="https://render.githubusercontent.com/render/math?math=O(n)"> and space complexity will be constant as we need to keep track of low and high index.
+
+We can do better. As the array is sorted we can use binary search which will be efficient as we will be searching on half of the array and sub arrays.
+So the idea is to use two binary search, one to find the first index of the target number and the second search for the last index.
+**Time Complexity**\
+The time complexity will be `log n` for binary search. So for two binary search, the time complexity will be `O(log n) + O(log n) = O(log n)`
+
+**Space Complexity**\
+Space complexity will depend on implementation process. For recursion, the complexity will depend on the recursion depth/call stack. 
+
+[Implementation](./problems/sum_off_two_numbers.py)

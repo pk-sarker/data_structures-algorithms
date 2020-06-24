@@ -10,3 +10,4 @@ Mostly used Data Structures and Algorithms
     - [Add two numbers represented in link list](./Problems.md#add-two-numbers-represented-in-link-list)
     - [Find if sum of two exits in a list](./Problems.md#find-if-sum-of-two-exits-in-a-list)
     - [Find a number in a sorted array - Binary Search](./searching/Searching.md#binary-search)
+    - [Find first and last index of a number in a sorted array](./Problems.md#find-first-and-last-index-of-a-number-in-a-sorted-array)
