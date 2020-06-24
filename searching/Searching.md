@@ -1,6 +1,8 @@
 # Searching Algorithms
 - [Binary Search](#binary-search)
 - [Interpolation Search](#interpolation-search)
+- [Exponential Search](#exponential-search)
+- [Jump Search](#jump-search)
 
 #### Binary Search
 Binary search, also known as half-interval search, logarithmic search, is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array.
@@ -12,7 +14,7 @@ Given an array A of *n* numbers where <img src="https://render.githubusercontent
 
 **Solution:**
 ```
-// Sudo code
+// Algorithm
 1. Set low to 0 and high to n-1
 2. if low > high then the search terminates as unsuccessfull.
 3. Set mid as floor of (low + high)/2  
