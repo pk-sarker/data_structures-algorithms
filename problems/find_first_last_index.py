@@ -13,29 +13,19 @@ class Search:
             return -1
         mid = math.floor((low + high) / 2)
         if find_first:
-            if arr[mid] == target:
-                if mid == 0:
-                    return mid
-                elif arr[mid - 1] < target:
-                    return mid
-                elif arr[mid - 1] == target:
-                    return self.binary_search(arr, target, low, mid - 1, find_first)
+            if (mid == 0 or arr[mid - 1] < target) and arr[mid] == target:
+                return mid
             if target > arr[mid]:
                 return self.binary_search(arr, target, mid+1, high, find_first)
             else:
                 return self.binary_search(arr, target, low, mid-1, find_first)
         else:
-            if arr[mid] == target:
-                if mid == len(arr) - 1:
-                    return mid
-                if arr[mid + 1] > target:
-                    return mid
-                elif arr[mid + 1] == target:
-                    return self.binary_search(arr, target, mid + 1, high, find_first)
-            if target > arr[mid]:
-                return self.binary_search(arr, target, mid+1, high, find_first)
+            if (mid == len(arr) - 1 or arr[mid + 1] > target) and arr[mid] == target:
+                return mid
+            if target < arr[mid]:
+                return self.binary_search(arr, target, low, mid - 1, find_first)
             else:
-                return self.binary_search(arr, target, low, mid-1, find_first)
+                return self.binary_search(arr, target, mid + 1, high, find_first)
 
 
 print(Search().find_first_and_last_index([1, 2, 2, 3, 6, 7, 8, 8, 8, 13, 13, 13, 14], 13))
