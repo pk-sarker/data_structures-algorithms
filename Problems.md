@@ -5,6 +5,7 @@
 - [Find if sum of two exits in a list](#find-if-sum-of-two-exits-in-a-list)
 - [Find a number in a sorted array - Binary Search](./Problems.md#find-a-number-in-a-sorted-array---binary-search)
 - [Find first and last index of a number in a sorted array](#find-first-and-last-index-of-a-number-in-a-sorted-array)
+- [Permutation](#permutation)
 
 
 #### Validate Binary Search Tree
@@ -263,3 +264,33 @@ The time complexity will be `log n` for binary search. So for two binary search,
 Space complexity will depend on implementation process. For recursion, the complexity will depend on the recursion depth/call stack. 
 
 [Implementation](./problems/sum_off_two_numbers.py)
+
+# Permutation
+**Problem:**\
+Given a array of random numbers, find all the permutations.
+
+Example: 
+```
+array = [1, 2, 3]
+Permutations:
+[1, 2, 3]
+[1, 3, 2]
+[2, 1, 3]
+[2, 3, 1]
+[3, 1, 2]
+[3, 2, 1]
+```
+
+# Solution
+In iterative approach we can solve like this: pick the first number for position 1 from 3 numbers(<img src="https://render.githubusercontent.com/render/math?math=nC_r=3C_1=3">), then pick number for position 2 from remaining 2 number, then pick the remaining number for position 3.
+The time complexity is `n!`. `n!=n x (n-1) x (n-2)`
+
+```
+                    *
+                 /  |  \ 
+                1   2    3
+               /\   /\   /\
+              2  3 1  3 2  1
+              |  | |  | |  |
+              3  2 3  1 1  2
+```
