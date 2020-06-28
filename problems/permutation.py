@@ -12,5 +12,15 @@ class Permutation:
     def permute(self, arr):
         return self._permutationHelper(arr)
 
+    def permute2(self, nums, values=[]):
+        if not nums:
+            return [values]
+        result = []
+        for i in range(len(nums)):
+            result += self.permute2(nums[:i] + nums[i + 1:], values + [nums[i]])
+        return result
+
 
 print(Permutation().permute([3, 2, 1]))
+
+print(Permutation().permute2([3, 2, 1]))
