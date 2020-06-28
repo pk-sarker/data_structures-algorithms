@@ -265,7 +265,7 @@ Space complexity will depend on implementation process. For recursion, the compl
 
 [Implementation](./problems/sum_off_two_numbers.py)
 
-# Permutation
+#### Permutation
 **Problem:**\
 Given a array of random numbers, find all the permutations.
 
