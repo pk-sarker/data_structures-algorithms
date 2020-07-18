@@ -1,17 +1,16 @@
 # Sorting Algorithms
 - [Merge Sort](#merge-sort)
+- [Quick Sort](#quick-sort)
 
 ### Merge Sort
-Merge sort is an efficient, general-purpose, comparison-based sorting \
-algorithm. Most implementations produce a stable sort, which means that \
-the order of equal elements is the same in the input and output. Merge sort \
-is a divide and conquer algorithm that was invented by *John von Neumann* in 1945.\
+Merge sort is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that 
+the order of equal elements is the same in the input and output. Merge sort is a divide and conquer algorithm that was invented by *John von Neumann* in 1945.
 
 Conceptually, a merge sort works as follows:
 * Divide the unsorted list into *n* sublists, each containing one element (a list of one element is considered sorted).
 * Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.
 
-#### Pesudocode
+**Pseudocode**
 ```
 MERGE-SORT(A, p, r)
 1 if p < r
@@ -55,3 +54,45 @@ maintaining the following loop invariant:
 contains the `k - p` smallest elements of `L[1   n1 + 1]` and `R[1   n2 + 1]`, in sorted
 order. Moreover, `L[i]` and `R[j]` are the smallest elements of their arrays that have not
 been copied back into `A`.
+
+**Time Complexity:** 
+Best case: `n log n`, average: `n log n`, worse: `n log n`
+
+### Quick Sort
+Quicksort is a *divide-and-conquer* algorithm. It works by selecting a ***pivot*** element from the array and partitioning the other elements into two sub-arrays, 
+according to whether they are less than or greater than the *pivot*. The sub-arrays are then sorted recursively. This can be done in-place, 
+requiring small additional amounts of memory to perform the sorting.
+
+The steps for in-place Quicksort are:
+
+1. Pick an element, called a *pivot*, from the array.
+2. *Partitioning:* reorder the array so that all elements with values less than the *pivot* come before the *pivot*, while all elements with values greater 
+than the *pivot* come after it (equal values can go either way). After this partitioning, the *pivot* is in its final position. This is called the partition operation.
+3. Recursively apply the above steps to the sub-array of elements with smaller values and separately to the sub-array of elements with greater values.
+
+**Pseudocode**
+```
+QUICKSORT(A,low,high)
+1  if low < high
+2      then p ← PARTITION(A,low,high)
+3           QUICKSORT(A,low,p-1)
+4           QUICKSORT(A,p+1,high)
+
+PARTITION(A,low,high)
+1  pivot = A[high]
+2  i = low
+3  for j ← low to high
+4      if A[j] < pivot
+5           swap A[i] with A[j]
+6           i++
+7  swap A[i] with A[high]     
+8  return i
+```
+
+**Time Complexity:** 
+Best case: `n log n`, average: `n log n`, worse: `n^2`
+
+**Space Complexity**
+Quicksort is usually done in-place with `O(log n)` stack space
+
+[Implementation](./quick_sort.py)

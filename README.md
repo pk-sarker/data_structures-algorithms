@@ -6,6 +6,7 @@ Mostly used Data Structures and Algorithms
 - [Time & Space Cpmplexity](#complexity)
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
+    - [Quick Sort](./sorting/README.md#quick-sort)
 - [Test Problems](./Problems.md#test-problems)
     - [Validate Binary Search Tree](./Problems.md#validate-binary-search-tree)
     - [Ransom Note Problem](./Problems.md#ransom-note-problem)
