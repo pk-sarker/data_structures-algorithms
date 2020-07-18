@@ -6,6 +6,7 @@
 - [Find a number in a sorted array - Binary Search](./Problems.md#find-a-number-in-a-sorted-array---binary-search)
 - [Find first and last index of a number in a sorted array](#find-first-and-last-index-of-a-number-in-a-sorted-array)
 - [Permutation](#permutation)
+- [Sort a list with 3 unique numbers](#sort-a-list-with-3-unique-numbers)
 
 
 #### Validate Binary Search Tree
@@ -281,7 +282,7 @@ Permutations:
 [3, 2, 1]
 ```
 
-# Solution
+#### Solution
 In iterative approach we can solve like this: pick the first number for position 1 from 3 numbers(<img src="https://render.githubusercontent.com/render/math?math=nC_r=3C_1=3">), then pick number for position 2 from remaining 2 number, then pick the remaining number for position 3.
 The time complexity is `n!`. `n!=n x (n-1) x (n-2)`
 
@@ -294,3 +295,40 @@ The time complexity is `n!`. `n!=n x (n-1) x (n-2)`
               |  | |  | |  |
               3  2 3  1 1  2
 ```
+
+#### Sort a list with 3 unique numbers
+**Problem:**\
+Given a array with 3 unique numbers, sort that list.
+
+Examples:
+```
+ar = [2, 9, 5, 2, 9, 2, 5]
+Sorted array: [2, 2, 2, 5, 5, 9, 9]
+```
+
+Solution #1: \
+We can just sort it using any sorting algorithm. Quick sort or Merge sort with complexity `n log n`.
+
+Solution #2: \
+We can use a data structure to store number of appearance for each number in the list. \
+Like for the above list 2 appeared 3 times, 5 and 9 appeared twice. Then sort three unique numbers, that \
+will be constant time. We can use a hash map to store the counts. Then reconstruct the list \
+from the hash map. This is a linear approach and single pass. As we are using a hash map the \
+space complexity will be linear.
+
+Solution #3: \
+Solution #2 was good but it uses additional space. Lets try to do the sorting in place \
+without using any data structure.
+
+So the idea is to separate two numbers/types of numbers in two end of a linear line/list/array. \
+Then we will have the 3rd type in the middle. For this approach we can use two pointers, one will \
+point the max index of lowest number in the list and another pointer will point the max index of \
+ highest number in the list. 
+
+**Time Complexity**\
+The approach is linear so the time complexity will be `n`.
+
+**Space Complexity**\
+The sorting will be done in place, no additional space is required.
+ 
+[Implementation](./problems/sort_list_with_3_unique_number.py)
