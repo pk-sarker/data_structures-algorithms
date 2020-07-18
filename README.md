@@ -7,6 +7,7 @@ Mostly used Data Structures and Algorithms
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
     - [Quick Sort](./sorting/README.md#quick-sort)
+    - [Selection Sort](./sorting/README.md#selection-sort)
 - [Test Problems](./Problems.md#test-problems)
     - [Validate Binary Search Tree](./Problems.md#validate-binary-search-tree)
     - [Ransom Note Problem](./Problems.md#ransom-note-problem)
