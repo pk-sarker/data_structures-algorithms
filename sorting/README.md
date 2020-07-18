@@ -1,6 +1,7 @@
 # Sorting Algorithms
 - [Merge Sort](#merge-sort)
 - [Quick Sort](#quick-sort)
+- [Selection Sort](#selection-sort)
 
 ### Merge Sort
 Merge sort is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that 
@@ -96,3 +97,42 @@ Best case: `n log n`, average: `n log n`, worse: `n^2`
 Quicksort is usually done in-place with `O(log n)` stack space
 
 [Implementation](./quick_sort.py)
+
+### Selection Sort
+Selection sort is an in-place comparison sorting algorithm. It has an `O(n^2)` time complexity, which makes it inefficient on large lists, and generally performs worse.
+Selection sort is noted for its simplicity and has performance advantages over more complicated algorithms in certain situations, particularly where auxiliary memory is limited
+
+The algorithm divides the input list into two parts.
+1. A sorted sublist of items which is built up from left to right at the front (left) of the list 
+2. A sublist of the remaining unsorted items that occupy the rest of the list.
+
+In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray.
+
+Example:
+```
+arr[] = 64 27 31 10 21 11
+
+// Find the minimum element in arr[0...5]
+// and place it at beginning
+10 27 31 64 21 11
+
+// Find the minimum element in arr[1...5]
+// and place it at beginning of arr[1...5]
+10 11 31 64 21 27
+
+// Find the minimum element in arr[2...4]
+// and place it at beginning of arr[2...4]
+10 11 21 64 31 27
+
+// Find the minimum element in arr[3...4]
+// and place it at beginning of arr[3...4]
+10 11 21 27 31 64
+
+10 11 21 27 31 64 
+```
+
+Time Complexity: Time complexity is `n^2`. To find minimum in unsorted list it has to compare with other remaining numbers.
+
+Space Complexity: The algorithm is in-place, don't need additional space.
+
+[Implementation](./selection_sort.py)
