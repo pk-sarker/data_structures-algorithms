@@ -144,9 +144,101 @@ Space Complexity: The algorithm is in-place, don't need additional space.
 and it iteratively shrinks the unsorted region by extracting the largest element from it and inserting it into the sorted region. Unlike *selection sort*, *heapsort* does not waste time with a linear-time scan of 
 the unsorted region; rather, heap sort maintains the unsorted region in a heap data structure to more quickly find the largest element in each step
 
+The (binary) heap data structure is an array object that we can view as a nearly complete binary tree. Each
+node of the tree corresponds to an element of the array. The tree is completely filled on all levels except possibly the lowest, which is filled from the
+left up to a point. An array `A` that represents a heap is an object with two attributes: `A:length`, which (as usual) gives the number of elements in the array, and
+`A:heap-size`, which represents how many elements in the heap are stored within
+array `A`. That is, although `A[1...A.length]` may contain numbers, only the elements
+in `A[1...A.heap-size]`, where `0 ≤ A:heap-size ≤ A:length`, are valid elements
+of the heap. The root of the tree is *A[1]*, and given the index *i* of a node, we
+can easily compute the indices of its parent, left child, and right child:
+
+![Heap](./heap-1.png)
+
+```
+PARENT(i)
+1 return ⌊i/2⌋
+
+LEFT(i)
+1 return 2i
+
+RIGHT(i)
+1 return 2i C 1
+```
+
+There are two kinds of binary heaps: ***max-heaps*** and ***min-heaps***. In both kinds,
+the values in the nodes satisfy a heap property, the specifics of which depend on
+the kind of heap. In a *max-heap*, the *max-heap* property is that for every node *i*
+other than the root,
+`A[PARENT(i)] ≥ A[i]`;\
+that is, the value of a node is at most the value of its parent. Thus, the largest
+element in a *max-heap* is stored at the root, and the subtree rooted at a node contains values no larger than that contained at the node itself. A min-heap is organized in
+the opposite way; the min-heap property is that for every node i other than the
+root,
+`A[PARENT(i)] ≤ A[i]`\
+
+Viewing a heap as a tree, we define the ***height*** of a node in a heap to be the number of edges on the longest simple downward path from the node to a leaf, and
+we define the height of the heap to be the height of its root. Since a heap of *n* elements
+is based on a complete binary tree, its height is *Θ(log n)*
+
+**Algorithm:**
+The Heapsort algorithm involves preparing the list by first turning it into a *max heap*. The algorithm then repeatedly swaps the first value of the list with the last value, 
+decreasing the range of values considered in the heap operation by one, and sifting the new first value into its position in the heap. This repeats until the range of considered values is one value in length.
+
+The steps are:
+1. Build max-heap from input data. Also referred to as heapify(), this builds a heap from a list in O(n) operations. At this point, the largest item is stored at the root of the heap. 
+2. Swap the first element of the list with the final element. Decrease the considered range of the list by one.
+3. Shift the new first element to its appropriate index in the heap.
+4. Go to step (2) unless the considered range of the list is one element.
+
+Procedure `MAX-HEAPIFY` in a bottom-up manner to convert an array `A[1...n]`, where `n = A.length`, into a max-heap.
+The procedure `BUILD-MAX-HEAP` goes through the remaining nodes of the tree and runs `MAX-HEAPIFY` on each one.
+```
+MAX-HEAPIFY(A,i)
+1 l ← LEFT(i)  // 2i
+2 r ← RIGHT(i)  // 2i + 1
+3 if l ≤ A.heap-size and A[l] > A[i]
+4     largest ← l
+5 else 
+6     largest ← i
+6 if r ≤ A.heap-size and A[r] > A[largest]
+7     largest ← r
+8 if largest ≠ i
+9     exchange A[i] with A[largest]
+10 MAX-HEAPIFY(A, largest)
+
+BUILD-MAX-HEAP(A)
+1 A.heap-size ← A:length
+2 for i ← ⌊A.length/2⌋ downto 1
+3   MAX-HEAPIFY(A,i)
+
+``` 
+
+The *heapsort* algorithm starts by using BUILD-MAX-HEAP to build a max-heap on the input array `A[1...n]`, where `n = A:length`. Since the maximum element
+of the array is stored at the root A[1], we can put it into its correct final position by exchanging it with `A[n]`.
+
+```
+HEAPSORT(A)
+1 BUILD-MAX-HEAP(A)
+2 for i ← A.length downto 2
+3    exchange A[1] with A[i]
+4    A.heap-size ← A.heap-size - 1
+5    MAX-HEAPIFY(A,1)
+```
+
+If we now discard node n from the heap—and we can do so by simply decrementing A.heap-size - we observe that the children of
+the root remain max-heaps, but the new root element might violate the max-heap property. All we need to do to restore the max-heap property, however, is call
+`MAX-HEAPIFY(A,1)`, which leaves a max-heap in `A[1....n]`. The heapsort algorithm then repeats this process for the max-heap of size `n-1` down to a heap
+of size 2.
+
+![Heap Sort](./heap-sort.png)
+*The operation of HEAPSORT. (a) The max-heap data structure just after BUILD-MAXHEAP
+has built it in line 1. (b)–(j) The max-heap just after each call of MAX-HEAPIFY in line 5,
+showing the value of i at that time. Only lightly shaded nodes remain in the heap. (k) The resulting
+sorted array A.*
+
 **Time Complexity:** 
 Best case: `n log n`, average: `n log n`, worse: `n^2`
 
-**Space Complexity**
 
-[Implementation](./selection_sort.py)
+[Implementation](./heap_sort.py)
