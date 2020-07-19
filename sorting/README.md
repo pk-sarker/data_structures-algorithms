@@ -2,6 +2,7 @@
 - [Merge Sort](#merge-sort)
 - [Quick Sort](#quick-sort)
 - [Selection Sort](#selection-sort)
+- [Heap Sort](#heap-sort)
 
 ### Merge Sort
 Merge sort is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that 
@@ -134,5 +135,18 @@ arr[] = 64 27 31 10 21 11
 Time Complexity: Time complexity is `n^2`. To find minimum in unsorted list it has to compare with other remaining numbers.
 
 Space Complexity: The algorithm is in-place, don't need additional space.
+
+[Implementation](./selection_sort.py)
+
+
+### Heap Sort
+*Heapsort* is a comparison-based sorting algorithm. *Heapsort* sorts in place. *Heapsort* can be thought of as an improved selection sort: like *selection sort*, *heapsort* divides its input into a sorted and an unsorted region, 
+and it iteratively shrinks the unsorted region by extracting the largest element from it and inserting it into the sorted region. Unlike *selection sort*, *heapsort* does not waste time with a linear-time scan of 
+the unsorted region; rather, heap sort maintains the unsorted region in a heap data structure to more quickly find the largest element in each step
+
+**Time Complexity:** 
+Best case: `n log n`, average: `n log n`, worse: `n^2`
+
+**Space Complexity**
 
 [Implementation](./selection_sort.py)
