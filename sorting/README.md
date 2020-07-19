@@ -197,14 +197,14 @@ The procedure `BUILD-MAX-HEAP` goes through the remaining nodes of the tree and 
 MAX-HEAPIFY(A,i)
 1 l ← LEFT(i)  // 2i
 2 r ← RIGHT(i)  // 2i + 1
-3 if l ≤ A.heap-size and A[l] > A[i]
+3 if l ≤ A.heap-size and A[l] > A[i]
 4     largest ← l
 5 else 
 6     largest ← i
-6 if r ≤ A.heap-size and A[r] > A[largest]
+6 if r ≤ A.heap-size and A[r] > A[largest]
 7     largest ← r
 8 if largest ≠ i
-9     exchange A[i] with A[largest]
+9     exchange A[i] with A[largest]
 10 MAX-HEAPIFY(A, largest)
 
 BUILD-MAX-HEAP(A)
@@ -221,7 +221,7 @@ of the array is stored at the root A[1], we can put it into its correct final po
 HEAPSORT(A)
 1 BUILD-MAX-HEAP(A)
 2 for i ← A.length downto 2
-3    exchange A[1] with A[i]
+3    exchange A[1] with A[i]
 4    A.heap-size ← A.heap-size - 1
 5    MAX-HEAPIFY(A,1)
 ```
