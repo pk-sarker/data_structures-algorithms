@@ -204,7 +204,7 @@ MAX-HEAPIFY(A,i)
 6 if r ≤ A.heap-size and A[r] > A[largest]
 7     largest ← r
 8 if largest ≠ i
-9     exchange A[i] with A[largest]
+    9     exchange A[i] with A[largest]
 10 MAX-HEAPIFY(A, largest)
 
 BUILD-MAX-HEAP(A)
