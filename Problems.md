@@ -332,3 +332,17 @@ The approach is linear so the time complexity will be `n`.
 The sorting will be done in place, no additional space is required.
  
 [Implementation](./problems/sort_list_with_3_unique_number.py)
+
+
+
+#### Find longest non-repeating substring
+**Problem:**\
+Given a string, find the length of the longest substring without repeating characters.
+
+Examples:
+```
+String: abrkaabcdefghijjxxx
+Length: 10
+```
+
+Solution #1: \
