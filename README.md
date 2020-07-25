@@ -18,3 +18,4 @@ Mostly used Data Structures and Algorithms
     - [Find first and last index of a number in a sorted array](./Problems.md#find-first-and-last-index-of-a-number-in-a-sorted-array)
     - [Permutation](./Problems.md#permutation)
     - [Sort a list with 3 unique numbers](./Problems.md#sort-a-list-with-3-unique-numbers)
+    - [Find longest non-repeating substring](./Problems.md#find-longest-non-repeating-substring)
