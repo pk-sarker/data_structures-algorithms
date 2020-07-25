@@ -346,3 +346,41 @@ Length: 10
 ```
 
 Solution #1: \
+Iterative approach: Find create a list of all possible substrings from the string. Which will require 
+n(n+1)/2. Then check all the substrings with unique characters, linear computation `O(n)`. So the complexity will be `O(n^3)`.
+
+Solution #2: \
+We can use two pointer, one with start position of non repeating sub-string and another one for end position.
+When we see find a duplicate character then we move to next start index. The approach is called 
+*sliding window*. Time complexity for this approach is `O(n^2)`
+
+```
+FIND-MAX-LENGTH(A)
+1  size ← A:length
+2  result ← 0
+3  for i ← 0 to size
+4    visited[0 to size] ← [false]
+5      for j ← i to size
+6        if visited[A[j]] == true 
+7          break;
+8        else
+9          result ← MAX(result, j - i + 1)
+10         visited[A[j]] ← true  
+11     visited[A[i]] ← false
+12 return result
+
+```
+Solution #3: \
+Try solving the problem in linear time. We will use additional space for this approach.
+We will use a hash map data structure to store last seen position of a character. Start pointer/flag 
+is set to -1 and end to the first char. Then for each char we will update the start when a duplicate if found, other wise keep increasing end pointer/flag.
+For each char we calculate difference between start and end and get maximum of previous result/max-length and current result/max-length.
+
+
+**Time Complexity**\
+The approach is linear so the time complexity will be `n`.
+
+**Space Complexity**\
+As we are using a hash map and the size of the hash map will be at max the number of characters in the string. So the space complexity will be `O(n)`.
+ 
+[Implementation](./problems/find_longest_non-repeating_substring.py)
