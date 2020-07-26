@@ -19,3 +19,4 @@ Mostly used Data Structures and Algorithms
     - [Permutation](./Problems.md#permutation)
     - [Sort a list with 3 unique numbers](./Problems.md#sort-a-list-with-3-unique-numbers)
     - [Find longest non-repeating substring](./Problems.md#find-longest-non-repeating-substring)
+    - [Queue Reconstruction By Height](./Problems.md#queue-reconstruction-by-height)

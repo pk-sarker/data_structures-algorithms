@@ -384,3 +384,44 @@ The approach is linear so the time complexity will be `n`.
 As we are using a hash map and the size of the hash map will be at max the number of characters in the string. So the space complexity will be `O(n)`.
  
 [Implementation](./problems/find_longest_non-repeating_substring.py)
+
+
+#### Queue Reconstruction By Height
+**Problem:**\
+Consider a random list of people standing in a queue. If each person is described by a pair of integers `(h, k)`, 
+where `h` is the height and `k` is the number of people in front of him, who have a height greater than or equal to `h`. The problem is to define one method to reconstruct the queue.
+
+**Example:**
+```
+Input:  [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
+Output: [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
+```
+Solution: \
+A key thing is that a person with higher height won't see the people ahead with lower height than him. 
+So we can place the higher height people in a new list and then insert second highest peoples and repeat.
+For example:
+First place [7,0] and [7,1]
+```
+[[7,0]  [7,1]]
+```
+place [6, 1]
+```
+[[7,0] [6, 1] [7,1]]
+```
+place [5, 0] [5, 2]
+```
+[[5, 0] [7,0] [5, 2] [6, 1] [7,1]]
+```
+place [4, 4]
+```
+[[5, 0] [7,0] [5, 2] [6, 1] [4, 4] [7,1]]
+```
+
+First we need to sort the list using a custom comparator, sort by height then if height is same then sort by person ahead of him. Then check each person and sort them in to a array and return the array.
+
+**Time Complexity**\
+Sorting with a good sorting algorithm will require `O(n log n)`, and going through each person will require `O(n)`. \
+So time complexity is `O(n log n) + O(n) = O(n log n)`
+
+**Space Complexity**\
+We are creating a new list, so space complexity is `O(n)`
