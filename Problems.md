@@ -7,6 +7,7 @@
 - [Find first and last index of a number in a sorted array](#find-first-and-last-index-of-a-number-in-a-sorted-array)
 - [Permutation](#permutation)
 - [Sort a list with 3 unique numbers](#sort-a-list-with-3-unique-numbers)
+- [Queue Reconstruction By Height](#queue-reconstruction-by-height)
 
 
 #### Validate Binary Search Tree
@@ -425,3 +426,5 @@ So time complexity is `O(n log n) + O(n) = O(n log n)`
 
 **Space Complexity**\
 We are creating a new list, so space complexity is `O(n)`
+
+[Implementation](./problems/queue_reconstruction.py)
