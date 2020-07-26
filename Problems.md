@@ -7,11 +7,13 @@
 - [Find first and last index of a number in a sorted array](#find-first-and-last-index-of-a-number-in-a-sorted-array)
 - [Permutation](#permutation)
 - [Sort a list with 3 unique numbers](#sort-a-list-with-3-unique-numbers)
+- [Find longest non-repeating substring](#find-longest-non-repeating-substring)
 - [Queue Reconstruction By Height](#queue-reconstruction-by-height)
 - [Find a non duplicate number in an array](#find-a-non-duplicate-number-in-an-array)
+- [Reverse a link list](#reverse-a-link-list)
 
 
-#### Validate Binary Search Tree
+### Validate Binary Search Tree
 *Problem:*\
 Given a binary tree, check if the tree is a valid binary search tree(BST).
 
@@ -85,7 +87,7 @@ In a balanced binary tree the height of the tree is __log_2(n)__. In worse case 
 [Implementation](./problems/validate_binary_search_tree.py)
 
 
-#### Ransom Note Problem
+### Ransom Note Problem
 **Problem**\
 Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines; otherwise, it will return false.\
 Each letter in the magazine string can only be used once in your ransom note.Each letter in the magazine string can only be used once in your ransom note.
@@ -175,7 +177,7 @@ Space complexity will depend on the hash map. If there are 26 characters in maga
 
 [Implementation](./problems/ransom_note.py)
 
-#### Add two numbers represented in link list
+### Add two numbers represented in link list
 Given two link list where each link list represents a number in reverse order. Write a function that takes two numbers in reverse order and represented in link list and returns sum of the numbers represented in link list.
 
 **Example:**
@@ -191,7 +193,7 @@ Given two link list where each link list represents a number in reverse order. W
 
 [Implementation](./problems/add_two_number_in_link_list.py)
 
-#### Find if sum of two exits in a list
+### Find if sum of two exits in a list
 
 *Problem:*\
 Given a list/array of numbers and a target number. Write a function that returns true if sum of any two number in the list is equal to the target number.
@@ -246,7 +248,7 @@ We need the space for the hash map, and the size of the hash map will be number 
 [Implementation - Brute-force](./problems/sum_of_two_numbers_brute_force.py)
 [Implementation](./problems/sum_off_two_numbers.py)
 
-#### Find first and last index of a number in a sorted array
+### Find first and last index of a number in a sorted array
 **Problem:**\
 Given a array/list of sorted number and a target number. Write a function to find the first and last index of the target number in the array.
 
@@ -268,7 +270,7 @@ Space complexity will depend on implementation process. For recursion, the compl
 
 [Implementation](./problems/sum_off_two_numbers.py)
 
-#### Permutation
+### Permutation
 **Problem:**\
 Given a array of random numbers, find all the permutations.
 
@@ -284,7 +286,7 @@ Permutations:
 [3, 2, 1]
 ```
 
-#### Solution
+**Solution**\
 In iterative approach we can solve like this: pick the first number for position 1 from 3 numbers(<img src="https://render.githubusercontent.com/render/math?math=nC_r=3C_1=3">), then pick number for position 2 from remaining 2 number, then pick the remaining number for position 3.
 The time complexity is `n!`. `n!=n x (n-1) x (n-2)`
 
@@ -298,7 +300,7 @@ The time complexity is `n!`. `n!=n x (n-1) x (n-2)`
               3  2 3  1 1  2
 ```
 
-#### Sort a list with 3 unique numbers
+### Sort a list with 3 unique numbers
 **Problem:**\
 Given a array with 3 unique numbers, sort that list.
 
@@ -337,7 +339,7 @@ The sorting will be done in place, no additional space is required.
 
 
 
-#### Find longest non-repeating substring
+### Find longest non-repeating substring
 **Problem:**\
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -388,7 +390,7 @@ As we are using a hash map and the size of the hash map will be at max the numbe
 [Implementation](./problems/find_longest_non-repeating_substring.py)
 
 
-#### Queue Reconstruction By Height
+### Queue Reconstruction By Height
 **Problem:**\
 Consider a random list of people standing in a queue. If each person is described by a pair of integers `(h, k)`, 
 where `h` is the height and `k` is the number of people in front of him, who have a height greater than or equal to `h`. The problem is to define one method to reconstruct the queue.
@@ -431,7 +433,7 @@ We are creating a new list, so space complexity is `O(n)`
 [Implementation](./problems/queue_reconstruction.py)
 
 
-#### Find a non duplicate number in an array
+### Find a non duplicate number in an array
 **Problem:**\
 Given an array of *n* integers, every number in it appears twice expect for one. The problem is to find the one with single occurrence.
 
@@ -463,7 +465,27 @@ No additional space is required.
 
 [Implementation](./problems/find_non_duplicate_number.py)
 
+### Reverse a link list
+**Problem**\
+Given a singly link list. Write a function to reverse the link list
 
+Example
+```
+Input: 5 -> 8 -> 4 -> 9 -> 0 -> 3
+Output: 3 -> 0 -> 9 -> 4 -> 8 -> 5
+```
 
+**Solution 1#**\
+Visit each node from beginning and push the nodes values in a stack. Then pop values from the stack and create a new link list and keep appending. 
+Stack is last-in-first-out(LIFO), reverse the link list. The time complexity is `O(n)` for visiting each node in the link list, and `O(n)` for accessing each element in the stack. So time complexity is `O(n) + O(n)= O(n)`. And space complexity is linear for stack, `O(n)`.
 
+**Solution 2#**\
+Time complexity of previous solution is linear, and thats the lower bound as we have to visit each node at-least once. But we will try to do it in one pass by visiting each node exactly once. Also we can optimize space.
+The idea is the reverse the links for each node or swap the nodes.
 
+**Time Complexity**\
+`O(n)`
+
+**Space Complexity**\
+No additional space is required.
+[Implementation](./problems/reverse_link_list.py)

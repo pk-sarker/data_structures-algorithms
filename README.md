@@ -21,3 +21,4 @@ Mostly used Data Structures and Algorithms
     - [Find longest non-repeating substring](./Problems.md#find-longest-non-repeating-substring)
     - [Queue Reconstruction By Height](./Problems.md#queue-reconstruction-by-height)
     - [Find a non duplicate number in an array](./Problems.md#find-a-non-duplicate-number-in-an-array)
+    - [Reverse a link list](./Problems.md#reverse-a-link-list)
