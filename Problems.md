@@ -8,6 +8,7 @@
 - [Permutation](#permutation)
 - [Sort a list with 3 unique numbers](#sort-a-list-with-3-unique-numbers)
 - [Queue Reconstruction By Height](#queue-reconstruction-by-height)
+- [Find a non duplicate number in an array](#find-a-non-duplicate-number-in-an-array)
 
 
 #### Validate Binary Search Tree
@@ -397,7 +398,7 @@ where `h` is the height and `k` is the number of people in front of him, who hav
 Input:  [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
 Output: [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
 ```
-Solution: \
+**Solution:** \
 A key thing is that a person with higher height won't see the people ahead with lower height than him. 
 So we can place the higher height people in a new list and then insert second highest peoples and repeat.
 For example:
@@ -428,3 +429,41 @@ So time complexity is `O(n log n) + O(n) = O(n log n)`
 We are creating a new list, so space complexity is `O(n)`
 
 [Implementation](./problems/queue_reconstruction.py)
+
+
+#### Find a non duplicate number in an array
+**Problem:**\
+Given an array of *n* integers, every number in it appears twice expect for one. The problem is to find the one with single occurrence.
+
+Example:
+```
+Input: [4, 8, 3, 5. 4, 2, 5, 3, 8]
+Output: 2
+
+Input: [2, 0, 9, 2. 5, 9, 0]
+Output: 5
+```
+
+**Solution #1:** \
+One approach is to read each number in the list once and store appearance count in a hash map. And then iterate each element in the hash map, the number will single appearance will be the result.
+Time complexity will be: `O(n)` for reading each element in the list to create hash map, then `O(n)` for iterating over the hash map. Total complexity is `O(n) + O(n) = O(n)`, linear time. As we have used hash map that will require linear space, `O(n)`.
+
+**Solution #2:** \
+Lets try to optimize the solution. We can optimize time complexity as its already linear time. But we can avoid the hash map to remove space complexity.
+The key idea is to use `XOR` operation. In `XOR` if the bits are same then results 0 and 1 if bits are opposite.\
+`5 XOR 5 = 0 | 101 XOR 101 = 000`\
+`5 XOR 2 = 7 | 101 XOR 010 = 111`\
+`7 XOR 5 = 2 | 111 XOR 101 = 010`
+
+**Time Complexity**\
+`O(n)`
+
+**Space Complexity**\
+No additional space is required.
+
+[Implementation](./problems/find_non_duplicate_number.py)
+
+
+
+
+
