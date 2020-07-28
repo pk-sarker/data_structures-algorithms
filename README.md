@@ -4,6 +4,11 @@ Mostly used Data Structures and Algorithms
 ## Problems
 ## Table of Contents
 - [Time & Space Cpmplexity](#complexity)
+- [Data Structure](./ds/README.md)
+    - [Queue](./ds/queue/README.md)
+    - [Stack](./ds/Stack/README.md)
+    - [LinkList](./ds/linklist/README.md)
+    - [Tree](./ds/tree/README.md)
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
     - [Quick Sort](./sorting/README.md#quick-sort)
