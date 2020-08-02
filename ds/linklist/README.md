@@ -8,6 +8,7 @@ Each element or `node` in the linked list will have memory allocation based on a
 - [Delete node in a Linked list](#delete-node-in-a-linked-list)
 - [Middle of a linked list ](#middle-of-a-linked-list)
 - [Find loop in a singly link list](#find-loop-in-a-singly-link-list)
+- [Remove loop from single link list if preset](#remove-loop-from-single-link-list-if-preset)
 - [Remove n-th node from end of linked list](#remove-n-th-node-from-end-of-linked-list)
 
 ## Single Linked list
@@ -157,3 +158,81 @@ The approach is linear and single pass, so the time complexity is `O(n)`.
 Constant space complexity, `O(1)` as no additional space is required.
 
 [Implementation](./delete_nth_node_from_end.py)
+
+## Remove loop from single link list if preset
+You are given a linked list of *N* nodes. The task is to remove the loop from the linked list, if present.
+
+**Solution:**\
+There are two part of this problem:
+* Detect loop in the linked list, if exists
+* Find start of the loop
+
+We will use Floyd’s Cycle to identify loop in the linked list
+* Initialize two pointers *ptr1* and *ptr2* with start node.
+* Start traversing the Linked List using both the pointers, move pointer *ptr1* one node at a time and *ptr2* two nodes at a time.
+* As *ptr2* is moving with double the speed, it will be ahead of *ptr1*. So check if *ptr2* encounters *NULL*. If it encounters *NULL*, then there is no loop in the Linked List and thus stop the execution. Else *ptr1* will enter the loop after some time following *ptr2*.
+* When both the pointers are in the loop and continue to move with the same speed as before, they will eventually meet at some node. And that means there is a loop in the Linked List and thus stop the execution.
+
+If there is a loop then *ptr1* and *ptr2* will point at the same node in the loop. Then reset *ptr2* to point the head of the linked list and keep *ptr1* at meeting node.
+Then start moving both pointers at same speed until next pointer of both pointer *ptr1* and *ptr2* point to same node.
+When *ptr1* and *ptr2* next of both the pointers will meet at the start node of the loop and *ptr2* will be pointing at the last node of the linked list.
+Now assign NULL to the next of *ptr1* and stop the execution.
+
+```python
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+p2        
+p1                                   
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+
+                  
+     p1   p2                                
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+          p1        p2                                          
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+               p1             p2                                          
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+
+          p2        p1                                                       
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+                    p2   p1                                                       
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+                              p2  
+                              p1                                                  
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+
+Reset p2 -> head
+                                
+p2                            p1                                                  
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+
+     p2                            p1                                                  
+5 -> 3 -> 9 -> 2 -> 1 -> 8 -> 0 -> 7
+          ^                        ^
+          --------------------------
+Now, p1->next == p2->next          
+p1->next = NULL
+```
+**Time Complexity**
+Time complexity for detecting loop in linked list is linear, `O(n)` and for finding start of loop time complexity is `O(l)`, where l is the loop length, and `l <= n`. So ultimately time complexity is `O(n) + O(l) = O(n)`.
+
+**Space Complexity**
+Constant space complexity, `O(1)`.
+
