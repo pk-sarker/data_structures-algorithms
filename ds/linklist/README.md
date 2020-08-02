@@ -154,4 +154,6 @@ p2 reached at the end, delete p1
 The approach is linear and single pass, so the time complexity is `O(n)`.
 
 **Space Complexity**
-Constant space complexity as no additional space is required.
+Constant space complexity, `O(1)` as no additional space is required.
+
+[Implementation](./delete_nth_node_from_end.py)
