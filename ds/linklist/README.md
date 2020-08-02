@@ -8,7 +8,7 @@ Each element or `node` in the linked list will have memory allocation based on a
 - [Delete node in a Linked list](#delete-node-in-a-linked-list)
 - [Middle of a linked list ](#middle-of-a-linked-list)
 - [Find loop in a singly link list](#find-loop-in-a-singly-link-list)
-- [Remove loop from single link list if preset](#remove-loop-from-single-link-list-if-preset)
+- [Remove loop from single link list if present](#remove-loop-from-single-link-list-if-present)
 - [Remove n-th node from end of linked list](#remove-n-th-node-from-end-of-linked-list)
 
 ## Single Linked list
@@ -159,7 +159,7 @@ Constant space complexity, `O(1)` as no additional space is required.
 
 [Implementation](./delete_nth_node_from_end.py)
 
-## Remove loop from single link list if preset
+## Remove loop from single link list if present
 You are given a linked list of *N* nodes. The task is to remove the loop from the linked list, if present.
 
 **Solution:**\
