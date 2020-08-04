@@ -34,3 +34,4 @@ Mostly used Data Structures and Algorithms
     - [Queue Reconstruction By Height](./Problems.md#queue-reconstruction-by-height)
     - [Find a non duplicate number in an array](./Problems.md#find-a-non-duplicate-number-in-an-array)
     - [Reverse a link list](./Problems.md#reverse-a-link-list)
+    - [Maximum in a stack](./Problems.md#maximum-in-a-stack)
