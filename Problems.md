@@ -11,6 +11,7 @@
 - [Queue Reconstruction By Height](#queue-reconstruction-by-height)
 - [Find a non duplicate number in an array](#find-a-non-duplicate-number-in-an-array)
 - [Reverse a link list](#reverse-a-link-list)
+- [Maximum in a stack](#maximum-in-a-stack)
 
 
 ### Validate Binary Search Tree
@@ -489,3 +490,60 @@ The idea is the reverse the links for each node or swap the nodes.
 **Space Complexity**\
 No additional space is required.
 [Implementation](./problems/reverse_link_list.py)
+
+
+### Maximum in a stack
+**Problem**\
+Given a stack of integers. The task is to design a special stack such that maximum element can be found in `O(1)` time.
+
+Example:
+```
+Stack: [1, 4, 2, 5, 4]
+Max: 5
+Pop: 4
+Max: 5
+Pop: 5
+Max: 4
+```
+
+**Solution 1#**\
+One approach is to go over all the elements in stack and get the maximum, brute-force approach. Time complexity will be `O(n)` and constant space complexity, `O(1)`. Lets try to optimize the time complexity
+
+**Solution 2#**\
+In this solution we will use additional space or data structure to hold maximum for each sub stack. We can consider another stack with max.
+
+For example
+```
+push(1)
+Stack: [1]
+Max-Stack: [1]
+
+push(2)
+Stack: [2, 1]
+Max-Stack: [2, 1]
+
+push(1)
+Stack: [1, 2, 1]
+Max-Stack: [2, 2, 1]
+
+push(3)
+Stack: [3, 1, 2, 1]
+Max-Stack: [3, 2, 2, 1]  
+
+max(): 3
+
+pop(): 3
+max(): 2
+Stack: [1, 2, 1]
+Max-Stack: [2, 2, 1]
+```
+
+**Time Complexity**\
+`O(n)`
+
+**Space Complexity**\
+`O(n)`
+
+[Implementation](./problems/maximum_in_stack.py)
+
+
