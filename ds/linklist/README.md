@@ -10,7 +10,7 @@ Each element or `node` in the linked list will have memory allocation based on a
 - [Find loop in a singly link list](#find-loop-in-a-singly-link-list)
 - [Remove loop from single link list if present](#remove-loop-from-single-link-list-if-present)
 - [Remove n-th node from end of linked list](#remove-n-th-node-from-end-of-linked-list)
-
+- [Merge two sorted linked list](#merge-two-sorted-linked-list)
 ## Single Linked list
 ```
 First Node          2nd Node          3rd Node         4th Node
@@ -236,3 +236,39 @@ Time complexity for detecting loop in linked list is linear, `O(n)` and for find
 **Space Complexity**
 Constant space complexity, `O(1)`.
 
+## Merge two sorted linked list
+**Problem**
+Given two links lists with integer number and sorted. The task is the merge two linked list.
+
+Example:
+```python
+List 1: 1 -> 2 -> 4 -> 5
+List 2: 0 -> 1 -> 3 -> 6
+Output: 0 -> 1 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
+```
+
+**Solution**:
+The idea is the use create a third list from given linked lists. For this we compare items from both lists and add them to new list.
+
+```python
+MERGE_LINKED_LIST(L1, L2):
+    L3 <- None
+    if L1 is empty then:
+        L3 = L2
+    if L2 is empty then:
+        L3 = L1
+    if L1.data <= L2.data then:
+        L3 = L1
+        L3.next = MERGE_LINKED_LIST(L1.next, L2)
+    else:
+        L3 = L2
+        L3.next = MERGE_LINKED_LIST(L1, L2.next)
+    return L3
+```
+
+**Time Complexity**\
+`O(m + n) = O(n)` 
+
+**Space Complexity**\
+Space complexity is constant, `O(i)`
+[Implementation](./merge_two_sorted_linked_list.py)
