@@ -19,6 +19,13 @@ Mostly used Data Structures and Algorithms
         - [Merge K Sorted Linked Lists](./ds/linklist/README.md#merge-K-sorted-linked-lists)
         
     - [Tree](./ds/tree/README.md)
+        - [Create a binary tree](./ds/tree/README.md#create-a-binary-tree)
+        - [Construct a complete binary tree in level order](./ds/tree/README.md#construct-a-complete-binary-tree-in-level-order)
+        - [Insert a node in a binary tree](./ds/tree/README.md#insert-a-node-in-a-binary-tree)
+        - [Delete a node from binary tree](./ds/tree/README.md#delete-a-node-from-binary-tree)
+        - [Create a tree from in-order traversal and pre-order](./ds/tree/README.md#create-a-tree-from-in-order-traversal-and-pre-order)
+        - [Create binary tree from linked list](./ds/tree/README.md#create-binary-tree-from-linked-list)
+        
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
     - [Quick Sort](./sorting/README.md#quick-sort)
