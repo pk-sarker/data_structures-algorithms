@@ -16,6 +16,8 @@ Mostly used Data Structures and Algorithms
         - [Remove loop from single link list if present](./ds/linklist/README.md#remove-loop-from-single-link-list-if-present)
         - [Remove n-th node from end of linked list](./ds/linklist/README.md#remove-n-th-node-from-end-of-linked-list)
         - [Merge two sorted linked list](./ds/linklist/README.md#merge-two-sorted-linked-list)
+        - [Merge K Sorted Linked Lists](./ds/linklist/README.md#merge-K-sorted-linked-lists)
+        
     - [Tree](./ds/tree/README.md)
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)

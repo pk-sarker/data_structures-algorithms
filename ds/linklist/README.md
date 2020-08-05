@@ -11,6 +11,8 @@ Each element or `node` in the linked list will have memory allocation based on a
 - [Remove loop from single link list if present](#remove-loop-from-single-link-list-if-present)
 - [Remove n-th node from end of linked list](#remove-n-th-node-from-end-of-linked-list)
 - [Merge two sorted linked list](#merge-two-sorted-linked-list)
+- [Merge K Sorted Linked Lists](#merge-K-sorted-linked-lists)
+
 ## Single Linked list
 ```
 First Node          2nd Node          3rd Node         4th Node
@@ -270,5 +272,39 @@ MERGE_LINKED_LIST(L1, L2):
 `O(m + n) = O(n)` 
 
 **Space Complexity**\
-Space complexity is constant, `O(i)`
+Space complexity is constant, `O(1)`
+
 [Implementation](./merge_two_sorted_linked_list.py)
+
+## Merge K Sorted Linked Lists
+**Problem**:
+Given a list of sorted linked list with numbers. Write a function to merge the linked lists and return a single linked list.
+
+Example:
+```
+Input:
+[
+  2 -> 4 -> 6,
+  0 -> 1 -> 3 -> 5,
+  1 -> 9
+]
+Output: 0 -> 1-> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 9
+```
+This problem is similar to previous problem, `Merge two sorted linked list`.
+
+**Solution 1**
+We can simply create an array containing all the elements in the linked lists, and then sort the array. Then create a linked list from that sorted array.
+Creating array will be `O(N)`, here *N* can be expressed as *N = k*n*, where *k* is the number of linked lists and *n* is the number of elements in each linked list. and sorting the best case will be `O(N log N)`.
+Then creating the linked list will be `O(N)`.
+So the time complexity will be `O(N log N) = O(n log n)`. And space complexity will be liner, `O(n)`.
+
+**Solution 2**\
+We can solve this problem by progressing on all the linked lists in parallel. 
+
+**Time Complexity**\
+`O(k * n)` 
+
+**Space Complexity**\
+Space complexity is constant, `O(1)`
+
+[Implementation](./merge_k_sorted_linked_list.py)
