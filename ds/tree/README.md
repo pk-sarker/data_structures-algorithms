@@ -4,7 +4,10 @@
 - [Problems](#problems)
     - [Create a binary tree](#create-a-binary-tree)
     - [Construct a complete binary tree in level order](#construct-a-complete-binary-tree-in-level-order)
-    - [Create a binary tree](#create-a-binary-tree)
+    - [Insert a node in a binary tree](#insert-a-node-in-a-binary-tree)
+    - [Delete a node from binary tree](#delete-a-node-from-binary-tree)
+    - [Create a tree from in-order traversal and pre-order](#create-a-tree-from-in-order-traversal-and-pre-order)
+    - [Create binary tree from linked list](#create-binary-tree-from-linked-list)
 
 
 ## Definitions
@@ -88,5 +91,53 @@ If parent is at index *i* then pick *2 x i + 1* as left child and *2 x i + 2* as
 
 [Implementation](./create_binary_tree_in_level_order.py)
 
+### Insert a node in a binary tree
+**Problem**:\
+Given a binary tree and a key, insert the key into the binary tree at first position available in level order.
+
+**Solution**:
+
+**Time Complexity**\
+
+**Space Complexity**\
+
+[Implementation](./insertion_in_binary_tree.py)
+
+### Delete a node from binary tree
+**Problem**:\
+Given a binary tree, delete a node from it by making sure that tree shrinks from the bottom.
+
+**Solution**:
+
+**Time Complexity**\
+
+**Space Complexity**\
+
+[Implementation](./delete_node_in_binary_tree.py)
+
+### Create a tree from in-order traversal and pre-order
+**Problem**:\
+Given list of elements by traversing a tree in-order and pre-order, task is to construct a tree from these two list.
+
+**Solution**:
+
+**Time Complexity**\
+
+**Space Complexity**\
+
+[Implementation](./construct_tree_from_inorder_preorder_traversals.py)
+
+### Create binary tree from linked list
+**Problem**:\
+Construct a complete binary tree from a linked list
+
+**Solution**:
+
+**Time Complexity**\
+
+**Space Complexity**\
+
+[Implementation](./create_complete_binary_tree_from_linked_list.py)
+    
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree
