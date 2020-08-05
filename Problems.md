@@ -12,6 +12,7 @@
 - [Find a non duplicate number in an array](#find-a-non-duplicate-number-in-an-array)
 - [Reverse a link list](#reverse-a-link-list)
 - [Maximum in a stack](#maximum-in-a-stack)
+- [Find Pythagorean Triplet](#find-pythagorean-triplet)
 
 
 ### Validate Binary Search Tree
@@ -546,4 +547,40 @@ Max-Stack: [2, 2, 1]
 
 [Implementation](./problems/maximum_in_stack.py)
 
+
+### Find Pythagorean Triplet
+**Problem**\
+Given an array of integers, write a function that returns true if there is a triplet *(a, b, c)* that satisfies `a^2+b^2=c^2`.
+
+**Solution #1**\
+We can loop over the array three times to get all possible combination of the triplets.
+```python
+for a in ar
+    for b in ar
+        for c in ar
+            if a^2 + b^2 == c^2
+                return true 
+```
+Time complexity for this brute-force approach is `O(n^3)` and constant space complexity `O(1)`.
+
+**Solution #2**\
+We can optimize a little by solving the problem in `O(n^2)`. The idea is to use set or hash map data structure to store squared value.
+```
+sq <-[n ^ 2]
+for a in ar
+    for b in ar
+        if a^2 + b^2 in sq
+            return true
+```
+
+**Time Complexity**\
+`O(n^2)`
+
+**Space Complexity**\
+`O(n)`
+
+[Implementation](./problems/maximum_in_stack.py)
+
+
+ 
 
