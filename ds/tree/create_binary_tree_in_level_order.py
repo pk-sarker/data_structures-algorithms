@@ -125,15 +125,3 @@ if __name__ == '__main__':
     root2 = add_new_node(root2, 8)
     print("In Order:")
     traverse_in_order(root2)
-
-
-
-
-
-
-
-
-
-
-
-

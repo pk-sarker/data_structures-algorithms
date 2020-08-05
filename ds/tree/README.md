@@ -3,6 +3,8 @@
 - [Definitions](#definitions)
 - [Problems](#problems)
     - [Create a binary tree](#create-a-binary-tree)
+    - [Construct a complete binary tree in level order](#construct-a-complete-binary-tree-in-level-order)
+    - [Create a binary tree](#create-a-binary-tree)
 
 
 ## Definitions
@@ -56,6 +58,35 @@ Each node will be traversed once, so the time complexity is `O(n)`
 `O(n)`
 
 [Implementation](./create_binary_tree.py)
+
+### Construct a complete binary tree in level order
+**Problem**:
+Given an array of elements, task is to construct a complete binary tree from this array in level order.
+
+Example: 
+```
+Input: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Tree:              1
+                /     \
+               2       3
+              / \     / \
+             4   5   6   7
+            / \  /
+           8  9 10
+In Order:
+8 4 9 2 10 5 1 6 3 7
+```
+**Solution**:
+We need a generic logic to pick left and right child of a parent node from array.
+If parent is at index *i* then pick *2 x i + 1* as left child and *2 x i + 2* as right child. Repeatedly apply this logic until all the elements in the list are picked up.
+
+**Time Complexity**\
+`O(n)`
+
+**Space Complexity**\
+`O(n)`
+
+[Implementation](./create_binary_tree_in_level_order.py)
 
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree

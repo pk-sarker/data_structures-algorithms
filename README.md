@@ -20,6 +20,7 @@ Mostly used Data Structures and Algorithms
         
     - [Tree](./ds/tree/README.md)
         - [Create a binary tree](./ds/tree/README.md#create-a-binary-tree)
+        - [Construct a complete binary tree in level order](./ds/tree/README.md#construct-a-complete-binary-tree-in-level-order)
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
     - [Quick Sort](./sorting/README.md#quick-sort)
