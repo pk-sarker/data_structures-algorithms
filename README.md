@@ -35,3 +35,4 @@ Mostly used Data Structures and Algorithms
     - [Find a non duplicate number in an array](./Problems.md#find-a-non-duplicate-number-in-an-array)
     - [Reverse a link list](./Problems.md#reverse-a-link-list)
     - [Maximum in a stack](./Problems.md#maximum-in-a-stack)
+    - [Find Pythagorean Triplet](./Problems.md#find-pythagorean-triplet)
