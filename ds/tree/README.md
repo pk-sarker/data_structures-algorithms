@@ -8,7 +8,7 @@
     - [Delete a node from binary tree](#delete-a-node-from-binary-tree)
     - [Create a tree from in-order traversal and pre-order](#create-a-tree-from-in-order-traversal-and-pre-order)
     - [Create binary tree from linked list](#create-binary-tree-from-linked-list)
-
+    - [Construct a binary tree from pre-order and post-order traversal](#construct-a-binary-tree-from-pre-order-and-post-order-traversal)
 
 ## Definitions
 ####  Rooted Binary Tree
@@ -138,6 +138,56 @@ Construct a complete binary tree from a linked list
 **Space Complexity**\
 
 [Implementation](./create_complete_binary_tree_from_linked_list.py)
-    
+
+### Construct a binary tree from pre-order and post-order traversal
+**Problem**:\
+Given two arrays that represent pre-order and post-order traversals of a full binary tree, task is to construct the binary tree.
+
+**Solution**:
+In pre-order traversal root node is visited first then left node then right node.
+```
+(root node) (left branch) (right branch)
+```
+While in post-order traversal left node is visited first then right node then root node. 
+```
+(left branch) (right branch) (root node)
+````
+
+Example:
+```
+Pre order: 1  2 4 5  3 6 7
+Post order: 4 5 2  6 7 3  1
+```
+In Pre-order traversal the first element is the root of the tree, the element next to the first element in the pre-order traversal list is the left child of the root. So `1` will be root and `2` is left child.
+So `2` is root of all nodes in left subtree. Then all the nodes before `2` in post-order traversal must be in left subtree, which are `[4, 5]`.
+So `1` is root, elements `[4, 5, 2]` are in left subtree, and the elements `[6, 7, 3]` are in right subtree.
+Recursively applying the same logic we will have the full tree.
+
+```
+            1
+          /   \
+   [2, 4, 5] [3, 6, 7]
+
+ 
+             1
+            / \
+          2     3
+         / \   / \ 
+        4   5 6   7 
+```
+
+Let's say the left branch has *L* nodes. We know the head node of that left branch is `pre[1]`,
+ but it also occurs last in the post-order representation of the left branch. So `pre-order[1] = post-order[L-1]`
+ 
+Now in our recursion step, the left branch is represnted by `pre-order[1 : L+1]` and `post-order[0 : L]`, while the right branch is represented by `pre-order[L+1 : N]` and `post-order[L : N-1]`.
+
+**Time Complexity:**
+`O(n^2)`, where n is the number of nodes.
+
+**Space Complexity:** 
+`O(n^2)`
+
+[Implementation](./construct_full_binary_tree_from_post_pre_order.py)
+
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree

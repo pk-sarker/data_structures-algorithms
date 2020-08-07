@@ -25,6 +25,8 @@ Mostly used Data Structures and Algorithms
         - [Delete a node from binary tree](./ds/tree/README.md#delete-a-node-from-binary-tree)
         - [Create a tree from in-order traversal and pre-order](./ds/tree/README.md#create-a-tree-from-in-order-traversal-and-pre-order)
         - [Create binary tree from linked list](./ds/tree/README.md#create-binary-tree-from-linked-list)
+        - [Construct a binary tree from pre-order and post-order traversal](./ds/tree/README.md#construct-a-binary-tree-from-pre-order-and-post-order-traversal)
+        
         
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
