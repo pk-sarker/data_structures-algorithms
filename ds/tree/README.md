@@ -187,5 +187,7 @@ Now in our recursion step, the left branch is represnted by `pre-order[1 : L+1]`
 **Space Complexity:** 
 `O(n^2)`
 
+[Implementation](./construct_full_binary_tree_from_post_pre_order.py)
+
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree
