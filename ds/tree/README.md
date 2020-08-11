@@ -10,6 +10,8 @@
     - [Create binary tree from linked list](#create-binary-tree-from-linked-list)
     - [Construct a binary tree from pre-order and post-order traversal](#construct-a-binary-tree-from-pre-order-and-post-order-traversal)
     - [Find maximum depth of a Binary tree](#find-maximum-depth-of-a-binary-tree)
+    - [Verify if a Binary tree is balanced](#verify-if-a-binary-tree-is-balanced)
+    
 
 ## Definitions
 ####  Rooted Binary Tree
@@ -218,6 +220,53 @@ Here, we are traversing each node once, so the time complexity is `O(n)`, where 
 
 **Space Complexity:** 
 `O(1)`
+
+[Implementation](./depth_of_binary_tree.py)
+
+### Verify if a Binary tree is balanced
+**Problem**:\
+Given a binary tree, the problem is to find if the tree is balanced binary tree. 
+Here by balanced means the height is balanced, so the difference between height of the left subtree and height of right subtree 
+will be less than or equal to 1.
+
+Example:
+```
+Balanced Binary Tree
+         a
+       /   \  
+      b     c  height difference = 3 (left) - 3 (right) = 0
+     / \   /  
+    e   f f 
+
+         a
+       /   \  
+      b     c  height difference = 3 (left) - 2 (right) = 1
+     / \   
+    e   f
+
+Unbalanced Binary Tree
+
+        a
+       /    
+      b      height difference = 3 (left) - 1 (right) = 2
+     / \   
+    e   f
+
+
+         a
+       /   \  
+      b     c  height difference = 4 (left) - 2 (right) = 2
+     / \   
+    e   f
+   /
+  g  
+```
+
+**Solution**:
+
+**Time Complexity:**
+
+**Space Complexity:** 
 
 
 # Reference
