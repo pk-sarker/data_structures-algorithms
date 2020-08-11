@@ -9,6 +9,7 @@
     - [Create a tree from in-order traversal and pre-order](#create-a-tree-from-in-order-traversal-and-pre-order)
     - [Create binary tree from linked list](#create-binary-tree-from-linked-list)
     - [Construct a binary tree from pre-order and post-order traversal](#construct-a-binary-tree-from-pre-order-and-post-order-traversal)
+    - [Find maximum depth of a Binary tree](#find-maximum-depth-of-a-binary-tree)
 
 ## Definitions
 ####  Rooted Binary Tree
@@ -188,6 +189,36 @@ Now in our recursion step, the left branch is represnted by `pre-order[1 : L+1]`
 `O(n^2)`
 
 [Implementation](./construct_full_binary_tree_from_post_pre_order.py)
+
+### Find maximum depth of a Binary tree
+**Problem**:\
+Given a binary tree, the problem is to find maximum depth of the tree. 
+
+Example:
+```
+Tree
+         a
+       /   \  
+      b     c
+       \   / \  
+        e f   g
+               \
+                h
+Depth:  4
+```
+
+**Solution**:
+We can solve this problem by using both breath first or depth first traversal. We can try level-order search.
+Here is the depth first approach with recursion. So at each node we get maximum depth of its left and right sub tree and add 1 to that.
+The base case will be if the node is null then return 0. Other edge cases are like if right node of current is null then return depth 
+of depth of left sub-tree. Similarly if left node of current node is null then return depth of right sub-tree.
+
+**Time Complexity:**
+Here, we are traversing each node once, so the time complexity is `O(n)`, where n is the number of nodes.
+
+**Space Complexity:** 
+`O(1)`
+
 
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree
