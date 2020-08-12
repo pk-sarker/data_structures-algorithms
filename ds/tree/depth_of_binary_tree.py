@@ -22,6 +22,19 @@ def find_depth2(root, depth = 0):
 
     return max(find_depth2(root.left, depth+1), find_depth2(root.right, depth+1))
 
+def find_depth_iterative(root):
+    stack = [(1, root)]
+
+    max_depth = 0
+    while len(stack)>0:
+        current_depth, current_node = stack.pop()
+        if current_node:
+            max_depth = max(max_depth, current_depth)
+            stack.append((current_depth + 1, current_node.left))
+            stack.append((current_depth + 1, current_node.right))
+
+    return max_depth
+
 
 #          a
 #        /   \
@@ -41,3 +54,6 @@ print("Level: {}".format(find_depth2(root, 0)))
 root2 = TreeNode('a', TreeNode('b', None, TreeNode('d')), TreeNode('c', TreeNode('e'), None))
 print("Level: {}".format(find_depth(root2)))
 print("Level: {}".format(find_depth2(root2, 0)))
+
+print("Iterative Level: {}".format(find_depth_iterative(root2)))
+
