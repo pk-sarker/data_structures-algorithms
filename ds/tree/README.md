@@ -262,12 +262,18 @@ Unbalanced Binary Tree
   g  
 ```
 
-**Solution**:
-
+**Solution**:\
+We can split the problem like this, in a node if left subtree and right subtree
+ is balanced and the height difference is less than or equal to 1 then the tree rooted at the node is 
+ a balanced tree. We should do this recursively. 
+ 
 **Time Complexity:**
+As we are traversing each node exactly once the time complexity is `O(n)`.
 
 **Space Complexity:** 
+Constant space complexity, `O(1)`
 
+[Implementation](./balanced_binary_tree.py)
 
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree
