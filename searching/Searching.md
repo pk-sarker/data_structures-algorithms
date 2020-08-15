@@ -1,5 +1,6 @@
 # Searching Algorithms
 - [Breadth-first search](#breadth-first-search)
+- [Depth-first search](#depth-first-search)
 - [Binary Search](#binary-search)
 - [Interpolation Search](#interpolation-search)
 - [Exponential Search](#exponential-search)
@@ -49,9 +50,60 @@ BFS(G, s)
 17          ENQUEUE(Q, v)
 18   u.color <- BLACK
 ```
+![Breath-first Search](./bfs.png)
+The operation of BFS on an undirected graph. Tree edges are shown shaded as they
+are produced by BFS. The value of u.d appears within each vertex u. The queue Q is shown at the
+beginning of each iteration of the while loop of lines 10–18. Vertex distances appear below vertices
+in the queue.
 
-[Implementation 1](./breath_first_search.py)
+**Time Complexity**\
+Time complexity `O(n^2)`.
+
+**Space Complexity**\
+`O(n)`, *n* is number of nodes.
+
+[Implementation 1](./breath_first_search.py)\
 [Implementation 2](./bfs.py)
+
+### Depth-first search
+Depth-first search explores the deepest node in the graph. 
+Depth-first search explores edges out of the most recently discovered 
+vertex *v* that still has unexplored edges leaving it. Once all of *v*'s edges have been explored, the search "backtracks" to explore edges
+leaving the vertex from which *v* was discovered. This process continues until we
+have discovered all the vertices that are reachable from the original source vertex.
+If any undiscovered vertices remain, then depth-first search selects one of them as
+a new source, and it repeats the search from that source. The algorithm repeats this
+entire process until it has discovered every vertex.
+
+```
+DFS(G)
+1 for each vertex u ∈ G.V
+2   u.color <- WHITE
+3   u.π <- NIL
+4 time <- 0
+5 for each vertex u ∈ G.V
+6   if u.color == WHITE
+7       DFS-VISIT(G,u)
+
+DFS-VISIT(G,u)
+1 time <- time + 1 // white vertex u has just been discovered
+2 u.d <- time
+3 u.color <- GRAY
+4 for each v ∈ G.Adj[u] // explore edge (u,v)
+5   if v.color == WHITE
+6       v.π <- u
+7 DFS-VISIT(G,v)
+8 u.color <- BLACK // blacken u; it is finished
+9 time <- time + 1
+10 u.f <- time
+```
+
+![Depth-first Search](./dfs.png)
+The progress of the depth-first-search algorithm DFS on a directed graph. As edges
+are explored by the algorithm, they are shown as either shaded (if they are tree edges) or dashed
+(otherwise). Nontree edges are labeled B, C, or F according to whether they are back, cross, or
+forward edges. Timestamps within vertices indicate discovery time/finishing times.
+
 
 ### Binary Search
 Binary search, also known as half-interval search, logarithmic search, is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array.
