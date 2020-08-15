@@ -1,6 +1,5 @@
 # Breath-first Search
 #
-
 from queue import Queue
 
 class Graph:

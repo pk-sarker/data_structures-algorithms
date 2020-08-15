@@ -16,6 +16,18 @@ and undiscovered vertices uniformly across the breadth of the frontier. That
 is, the algorithm discovers all vertices at distance *k* from s before discovering any
 vertices at distance *k+1*.
 
+To keep track of progress, breadth-first search colors each vertex *white*, *gray*, or
+*black*. All vertices start out *white* and may later become *gray* and then *black*. A
+vertex is discovered the first time it is encountered during the search, at which time
+it becomes nonwhite. *Gray* and *black* vertices, therefore, have been discovered, but
+breadth-first search distinguishes between them to ensure that the search proceeds
+in a breadth-first manner. 
+
+If *(u,v)* ∈ *E* and vertex *u* is *black*, then vertex *v* 
+is either *gray* or *black*; that is, all vertices adjacent to *black* vertices have been
+discovered. *Gray* vertices may have some adjacent *white* vertices; they represent
+the frontier between discovered and undiscovered vertices
+
 ```
 BFS(G, s)
 1 for each vertex u ∈ G.V - {s}
@@ -38,6 +50,8 @@ BFS(G, s)
 18   u.color <- BLACK
 ```
 
+[Implementation 1](./breath_first_search.py)
+[Implementation 2](./bfs.py)
 
 ### Binary Search
 Binary search, also known as half-interval search, logarithmic search, is a search algorithm that finds the position of a target value within a sorted array. Binary search compares the target value to the middle element of the array.
