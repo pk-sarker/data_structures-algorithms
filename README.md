@@ -49,3 +49,12 @@ Mostly used Data Structures and Algorithms
     - [Reverse a link list](./Problems.md#reverse-a-link-list)
     - [Maximum in a stack](./Problems.md#maximum-in-a-stack)
     - [Find Pythagorean Triplet](./Problems.md#find-pythagorean-triplet)
+
+
+
+
+
+### References
+* Introduction to Algorithms by *Thomas H. Cormen*
+* LeetCode
+* GeeksforGeeks
