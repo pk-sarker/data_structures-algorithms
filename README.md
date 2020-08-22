@@ -28,6 +28,11 @@ Mostly used Data Structures and Algorithms
         - [Construct a binary tree from pre-order and post-order traversal](./ds/tree/README.md#construct-a-binary-tree-from-pre-order-and-post-order-traversal)
         - [Find maximum depth of a Binary tree](./ds/tree/README.md#find-maximum-depth-of-a-binary-tree)
         - [Verify if a Binary tree is balanced](./ds/tree/README.md#verify-if-a-binary-tree-is-balanced)
+
+    - [Search](./searching/README.md)
+        - [Breadth-first search](./searching/README.md#breadth-first-search)   
+        - [Depth-first search](./searching/README.md#depth-first-search)       
+        - [Binary Search](./searching/README.md#binary-search)
         
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)

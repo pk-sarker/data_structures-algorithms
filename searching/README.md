@@ -111,7 +111,7 @@ If they are not equal, the half in which the target cannot lie is eliminated and
 Complexity of binary search is <img src="https://render.githubusercontent.com/render/math?math=O(log_2 n)">.  where *n* is the number of elements in the array.
 
 **Problem:**
-Given an array A of *n* numbers where <img src="https://render.githubusercontent.com/render/math?math=A_0\leq A_1 \leq A_2 .... \leq A_{n-1}"> and target value T. The task is the find the position of *T* in the array.
+Given an array *A* of *n* numbers where <img src="https://render.githubusercontent.com/render/math?math=A_0\leq A_1 \leq A_2 .... \leq A_{n-1}"> and target value *T*. The task is the find the position of *T* in the array.
 
 **Solution:**
 ```
