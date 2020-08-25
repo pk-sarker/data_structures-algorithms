@@ -13,6 +13,7 @@
 - [Reverse a link list](#reverse-a-link-list)
 - [Maximum in a stack](#maximum-in-a-stack)
 - [Find Pythagorean Triplet](#find-pythagorean-triplet)
+- [Course Pre-requisites](#course-pre-requisites)
 
 
 ### Validate Binary Search Tree
@@ -581,6 +582,41 @@ for a in ar
 
 [Implementation](./problems/maximum_in_stack.py)
 
+### Course Pre-requisites
+Give a list of courses and pre-requisites, determine if courses can be completed.
 
- 
+**Example:**
+```
+1. Number of courses: 2, Pre-requisites: [[1,0]]
+2. Number of courses: 2, Pre-requisites: [[1,0], [0,1]]
+```
+In example `1.` there are two courses and course `1` has a pre-requisite course `0`. In this case pre-requisites are valid.
+But in example `2.` number of coursed are 2, and course `1` has pre-requisite of course `0` and course `0` has pre-requisite of course `1`.
+So you can't take course `1` without completing course `0`, and can't take course `0` without completing course `1`. So the one can't complete the courses.
+
+**Solution:**\
+We can create a directed graph, where the courses represent the nodes and edges represents the edge.
+If there is any cycle in the graph then the courses can't be completed. So we reduced the problem 
+to graph problem and the target is to find a cycle in the graph. If there is no cycle then
+course pre-requisites set correctly and courses can be completed.
+
+We can create a data structure such that each node has a list of edges where it goes to.
+```
+-----
+| 0 [1]
+| 1 [0, 2, 3]
+| 2 [3]
+| 3 []
+_____
+``` 
+
+**Time Complexity**\
+`O(n)`
+
+**Space Complexity**\
+`O(n)`
+
+[Implementation](./problems/course_prerequisite.py)
+
+
 
