@@ -14,6 +14,7 @@
 - [Maximum in a stack](#maximum-in-a-stack)
 - [Find Pythagorean Triplet](#find-pythagorean-triplet)
 - [Course Pre-requisites](#course-pre-requisites)
+- [Push Dominoes](#push-pominoes)
 
 
 ### Validate Binary Search Tree
@@ -620,3 +621,50 @@ _____
 
 
 
+### Push Dominoes
+There are *n* dominoes placed horizontally. Each domino is placed vertically upright.
+Then push some of the dominoes either to the left or to the right. Each domino that is falling to the left pushes the adjacent domino on the left and dominoes falling to the right push their adjacent dominoes standing on the right.
+A vertical domino has dominoes falling on it from both sides, it stays still due to the balance of the forces.
+
+Given a string *S* representing the initial state. *S[i] = 'L'*, if the *i-th* domino has been pushed to the left; *S[i] = 'R'*, if the *i-th* domino has been pushed to the right; *S[i] = '.'*, if the *i-th* domino has not been pushed.
+Return a string representing the final state. 
+
+**Example:**\
+Input: ".L.R...LR..L.."\
+Output: "LL.RR.LLRRLL.."
+
+**Solution:**\
+We can use two passes. In first pass we will add impacts of Left push then in next pass we will add impacts of right push. 
+Impacts of each push will be represented by numbers. For left push we will use positive number and at each domino the number will reduce. 
+For right push, we will use negative number, and at each domino the number will increment. 
+
+Then we sum both of the impacts. The domino with with positive impact sum will be angled towards left and negative impact sume will angle towards right. And,
+domino with impact sum 0 stands string vertically.  
+
+Input: .L.R...LLR.R....LR..
+Number of domino: 20
+Max value for Left push: 20
+Mad value for Right push: -20
+
+First Pass:\
+.L.R...LLR.R....LR..\
+-19 -20 0  0 -17 -18 -19 -20 -20  0  0  0 -16 -17 -18 -19 -20  0  0 0\
+
+Second Pass:\
+.L.R...LLR.R....LR..\
+ 0   0  0 20 +19 +18 +17   0   0 20 19 20 +19 +18 +17 +16   0 20 19 17
+ 
+Sum:\
+  -19 -20 0  0 -17 -18 -19 -20 -20  0  0  0 -16 -17 -18 -19 -20  0  0 0\
+   0   0  0 20 +19 +18 +17   0   0 20 19 20 +19 +18 +17 +16   0 20 19 17\
+= -19 -20 0 20 +2   0  -2  -20 -20 20 19 20 +3  +1  -1  -3  -20 20 19 17\
+ L   L  . R  R   .   L    L   L   R  R  R  R   R   L   L   L  R   R  R
+ 
+Output: LL.RR.LLLRRRRRLLLRRR
+**Time Complexity**\
+Here we are doing two pass, each of them are linear. So, the time complexity is *O(2n)*=*O(n)*. It's linear.
+
+**Space Complexity**\
+We need to store the push effect numbers for each pass, space complexity will be also *O(2n)*=*O(n)*.
+
+[Implementation](./problems/push_dominoes.py)
