@@ -46,6 +46,3 @@ print('Output:\t {}'.format(Dominoes().push_dominoes('.L.R...LR..L..')))
 
 print('Input: \t RR.L')
 print('Output:\t {}'.format(Dominoes().push_dominoes('RR.L')))
-
-LL.RR.LLRRLL..
-LL.RR.LLRRLL..
