@@ -15,6 +15,7 @@
 - [Find Pythagorean Triplet](#find-pythagorean-triplet)
 - [Course Pre-requisites](#course-pre-requisites)
 - [Push Dominoes](#push-pominoes)
+- [Add subtract calculator](#add-subtract-calculator)
 
 
 ### Validate Binary Search Tree
@@ -668,3 +669,24 @@ Here we are doing two pass, each of them are linear. So, the time complexity is 
 We need to store the push effect numbers for each pass, space complexity will be also *O(2n)*=*O(n)*.
 
 [Implementation](./problems/push_dominoes.py)
+
+
+### Add subtract calculator
+Problem:
+Given a math expression in string that contains plus, minus operation, parentheses and digits. The porblem is to parse the string, evaluate the expression and return result.
+
+**Solution:**\
+We need to read each character one at a time and process it. Process will be different for operators, numbers and parentheses. 
+We need to remember previous operator. 
+
+So we initialize the sum of the expression with 0, an consider current operator *+*. If you get a number then apply the operator with the sum. 
+If it is a opening parentheses then do a recursion call and evaluate until closing parentheses is reached. 
+
+**Time Complexity**\
+As we are reading each character once only, the time complexity is *O(n)*.
+ 
+**Space Complexity**\
+Space will be required for recursive calls for store call stacks. 
+
+
+[Implementation](./problems/calculator.py)
