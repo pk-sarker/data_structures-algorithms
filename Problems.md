@@ -14,7 +14,7 @@
 - [Maximum in a stack](#maximum-in-a-stack)
 - [Find Pythagorean Triplet](#find-pythagorean-triplet)
 - [Course Pre-requisites](#course-pre-requisites)
-- [Push Dominoes](#push-pominoes)
+- [Push Dominoes](#push-dominoes)
 - [Add subtract calculator](#add-subtract-calculator)
 
 

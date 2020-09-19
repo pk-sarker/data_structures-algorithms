@@ -54,6 +54,9 @@ Mostly used Data Structures and Algorithms
     - [Reverse a link list](./Problems.md#reverse-a-link-list)
     - [Maximum in a stack](./Problems.md#maximum-in-a-stack)
     - [Find Pythagorean Triplet](./Problems.md#find-pythagorean-triplet)
+    - [Course Pre-requisites](./Problems.md#course-pre-requisites)
+    - [Push Dominoes](./Problems.md#push-dominoes)
+    - [Add subtract calculator](./Problems.md#add-subtract-calculator)
 
 
 
