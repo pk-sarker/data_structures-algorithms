@@ -16,6 +16,7 @@
 - [Course Pre-requisites](#course-pre-requisites)
 - [Push Dominoes](#push-dominoes)
 - [Add subtract calculator](#add-subtract-calculator)
+- [Product of Array except self](./Problems.md#product-of-array-except-self)
 
 
 ### Validate Binary Search Tree
@@ -712,3 +713,23 @@ As we are using stack, so space complexity will be *O(n)*
 
 
 [Implementation](./problems/calculator.py)
+
+
+### Product of Array except self
+Given an array *nums* of *n* integers where *n > 1*,  return an array output such that *output[i]* is equal to the product of all the elements of nums except *nums[i]*.
+For example:\
+Input array is [4, 5, 9, 3]\
+Output should be [135, 108, 60, 180]\
+
+**Solution:**\
+We can use extra space to store product of all the elements in the left except current one in one array. 
+Similarly, store product of all the elements in right except current in another array. Then for each position/item we 
+multiply product of left array and product of right array. 
+
+**Time Complexity**\
+There are two loops, the complexity is *O(2n)* = *O(n)*.
+
+**Space Complexity**\
+As we are using three arrays, the space complexity is *O(3n)=O(n)*
+
+[Implementation](./problems/product_of_array_except_self.py)

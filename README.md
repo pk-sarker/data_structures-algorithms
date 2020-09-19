@@ -57,7 +57,7 @@ Mostly used Data Structures and Algorithms
     - [Course Pre-requisites](./Problems.md#course-pre-requisites)
     - [Push Dominoes](./Problems.md#push-dominoes)
     - [Add subtract calculator](./Problems.md#add-subtract-calculator)
-
+    - [Product of Array except self](./Problems.md#product-of-array-except-self)
 
 
 
