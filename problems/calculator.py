@@ -1,28 +1,49 @@
+# 1 + 23 - 4 = 20
+# 2 - (19 - 16) + 5 = 4
+# 123 = 123
+
 class Calculator:
 
-  def evaluate(self, expression):
-    (sum, index) = self._eval(expression, 0)
+  # Evaluate sub-expression
+  def _eval(self, stack):
+    sum = stack.pop()
+    while stack and stack[-1] != ')':
+      operator = stack.pop()
+      if operator == '+':
+        sum += stack.pop()
+      if operator == '-':
+        sum -= stack.pop()
+
     return sum
 
-  def _eval(self, expression, index):
-    operator = '+'
-    sum = 0
+  def evaluate_expression(self, exp):
+    print("Expression: {}".format(exp))
+    exp_len = len(exp)
+    operand = 0
+    number_len = 0
+    stack = []
 
-    while index < len(expression):
-      char = expression[index]
-      if char in ('+', '-'):
-        operator = char
-      else:
-        value = 0
-        if char.isdigit():
-          value = int(char)
-        if char == '(':
-          (value, index) = self._eval(expression, index + 1)
-        if operator == '+':
-          sum += value
-        if operator == '-':
-          sum -= value
-      index += 1
-    return (sum, index)
+    for i in range(exp_len - 1, -1, -1):
+      if exp[i].isdigit():
+        operand = 10 ** number_len * int(exp[i]) + operand
+        number_len += 1
+      elif exp[i] != ' ':
+        if number_len > 0:
+          stack.append(operand)
+          operand = 0
+          number_len = 0
+        if exp[i] == "(":
+          sum = self._eval(stack)
+          stack.pop()
+          stack.append(sum)
+        else:
+          stack.append(exp[i])
+      if number_len > 0:
+        stack.append(operand)
 
-print(Calculator().evaluate('4+(2-5)-3'))
+    return self._eval(stack)
+
+
+print("Sum {} ".format(Calculator().evaluate_expression('1+23-4')))
+print("Sum {} ".format(Calculator().evaluate_expression('2-(19-16)+5')))
+print("Sum {} ".format(Calculator().evaluate_expression('123')))
