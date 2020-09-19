@@ -14,7 +14,7 @@
 - [Maximum in a stack](#maximum-in-a-stack)
 - [Find Pythagorean Triplet](#find-pythagorean-triplet)
 - [Course Pre-requisites](#course-pre-requisites)
-- [Push Dominoes](#push-pominoes)
+- [Push Dominoes](#push-dominoes)
 - [Add subtract calculator](#add-subtract-calculator)
 
 
@@ -679,14 +679,36 @@ Given a math expression in string that contains plus, minus operation, parenthes
 We need to read each character one at a time and process it. Process will be different for operators, numbers and parentheses. 
 We need to remember previous operator. 
 
-So we initialize the sum of the expression with 0, an consider current operator *+*. If you get a number then apply the operator with the sum. 
-If it is a opening parentheses then do a recursion call and evaluate until closing parentheses is reached. 
+Here we will use stack. First we will do reverse of the expression. Then read each character from the expression.
+We will form operand using the digits and push to stack if there is a non-digit character.
+We will push everything in stack except '('. For a expression, 
+```
+Expression: 5 + (12 - 3) + 1
+Reverse: 1 + )3 - 21( + 5
+1 - update operand
+' ' - do nothing
++ - push operand and sign to stack, and reset operand | stack = [+, 1]
+) - push to stack | stack = [), + 1]
+3 - set operand to 3
+' ' - do nothing
+- - push operand and sign to stack, and reset operand | [-, 3, ), + 1]
+' ' - do nothing
+2 - set operand to 2
+1 - update operand to 10+2 = 12
+( - push operand to stack.This is end of an sub-expression, now evaluate the expression in stack until ')'
+    stack = [12, -, 3, ), + 1]
+    12 - 3 = 9
+    result is 9, now remove ')' from stack and push result in stack.
+    stack = [9, +, 1]
+```
+
+Finally, evaluate the remaining elements in the stack.
 
 **Time Complexity**\
 As we are reading each character once only, the time complexity is *O(n)*.
  
 **Space Complexity**\
-Space will be required for recursive calls for store call stacks. 
+As we are using stack, so space complexity will be *O(n)* 
 
 
 [Implementation](./problems/calculator.py)
