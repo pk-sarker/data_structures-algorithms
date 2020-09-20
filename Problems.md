@@ -16,8 +16,8 @@
 - [Course Pre-requisites](#course-pre-requisites)
 - [Push Dominoes](#push-dominoes)
 - [Add subtract calculator](#add-subtract-calculator)
-- [Product of Array except self](./Problems.md#product-of-array-except-self)
-
+- [Product of Array except self](#product-of-array-except-self)
+- [Non Decreasing Array](#non-decreasing-array)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -733,3 +733,48 @@ There are two loops, the complexity is *O(2n)* = *O(n)*.
 As we are using three arrays, the space complexity is *O(3n)=O(n)*
 
 [Implementation](./problems/product_of_array_except_self.py)
+
+### Non Decreasing Array
+Given an array *nums* with *n* integers, your task is to check if it could become non-decreasing by modifying at most *1* element.
+
+We define an array is non-decreasing if *nums[i] <= nums[i + 1]* holds for every *i (0-based)* such that *(0 <= i <= n - 2)*.\\
+```
+Input: [5, 2, 4]
+Output: True
+change 5 to 1, [1, 2, 4]
+
+Input: [3, 2, 5, 4]
+Output: False
+There are two downwards scenerio, 3 to 2, 5 to 4. Its posible to fix only one, not both. 
+```
+**Solution:**\
+Here, key points are: `non-decreasing`, `modify at most once`. Non-decreasing means equal or increasing. Let's discard a obvious case: if there are more than one scenario where the numbers are decreasing then return `False`. Because we are allowed to fix only one such occurrence.
+So we have to find decreasing pattern in the array, if there is none then return true. Decreasing pattern will be like this: 
+```
+array[i] > array[i+1] 
+or
+array[i-1] > array[i]
+```
+
+Let's point some decreasing cases and how to fix them:
+
+![Complexity](./images/non-decreasing-array.png) 
+
+In *a)* if start index of decreasing line is the first  element then we can easily plot the stating point in reference to the next.
+For example: *[5, 3, 6]*, so we just need to move first element less than or equal to the next element, that is [2, 3, 6]
+
+In *b)*, if start index of decreasing line is the last element then we can easily plot the last point in reference to the previous point.
+For example: *[2, 5, 3]*, update last point equal to second last point or more than that. *[2, 5, 6]*
+
+If start index of decreasing line is in between first and last element then there could be two cases:
+In *c)*, if *[index + 2] >= [index]* then we can fix this case by moving *[index+1]* up equal to *[index + 2]*.
+in *d)*, if *[index + 1] >= [index - 1]* then we can fix this case by moving *[index]* down equal to *[index-1]* or *[index+1]*
+
+**Time Complexity**\
+This approach is single pass, so time complexity is *O(n)*.
+
+**Space Complexity**\
+Constant space
+
+[Implementation](./problems/non-decreasing-array.py)
+
