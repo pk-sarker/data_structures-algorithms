@@ -18,6 +18,7 @@
 - [Add subtract calculator](#add-subtract-calculator)
 - [Product of Array except self](#product-of-array-except-self)
 - [Non Decreasing Array](#non-decreasing-array)
+- [Find word in grid](#find-word-in-grid)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -777,4 +778,8 @@ This approach is single pass, so time complexity is *O(n)*.
 Constant space
 
 [Implementation](./problems/non-decreasing-array.py)
+
+
+### Find word in grid
+Given a 2D matrix containing letter and a word, task is to find if the word exists in the grid.
 
