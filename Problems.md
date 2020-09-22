@@ -18,6 +18,7 @@
 - [Add subtract calculator](#add-subtract-calculator)
 - [Product of Array except self](#product-of-array-except-self)
 - [Non Decreasing Array](#non-decreasing-array)
+- [Unique Number of Occurrences](#unique-number-of-occurrences)
 - [Find word in grid](#find-word-in-grid)
 
 ### Validate Binary Search Tree
@@ -778,6 +779,31 @@ This approach is single pass, so time complexity is *O(n)*.
 Constant space
 
 [Implementation](./problems/non-decreasing-array.py)
+
+### Unique Number of Occurrences
+Given an array of integers, write a function that returns *true* if and only if the number of occurrences of each value in the array is unique.
+
+For example:
+Input: *[2,5,1,2,5,2]*\
+Output: *True*\
+Occurrence: *1* 1 time, *2* 3 times and *5* 2 times, [1,3,2]
+
+Input: *[2,5,1,2,5,2,3]*\
+Output: *False*\
+In this example *1* and *3*, both numbers appeared once in the array. 
+ 
+**Solution:**\
+We can do this in two pass. In first pass we store occurrences in a hash map. 
+In the second pass we loop over the occurrence numbers and check if there is any
+duplicate.
+
+**Time Complexity**\
+Time complexity is *O(n)*.
+
+**Space Complexity**\
+As the solution uses hash map, so the space complexity is *O(n)*
+
+[Implementation](./problems/unique_number_of_occurrences.py)
 
 
 ### Find word in grid
