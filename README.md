@@ -59,6 +59,7 @@ Mostly used Data Structures and Algorithms
     - [Add subtract calculator](./Problems.md#add-subtract-calculator)
     - [Product of Array except self](./Problems.md#product-of-array-except-self)
     - [Non Decreasing Array](./Problems.md#non-decreasing-array)
+    - [Unique Number of Occurrences](./Problems.md#unique-number-of-occurrences)
     - [Find word in grid](./Problems.md#find-word-in-grid)
 
 
