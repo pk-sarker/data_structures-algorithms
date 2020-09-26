@@ -61,6 +61,7 @@ Mostly used Data Structures and Algorithms
     - [Non Decreasing Array](./Problems.md#non-decreasing-array)
     - [Unique Number of Occurrences](./Problems.md#unique-number-of-occurrences)
     - [Find word in grid](./Problems.md#find-word-in-grid)
+    - [Check if a given string is Palindrome](./Problems.md#check-if-a-given-string-is-palindrome)
 
 
 

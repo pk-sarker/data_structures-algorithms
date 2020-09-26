@@ -67,7 +67,7 @@ public class SearchWord {
         SearchWord sw  = new SearchWord();
         boolean found = sw.exists(board, "BCDBE");
         System.out.println("Output: " + found);
-        
+
         boolean found2 = sw.exists(board, "BCDBEE");
         System.out.println("Output: " + found2);
 
