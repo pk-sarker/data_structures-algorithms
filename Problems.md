@@ -807,5 +807,45 @@ As the solution uses hash map, so the space complexity is *O(n)*
 
 
 ### Find word in grid
-Given a 2D matrix containing letter and a word, task is to find if the word exists in the grid.
+Given a 2D matrix containing letter and a word, task is to find if the word exists in the grid.\
+The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
 
+Example:
+```
+2D matrix
+[
+  ['A','B','D','T'],
+  ['C','D','E','S'],
+  ['C','G','F','H']
+]
+
+Input: ABDEF
+Output: True
+
+Input: BDCCGF
+Output: True
+
+Input: TSEDCGF
+Output: False
+
+Input: BDCCGD
+Output: False
+```
+
+**Solution**/
+Diagonal move is not allowed. So available moves are top, bottom, left, right of current postion. 
+We will start searching, by row. In a row, if a matching character is found in a column then we check top, bottom, left, right of that position if matches next character. 
+Recursively we do the same thing. 
+Base case for returning true is when all the characters are found. If a character is matched then we explore all possible moves one by one unless false is returned.
+Edge cases are:
+Return False if 
+*  row, column index is less than 0, or greater than the matrix size.
+*  if character at position [row][col] is not equal
+
+**Time Complexity**\
+Time complexity is *O(N*3^L)*, where N is the number of cells in the matrix, L is the number of characters in the word.
+
+**Space Complexity**\
+*O(L)*, *L* is the length of the word to match.
+
+[Implementation](./java/src/com/ds/practice/wordsearch/SearchWord.java)
