@@ -20,6 +20,7 @@
 - [Non Decreasing Array](#non-decreasing-array)
 - [Unique Number of Occurrences](#unique-number-of-occurrences)
 - [Find word in grid](#find-word-in-grid)
+- [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -849,3 +850,13 @@ Time complexity is *O(N*3^L)*, where N is the number of cells in the matrix, L i
 *O(L)*, *L* is the length of the word to match.
 
 [Implementation](./java/src/com/ds/practice/wordsearch/SearchWord.java)
+
+### Check if a given string is Palindrome
+Given a string, find the longest palindromic substring in the string.
+
+**Bruteforce solution:** Time complexity is *O(n^3)*, constant space.
+[Implementation](./java/src/com/ds/practice/LongestPalindrome/LongestPalindromeBF.java)
+
+**Dynamic Programming:** Time complexity is *O(n)*, constant space.
+[Implementation](./java/src/com/ds/practice/LongestPalindrome/LongestPalindromeDP.java)
+
