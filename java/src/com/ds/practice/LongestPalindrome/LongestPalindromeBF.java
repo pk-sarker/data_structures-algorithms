@@ -3,6 +3,7 @@ package com.ds.practice.LongestPalindrome;
 public class LongestPalindromeBF {
 
     public String getLongestPalindrome(String str) {
+        System.out.println("Input: " + str);
         int n = str.length();
         if (n == 0) {
             return "";

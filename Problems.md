@@ -1,26 +1,27 @@
 # Test Problems
-- [Validate Binary Search Tree](#validate-binary-search-tree)
-- [Ransom Note Problem](#ransom-note-problem)
-- [Add two numbers represented in link list](#add-two-numbers-represented-in-link-list)
-- [Find if sum of two exits in a list](#find-if-sum-of-two-exits-in-a-list)
-- [Find a number in a sorted array - Binary Search](./Problems.md#find-a-number-in-a-sorted-array---binary-search)
-- [Find first and last index of a number in a sorted array](#find-first-and-last-index-of-a-number-in-a-sorted-array)
-- [Permutation](#permutation)
-- [Sort a list with 3 unique numbers](#sort-a-list-with-3-unique-numbers)
-- [Find longest non-repeating substring](#find-longest-non-repeating-substring)
-- [Queue Reconstruction By Height](#queue-reconstruction-by-height)
-- [Find a non duplicate number in an array](#find-a-non-duplicate-number-in-an-array)
-- [Reverse a link list](#reverse-a-link-list)
-- [Maximum in a stack](#maximum-in-a-stack)
-- [Find Pythagorean Triplet](#find-pythagorean-triplet)
-- [Course Pre-requisites](#course-pre-requisites)
-- [Push Dominoes](#push-dominoes)
-- [Add subtract calculator](#add-subtract-calculator)
-- [Product of Array except self](#product-of-array-except-self)
-- [Non Decreasing Array](#non-decreasing-array)
-- [Unique Number of Occurrences](#unique-number-of-occurrences)
-- [Find word in grid](#find-word-in-grid)
-- [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
+- [Test Problems](#test-problems)
+    - [Validate Binary Search Tree](#validate-binary-search-tree)
+    - [Ransom Note Problem](#ransom-note-problem)
+    - [Add two numbers represented in link list](#add-two-numbers-represented-in-link-list)
+    - [Find if sum of two exits in a list](#find-if-sum-of-two-exits-in-a-list)
+    - [Find first and last index of a number in a sorted array](#find-first-and-last-index-of-a-number-in-a-sorted-array)
+    - [Permutation](#permutation)
+    - [Sort a list with 3 unique numbers](#sort-a-list-with-3-unique-numbers)
+    - [Find longest non-repeating substring](#find-longest-non-repeating-substring)
+    - [Queue Reconstruction By Height](#queue-reconstruction-by-height)
+    - [Find a non duplicate number in an array](#find-a-non-duplicate-number-in-an-array)
+    - [Reverse a link list](#reverse-a-link-list)
+    - [Maximum in a stack](#maximum-in-a-stack)
+    - [Find Pythagorean Triplet](#find-pythagorean-triplet)
+    - [Course Pre-requisites](#course-pre-requisites)
+    - [Push Dominoes](#push-dominoes)
+    - [Add subtract calculator](#add-subtract-calculator)
+    - [Product of Array except self](#product-of-array-except-self)
+    - [Non Decreasing Array](#non-decreasing-array)
+    - [Unique Number of Occurrences](#unique-number-of-occurrences)
+    - [Find word in grid](#find-word-in-grid)
+    - [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
+    - [Boundary of Binary Tree](#boundary-of-binary-tree)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -857,6 +858,9 @@ Given a string, find the longest palindromic substring in the string.
 **Bruteforce solution:** Time complexity is *O(n^3)*, constant space.
 [Implementation](./java/src/com/ds/practice/LongestPalindrome/LongestPalindromeBF.java)
 
-**Dynamic Programming:** Time complexity is *O(n)*, constant space.
+**Dynamic Programming:** Time complexity is *O(n^2)*, Space complexity is *O(n^2)*.
 [Implementation](./java/src/com/ds/practice/LongestPalindrome/LongestPalindromeDP.java)
 
+
+### Boundary of Binary Tree
+Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
