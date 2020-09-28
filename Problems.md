@@ -397,7 +397,16 @@ The approach is linear so the time complexity will be `n`.
 **Space Complexity**\
 As we are using a hash map and the size of the hash map will be at max the number of characters in the string. So the space complexity will be `O(n)`.
  
-[Implementation](./problems/find_longest_non-repeating_substring.py)
+[Implementation - Python](./problems/find_longest_non-repeating_substring.py)
+
+[Implementation - Java - Brute Force](./java/src/com/ds/practice/NonRepeatingSubstring/NonRepeatingSubstringBruteForce.java)
+[Implementation - Java - Two Pointer](./java/src/com/ds/practice/NonRepeatingSubstring/NonRepeatingSubstringTwoPointer.java)\
+Time complexity : *O(2n) = O(n)*. In the worst case each character will be visited twice by *i* and *j*.
+
+[Implementation - Java - Two Pointer - Optimized](./java/src/com/ds/practice/NonRepeatingSubstring/NonRepeatingSubstringTwoPointerOptimized.java)\
+Time complexity : *O(n)*, Single pass.
+
+
 
 
 ### Queue Reconstruction By Height

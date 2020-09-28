@@ -63,6 +63,7 @@ Mostly used Data Structures and Algorithms
     - [Find word in grid](./Problems.md#find-word-in-grid)
     - [Check if a given string is Palindrome](./Problems.md#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](./Problems.md#boundary-of-binary-tree)
+    - [Longest Substring Without Repeating Characters](./Problems.md#longest-substring-without-repeatin-characters)
 
 
 
