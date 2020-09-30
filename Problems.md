@@ -864,3 +864,17 @@ Given a string, find the longest palindromic substring in the string.
 
 ### Boundary of Binary Tree
 Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
+
+Implement the LRUCache class:
+
+* LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
+* int get(int key) Return the value of the key if the key exists, otherwise return -1.
+* void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+
+**Solution**:\
+We can solve this problem optimally using hash table and doubly linked list. Hash table will help keeping the keys and values that can be found in *O(1)*. 
+
+There will be two nodes, one we call `head` annoter at the end called `tail`. In between all the nodes will be added and removed.
+Most recently used or newly added node will be at the begining, next node after head. Least recently used node will be at the end of the linked list. 
+
+[Implementation](./java/src/com/ds/practice/LRU/LRUCacheDoubleLinkedList.java)
