@@ -22,6 +22,7 @@
     - [Find word in grid](#find-word-in-grid)
     - [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
+    - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -878,3 +879,24 @@ There will be two nodes, one we call `head` annoter at the end called `tail`. In
 Most recently used or newly added node will be at the begining, next node after head. Least recently used node will be at the end of the linked list. 
 
 [Implementation](./java/src/com/ds/practice/LRU/LRUCacheDoubleLinkedList.java)
+
+### Find if linked list has cycle
+Given head of a linked list, determine if the linked list has a cycle in it.
+
+**Solution:**\
+We can use Hash table to remember which nodes is visted so far. At anypoint if we found current node in the hash table then it means we are visitin the same node again and the link list contains a loop/circle.
+
+For this soloution time complexity is *O(n)* and space complexity is *O(n)*
+
+
+**Solution:**\
+We can use two pointers. Both pointers moves forward but in different speed. One pointer move slow, one step at a time while the other pointer moves faster 2 steps at a time. Eventually fast pointer will meet the slow pointer. 
+
+[Implementation](./java/src/com/ds/practice/LinkedlistCycle/LinkedList.java)
+
+
+
+
+
+
+
