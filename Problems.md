@@ -397,16 +397,7 @@ The approach is linear so the time complexity will be `n`.
 **Space Complexity**\
 As we are using a hash map and the size of the hash map will be at max the number of characters in the string. So the space complexity will be `O(n)`.
  
-[Implementation - Python](./problems/find_longest_non-repeating_substring.py)
-
-[Implementation - Java - Brute Force](./java/src/com/ds/practice/NonRepeatingSubstring/NonRepeatingSubstringBruteForce.java)
-[Implementation - Java - Two Pointer](./java/src/com/ds/practice/NonRepeatingSubstring/NonRepeatingSubstringTwoPointer.java)\
-Time complexity : *O(2n) = O(n)*. In the worst case each character will be visited twice by *i* and *j*.
-
-[Implementation - Java - Two Pointer - Optimized](./java/src/com/ds/practice/NonRepeatingSubstring/NonRepeatingSubstringTwoPointerOptimized.java)\
-Time complexity : *O(n)*, Single pass.
-
-
+[Implementation](./problems/find_longest_non-repeating_substring.py)
 
 
 ### Queue Reconstruction By Height
@@ -873,3 +864,17 @@ Given a string, find the longest palindromic substring in the string.
 
 ### Boundary of Binary Tree
 Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
+
+Implement the LRUCache class:
+
+* LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
+* int get(int key) Return the value of the key if the key exists, otherwise return -1.
+* void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+
+**Solution**:\
+We can solve this problem optimally using hash table and doubly linked list. Hash table will help keeping the keys and values that can be found in *O(1)*. 
+
+There will be two nodes, one we call `head` annoter at the end called `tail`. In between all the nodes will be added and removed.
+Most recently used or newly added node will be at the begining, next node after head. Least recently used node will be at the end of the linked list. 
+
+[Implementation](./java/src/com/ds/practice/LRU/LRUCacheDoubleLinkedList.java)
