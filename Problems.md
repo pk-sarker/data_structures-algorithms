@@ -258,6 +258,7 @@ We need the space for the hash map, and the size of the hash map will be number 
 
 [Implementation - Brute-force](./problems/sum_of_two_numbers_brute_force.py)
 [Implementation](./problems/sum_off_two_numbers.py)
+[Implementation - Java](./java/src/com/ds/practice/SumOftwo/SumOfTwo.java)
 
 ### Find first and last index of a number in a sorted array
 **Problem:**\
