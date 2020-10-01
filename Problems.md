@@ -23,6 +23,7 @@
     - [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
     - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
+    - [Validate Parentheses in a expression](#validate_parentheses_in_a_expression)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -611,13 +612,12 @@ course pre-requisites set correctly and courses can be completed.
 
 We can create a data structure such that each node has a list of edges where it goes to.
 ```
------
 | 0 [1]
 | 1 [0, 2, 3]
 | 2 [3]
 | 3 []
-_____
-``` 
+
+```
 
 **Time Complexity**\
 `O(n)`
@@ -626,8 +626,6 @@ _____
 `O(n)`
 
 [Implementation](./problems/course_prerequisite.py)
-
-
 
 ### Push Dominoes
 There are *n* dominoes placed horizontally. Each domino is placed vertically upright.
@@ -669,6 +667,7 @@ Sum:\
  L   L  . R  R   .   L    L   L   R  R  R  R   R   L   L   L  R   R  R
  
 Output: LL.RR.LLLRRRRRLLLRRR
+
 **Time Complexity**\
 Here we are doing two pass, each of them are linear. So, the time complexity is *O(2n)*=*O(n)*. It's linear.
 
@@ -753,6 +752,8 @@ Input: [3, 2, 5, 4]
 Output: False
 There are two downwards scenerio, 3 to 2, 5 to 4. Its posible to fix only one, not both. 
 ```
+
+
 **Solution:**\
 Here, key points are: `non-decreasing`, `modify at most once`. Non-decreasing means equal or increasing. Let's discard a obvious case: if there are more than one scenario where the numbers are decreasing then return `False`. Because we are allowed to fix only one such occurrence.
 So we have to find decreasing pattern in the array, if there is none then return true. Decreasing pattern will be like this: 
@@ -836,7 +837,7 @@ Input: BDCCGD
 Output: False
 ```
 
-**Solution**/
+**Solution**
 Diagonal move is not allowed. So available moves are top, bottom, left, right of current postion. 
 We will start searching, by row. In a row, if a matching character is found in a column then we check top, bottom, left, right of that position if matches next character. 
 Recursively we do the same thing. 
@@ -895,6 +896,18 @@ We can use two pointers. Both pointers moves forward but in different speed. One
 
 [Implementation](./java/src/com/ds/practice/LinkedlistCycle/LinkedList.java)
 
+### Validate Parentheses in a expression
+Given a string containing just the characters `'(', ')', '{', '}', '[' and ']'`, determine if the input string is valid.
+
+An input string is valid if:
+* Open brackets must be closed by the same type of brackets.
+* Open brackets must be closed in the correct order.
+
+**Solution:**\
+Read each char at a time and push to stack if there is opening of characters. And if there is a closing then pop from the stack.
+If the popped character is not closing of same character then the parenthesis is not valid.
+
+[Implementation](./java/src/com/ds/practice/Parentheses/Parentheses.java) 
 
 
 
