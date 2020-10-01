@@ -23,6 +23,9 @@
     - [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
     - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
+    - [Validate Parentheses in a expression](#validate_parentheses_in_a_expression)
+    - [Letter Combinations of a Phone Number](#letter_combinations_of_a_phone_number)
+    - [Find first bad version](#find_first_bad_version)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -258,6 +261,7 @@ We need the space for the hash map, and the size of the hash map will be number 
 
 [Implementation - Brute-force](./problems/sum_of_two_numbers_brute_force.py)
 [Implementation](./problems/sum_off_two_numbers.py)
+[Implementation - Java](./java/src/com/ds/practice/SumOftwo/SumOfTwo.java)
 
 ### Find first and last index of a number in a sorted array
 **Problem:**\
@@ -610,13 +614,12 @@ course pre-requisites set correctly and courses can be completed.
 
 We can create a data structure such that each node has a list of edges where it goes to.
 ```
------
 | 0 [1]
 | 1 [0, 2, 3]
 | 2 [3]
 | 3 []
-_____
-``` 
+
+```
 
 **Time Complexity**\
 `O(n)`
@@ -625,8 +628,6 @@ _____
 `O(n)`
 
 [Implementation](./problems/course_prerequisite.py)
-
-
 
 ### Push Dominoes
 There are *n* dominoes placed horizontally. Each domino is placed vertically upright.
@@ -668,6 +669,7 @@ Sum:\
  L   L  . R  R   .   L    L   L   R  R  R  R   R   L   L   L  R   R  R
  
 Output: LL.RR.LLLRRRRRLLLRRR
+
 **Time Complexity**\
 Here we are doing two pass, each of them are linear. So, the time complexity is *O(2n)*=*O(n)*. It's linear.
 
@@ -752,6 +754,8 @@ Input: [3, 2, 5, 4]
 Output: False
 There are two downwards scenerio, 3 to 2, 5 to 4. Its posible to fix only one, not both. 
 ```
+
+
 **Solution:**\
 Here, key points are: `non-decreasing`, `modify at most once`. Non-decreasing means equal or increasing. Let's discard a obvious case: if there are more than one scenario where the numbers are decreasing then return `False`. Because we are allowed to fix only one such occurrence.
 So we have to find decreasing pattern in the array, if there is none then return true. Decreasing pattern will be like this: 
@@ -835,7 +839,7 @@ Input: BDCCGD
 Output: False
 ```
 
-**Solution**/
+**Solution**
 Diagonal move is not allowed. So available moves are top, bottom, left, right of current postion. 
 We will start searching, by row. In a row, if a matching character is found in a column then we check top, bottom, left, right of that position if matches next character. 
 Recursively we do the same thing. 
@@ -894,9 +898,77 @@ We can use two pointers. Both pointers moves forward but in different speed. One
 
 [Implementation](./java/src/com/ds/practice/LinkedlistCycle/LinkedList.java)
 
+### Validate Parentheses in a expression
+Given a string containing just the characters `'(', ')', '{', '}', '[' and ']'`, determine if the input string is valid.
+
+An input string is valid if:
+* Open brackets must be closed by the same type of brackets.
+* Open brackets must be closed in the correct order.
+
+**Solution:**\
+Read each char at a time and push to stack if there is opening of characters. And if there is a closing then pop from the stack.
+If the popped character is not closing of same character then the parenthesis is not valid.
+
+**Time complexity**: *O(n)*\
+**Space complexity**: *O(n)*
+
+[Implementation](./java/src/com/ds/practice/Parentheses/Parentheses.java) 
+
+### Letter Combinations of a Phone Number
+Given a string containing digits from *2* to *9*. For each digit there is a corresponding string containing multiple letters. The task is to return all possible letter combinations that a number could represent.
+
+Lets consider a phone keypad where there are letters for each digit. 
+Digit to String mapping
+
+```
+"2" ->"abc"
+"3" -> "def"
+"4" -> "ghi"
+"5" -> "jkl"
+"6" -> "mno"
+"7" -> "pqrs"
+"8" -> "tuv"
+"9" -> "wxyz"
+```
+
+**Example:**
+Consider an input "38". Here digit 3 represents "def" and digit 8 represents "tuv". All possible combinations will be:
+```
+Input: 38
+Output: ["dt","du","dv","et","eu","ev","ft","fu","fv"]
+```
+
+**Time complexity**: *O(3^N*4^M)* where *N* is the number of digits that corrosponds to 3 letter string, and *M* is the number of digits(`7`,`9`) that corrosponds to 4 letter string.  
+
+**Space complexity**: *O(3^N*4^M)* 
+
+[Implementation](./java/src/com/ds/practice/LetterCombination/LetterCombination.java)
 
 
+### Find first bad version
+Consider a version controle system where each new version get a copy of immidiate oldest version. So the new version contains the things which were there in the immidiate oldest version. Let's mar the versions by number, `1, 2, 3, 4, 5, 6` be a list of versions `1` is the first version and `6` is the last version. If there is a fault in version `3` then the fault will propagate in all later versions unless fixed. 
 
+So the problem is, given n versions [1, 2, ..., n] and find out the first bad/faulty version, which causes all the following ones to be bad. Consider you have an API where you pass the version number and it returns if the version is bad or good. 
+
+**Example** 
+```
+Given n = 8, and version = 6 is the first bad version.
+
+call isBadVersion(6) -> true
+call isBadVersion(5) -> false
+call isBadVersion(7) -> true
+```
+
+**Solution**:
+Brute force approach would be iterating over the range of versions and call `isBadVersion` API. The time complexity will be *O(n)*
+
+To improve the result, we can use Binary search.
+
+
+**Time complexity**: *O(log n)* 
+**Space complexity**: *O(1)* 
+
+[Implementation](./java/src/com/ds/practice/BadVersion/Version.java)
 
 
 
