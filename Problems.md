@@ -24,6 +24,7 @@
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
     - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
     - [Validate Parentheses in a expression](#validate_parentheses_in_a_expression)
+    - [Letter Combinations of a Phone Number](#letter_combinations_of_a_phone_number)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -907,7 +908,41 @@ An input string is valid if:
 Read each char at a time and push to stack if there is opening of characters. And if there is a closing then pop from the stack.
 If the popped character is not closing of same character then the parenthesis is not valid.
 
+**Time complexity**: *O(n)*\
+**Space complexity**: *O(n)*
+
 [Implementation](./java/src/com/ds/practice/Parentheses/Parentheses.java) 
+
+### Letter Combinations of a Phone Number
+Given a string containing digits from *2* to *9*. For each digit there is a corresponding string containing multiple letters. The task is to return all possible letter combinations that a number could represent.
+
+Lets consider a phone keypad where there are letters for each digit. 
+Digit to String mapping
+
+```
+"2" ->"abc"
+"3" -> "def"
+"4" -> "ghi"
+"5" -> "jkl"
+"6" -> "mno"
+"7" -> "pqrs"
+"8" -> "tuv"
+"9" -> "wxyz"
+```
+
+**Example:**
+Consider an input "38". Here digit 3 represents "def" and digit 8 represents "tuv". All possible combinations will be:
+```
+Input: 38
+Output: ["dt","du","dv","et","eu","ev","ft","fu","fv"]
+```
+
+**Time complexity**: *O(3^N*4^M)* where *N* is the number of digits that corrosponds to 3 letter string, and *M* is the number of digits(`7`,`9`) that corrosponds to 4 letter string.  
+
+**Space complexity**: *O(3^N*4^M)* 
+
+[Implementation](./java/src/com/ds/practice/LetterCombination/LetterCombination.java)
+
 
 
 
