@@ -63,12 +63,13 @@ Mostly used Data Structures and Algorithms
     - [Find word in grid](./Problems.md#find-word-in-grid)
     - [Check if a given string is Palindrome](./Problems.md#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](./Problems.md#boundary-of-binary-tree)
-    - [Longest Substring Without Repeating Characters](./Problems.md#longest-substring-without-repeatin-characters)
-    - [Least Recently Used cache](./Problems.md#least_recently_used_cache)
-    - [Find if linked list has cycle](./Problems.md#find_if_linked_list_has_cycle)
-    - [Validate Parentheses in a expression](./Problems.md#validate_parentheses_in_a_expression)
-    - [Letter Combinations of a Phone Number](./Problems.md#letter_combinations_of_a_phone_number)
-    - [Find first bad version](./Problems.md#find_first_bad_version)
+    - [Least Recently Used cache](./Problems.md#least-recently-used-cache)
+    - [Find if linked list has cycle](./Problems.md#find-if-linked-list-has-cycle)
+    - [Validate Parentheses in a expression](./Problems.md#validate-parentheses-in-a-expression)
+    - [Letter Combinations of a Phone Number](./Problems.md#letter-combinations-of-a-phone-number)
+    - [Find first bad version](./Problems.md#find-first-bad-version)
+    - [Find max consecutive ones](./Problems.md#find-max-consecutive-ones)
+    - [Find Max Consecutive Ones with K changes](./Problems.md#find-max-consecutive-ones-with-k-changes)
 
 
 
