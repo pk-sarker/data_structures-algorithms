@@ -22,10 +22,13 @@
     - [Find word in grid](#find-word-in-grid)
     - [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
+    - [Least Recently Used cache](#least-recently-used-cache)
     - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
-    - [Validate Parentheses in a expression](#validate_parentheses_in_a_expression)
-    - [Letter Combinations of a Phone Number](#letter_combinations_of_a_phone_number)
-    - [Find first bad version](#find_first_bad_version)
+    - [Validate Parentheses in a expression](#validate-parentheses-in-a-expression)
+    - [Letter Combinations of a Phone Number](#letter-combinations-of-a-phone-number)
+    - [Find first bad version](#find-first-bad-version)
+    - [Find Max Consecutive Ones](#find-max-consecutive-ones)
+    - [Find Max Consecutive Ones with K changes](#find-max-consecutive-ones-with-k-changes)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -403,6 +406,7 @@ The approach is linear so the time complexity will be `n`.
 As we are using a hash map and the size of the hash map will be at max the number of characters in the string. So the space complexity will be `O(n)`.
  
 [Implementation](./problems/find_longest_non-repeating_substring.py)
+[Implementation](./java/src/com/ds/practice/LongestNonRepeatingSubstring/NonRepeatingSubstring.java)
 
 
 ### Queue Reconstruction By Height
@@ -870,6 +874,9 @@ Given a string, find the longest palindromic substring in the string.
 ### Boundary of Binary Tree
 Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
 
+
+### Least Recently Used cache
+Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 Implement the LRUCache class:
 
 * LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
@@ -879,10 +886,12 @@ Implement the LRUCache class:
 **Solution**:\
 We can solve this problem optimally using hash table and doubly linked list. Hash table will help keeping the keys and values that can be found in *O(1)*. 
 
-There will be two nodes, one we call `head` annoter at the end called `tail`. In between all the nodes will be added and removed.
-Most recently used or newly added node will be at the begining, next node after head. Least recently used node will be at the end of the linked list. 
+There will be two nodes, one we call `head` another at the end called `tail`. In between all the nodes will be added and removed.
+Most recently used or newly added node will be at the beginning, next node after head. Least recently used node will be at the end of the linked list. 
 
-[Implementation](./java/src/com/ds/practice/LRU/LRUCacheDoubleLinkedList.java)
+[Implementation - with Doubly LinkedList](./java/src/com/ds/practice/LRU/LRUCacheDoubleLinkedList.java)\
+[Implementation - with Dictionary](./java/src/com/ds/practice/LRU/LRUUsingOrderedDictionary.java)
+
 
 ### Find if linked list has cycle
 Given head of a linked list, determine if the linked list has a cycle in it.
@@ -969,6 +978,41 @@ To improve the result, we can use Binary search.
 **Space complexity**: *O(1)* 
 
 [Implementation](./java/src/com/ds/practice/BadVersion/Version.java)
+
+### Find Max Consecutive Ones
+Given a binary array, find the maximum number of consecutive 1s in this array.
+
+*Example*
+```
+Input: [1, 1, 0, 1, 1, 1, 0, 1, 1]
+Output: 3
+```
+
+**Solution**\
+Iterate over the array. Maintain a consecutive 1 sequence counter, and max length of consecutive 1.
+
+**Time complexity**: *O(n)* 
+**Space complexity**: *O(1)* 
+
+[Implementation](./java/src/com/ds/practice/MaxConsecutiveOnes/MaxConsecutiveOnes.java)
+
+
+### Find Max Consecutive Ones with K changes
+Given an array of *0*s and *1*s, you are allowed to change up to K values from 0 to 1.
+Return the length of the longest (contiguous) subarray that contains only 1s. 
+
+**Solution**\
+We can use two pointers, *start*, *end* and variable sliding window approach. 
+In a window there will at-most *K* *0s*. If there are more than *K* 0s then we move the 
+start pointer one at a time and keep increasing the window size by incrementing *end* pointer.
+When there are more than *K* *0s* in the window and current *start* index contains a *0* then we move *start* and add *1* to *K* because we are leaving one zero from the window.
+
+**Time complexity**: *O(n)* 
+**Space complexity**: *O(1)* 
+
+[Implementation](./java/src/com/ds/practice/MaxConsecutiveOnes/MaxConsecutiveOnes.java)
+
+
 
 
 
