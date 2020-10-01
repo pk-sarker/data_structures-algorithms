@@ -25,6 +25,7 @@
     - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
     - [Validate Parentheses in a expression](#validate_parentheses_in_a_expression)
     - [Letter Combinations of a Phone Number](#letter_combinations_of_a_phone_number)
+    - [Find first bad version](#find_first_bad_version)
 
 ### Validate Binary Search Tree
 *Problem:*\
@@ -944,8 +945,30 @@ Output: ["dt","du","dv","et","eu","ev","ft","fu","fv"]
 [Implementation](./java/src/com/ds/practice/LetterCombination/LetterCombination.java)
 
 
+### Find first bad version
+Consider a version controle system where each new version get a copy of immidiate oldest version. So the new version contains the things which were there in the immidiate oldest version. Let's mar the versions by number, `1, 2, 3, 4, 5, 6` be a list of versions `1` is the first version and `6` is the last version. If there is a fault in version `3` then the fault will propagate in all later versions unless fixed. 
+
+So the problem is, given n versions [1, 2, ..., n] and find out the first bad/faulty version, which causes all the following ones to be bad. Consider you have an API where you pass the version number and it returns if the version is bad or good. 
+
+**Example** 
+```
+Given n = 8, and version = 6 is the first bad version.
+
+call isBadVersion(6) -> true
+call isBadVersion(5) -> false
+call isBadVersion(7) -> true
+```
+
+**Solution**:
+Brute force approach would be iterating over the range of versions and call `isBadVersion` API. The time complexity will be *O(n)*
+
+To improve the result, we can use Binary search.
 
 
+**Time complexity**: *O(log n)* 
+**Space complexity**: *O(1)* 
+
+[Implementation](./java/src/com/ds/practice/BadVersion/Version.java)
 
 
 

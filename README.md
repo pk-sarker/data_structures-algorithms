@@ -68,6 +68,7 @@ Mostly used Data Structures and Algorithms
     - [Find if linked list has cycle](./Problems.md#find_if_linked_list_has_cycle)
     - [Validate Parentheses in a expression](./Problems.md#validate_parentheses_in_a_expression)
     - [Letter Combinations of a Phone Number](./Problems.md#letter_combinations_of_a_phone_number)
+    - [Find first bad version](./Problems.md#find_first_bad_version)
 
 
 
