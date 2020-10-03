@@ -30,6 +30,8 @@
     - [Find Max Consecutive Ones](#find-max-consecutive-ones)
     - [Find Max Consecutive Ones with K changes](#find-max-consecutive-ones-with-k-changes)
     - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
+    - - [Find Top K Frequent Elements](#top-k-frequent-elements)
+    
 ### Validate Binary Search Tree
 *Problem:*\
 Given a binary tree, check if the tree is a valid binary search tree(BST).
