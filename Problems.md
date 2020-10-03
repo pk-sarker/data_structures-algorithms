@@ -29,7 +29,7 @@
     - [Find first bad version](#find-first-bad-version)
     - [Find Max Consecutive Ones](#find-max-consecutive-ones)
     - [Find Max Consecutive Ones with K changes](#find-max-consecutive-ones-with-k-changes)
-
+    - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
 ### Validate Binary Search Tree
 *Problem:*\
 Given a binary tree, check if the tree is a valid binary search tree(BST).
@@ -1012,7 +1012,31 @@ When there are more than *K* *0s* in the window and current *start* index contai
 
 [Implementation](./java/src/com/ds/practice/MaxConsecutiveOnes/MaxConsecutiveOnes.java)
 
+### Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
+Given an array of integers nums and an integer limit, return the size of the longest non-empty subarray such that the absolute difference between any two elements of this subarray is less than or equal to limit.
 
+Example:
+```
+Input: nums = [7,4,9,6,7], limit = 3
+Output: 3 
+Explanation: All subarrays are: 
+[7] with maximum absolute diff |7-7| = 0 <= 3. => Max Length = 1
+[7,4] with maximum absolute diff |7-4| = 3 <= 3. => Max Length = 2
+[7,4,9] with maximum absolute diff |9-4| = 5 > 3. => Max Length = 2
+[7,4,9,6] with maximum absolute diff |9-4| = 5 > 3. => Max Length = 2
+[7,4,9,6] with maximum absolute diff |9-4| = 5 > 3. => Max Length = 2
+[4,9] with maximum absolute diff |4-9| = 5 > 3. => Max Length = 2
+.
+.
+[9,6] with maximum absolute diff |9-6| = 3 <= 3. Max Length = 2
+[9,6,7] with maximum absolute diff |9-6| = 3 <= 3. Max Length = 3.
+
+Therefore, the size of the longest subarray is 3.
+```
+**Solution**:\
+Used sliding window with keeping track of maximum and minimum number in the list.
+
+[Implementation](./java/src/com/ds/practice/SubarrayWithAbsoluteDiff/SubarrayWithAbsoluteDiff.java)
 
 
 
