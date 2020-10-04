@@ -30,7 +30,8 @@
     - [Find Max Consecutive Ones](#find-max-consecutive-ones)
     - [Find Max Consecutive Ones with K changes](#find-max-consecutive-ones-with-k-changes)
     - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
-    - - [Find Top K Frequent Elements](#top-k-frequent-elements)
+    - [Find Top K Frequent Elements](#top-k-frequent-elements)
+    - [Get container with most water](#get-container-with-most-water)
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -1040,5 +1041,39 @@ Used sliding window with keeping track of maximum and minimum number in the list
 
 [Implementation](./java/src/com/ds/practice/SubarrayWithAbsoluteDiff/SubarrayWithAbsoluteDiff.java)
 
+### Get container with most water
+Given n non-negative integers *a_1, a_2, ..., a_n*, where each represents a point at coordinate *(i, a_i)*. 
+*n* vertical lines are drawn such that the two endpoints of the line *i* is at *(i, a_i)* and *(i, 0)*. Find 
+two lines, which, together with the *x-axis* forms a container, such that the container contains the most water.
+
+Example:\
+Input: height = [3,15,6,2,5,20,8,3,7]\
+Output: 60
+
+Input: height = [4,3,2,1,4]\
+Output: 16
+
+Input: height = [1,2,1]\
+Output: 2
+
+**Solution**:
+Brute-force solution will be check each combination of the heights, calculate the area and keep updating the maximum area.
+Time complexity will be *O(n^2)*.
+
+To optimize the solution we can use two important idea
+* To have a bigger container which may contain more water depends on two factors:
+    * container height is not that long but much more wider, or not that wider but much taller. If we look at the area 
+    calculation formula, *area = width X height*. So area can be bigger either *width* or *height* is bigger.
+* Container height is restricted by the lower height between two sides.
+
+We can use two pointer, one at the beginning and another one at the end or the given heights array.
+Then we move each pointer towoards opposite direction, start towards end and end pointer towards start.
+We move start pointer to next position if height of current pointer is less than the height of end pointer.
+Do the same for end pointer.
+
+**Time complexity**: *O(n)*\
+**Space complexity**: *O(1)*\
+
+[Implementation](./java/src/com/ds/practice/ContainerWithMostWater/ContainerWithMostWater.java)
 
 
