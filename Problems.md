@@ -32,6 +32,7 @@
     - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
     - [Find Top K Frequent Elements](#top-k-frequent-elements)
     - [Get container with most water](#get-container-with-most-water)
+    - [Find if one can attend all the meetings](#find-if-one-can-attend-all-the-meetings)
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -1077,3 +1078,16 @@ Do the same for end pointer.
 [Implementation](./java/src/com/ds/practice/ContainerWithMostWater/ContainerWithMostWater.java)
 
 
+### Find if one can attend all the meetings
+Given an array of meeting time intervals consisting of start and end times *[[s1,e1],[s2,e2],...] (si < ei)*, determine if a person could attend all meetings.
+
+Example:
+```
+Input: [[0,20],[5,10],[15,20]]
+Output: false
+
+Input: [[7,11],[3,6]]
+Output: true
+```
+
+[Implementation](./java/src/com/ds/practice/meetingroom/MeetingRoom.java)
