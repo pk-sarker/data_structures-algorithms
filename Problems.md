@@ -32,6 +32,8 @@
     - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
     - [Find Top K Frequent Elements](#top-k-frequent-elements)
     - [Get container with most water](#get-container-with-most-water)
+    - [Find if one can attend all the meetings](#find-if-one-can-attend-all-the-meetings)
+    - [Find minimum meeting room required](#find-minimum-meeting-room-required)
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -1077,3 +1079,40 @@ Do the same for end pointer.
 [Implementation](./java/src/com/ds/practice/ContainerWithMostWater/ContainerWithMostWater.java)
 
 
+### Find if one can attend all the meetings
+Given an array of meeting time intervals consisting of start and end times *[[s1,e1],[s2,e2],...] (si < ei)*, determine if a person could attend all meetings.
+
+Example:
+```
+Input: [[0,20],[5,10],[15,20]]
+Output: false
+
+Input: [[7,11],[3,6]]
+Output: true
+```
+
+[Implementation](./java/src/com/ds/practice/meetingroom/MeetingRoom.java)
+
+
+### Find minimum meeting room required
+Given an array of meeting time intervals consisting of start and end times *[[s1,e1],[s2,e2],...] (si < ei)*, find the minimum number of conference rooms required. 
+
+Example:
+```
+Input: [[9, 11], [11, 12], [9, 13], [8, 10]]
+Output: 3 
+
+Input: [[9, 11], [7, 9], [11, 12], [12, 13]]
+Output: 1 
+
+Input: [[9, 12], [10, 11], [10, 12], [8, 11]]
+Output: 4 
+```
+**Solution**:
+Use min-heap data structure to store the end time of meetings. The root of the min-heap will be the meeting that will be ending at the earliest.
+Before allocating a new room we just need to check the root of the min-heap, if the root of min-heap contains a time which is less than current meeting start time then
+that means that there is a room available to reuse/reallocate, otherwise allocate a new room.
+
+**Time complexity**: *O(n log n)*\
+**Space complexity**: *O(n)*\
+[Implementation](./java/src/com/ds/practice/MinMeetingRoom/MinMeetingRoom.java)
