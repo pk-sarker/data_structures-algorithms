@@ -33,6 +33,7 @@ Mostly used Data Structures and Algorithms
         - [Breadth-first search](./searching/README.md#breadth-first-search)   
         - [Depth-first search](./searching/README.md#depth-first-search)       
         - [Binary Search](./searching/README.md#binary-search)
+        - [Quickselect](./searching/README.md#quickselect)
         
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
