@@ -74,7 +74,8 @@ Mostly used Data Structures and Algorithms
     - [Find Top K Frequent Elements](./Problems.md#top-k-frequent-elements)
     - [Get container with most water](./Problems.md#get-container-with-most-water)
     - [Find if one can attend all the meetings](./Problems.md#find-if-one-can-attend-all-the-meetings)
-    - [Find minimum meeting room required](./Problems.md**#find-minimum-meeting-room-required)
+    - [Find minimum meeting room required](./Problems.md#find-minimum-meeting-room-required)
+    - [Kth Largest Element in an Array](./Problems.md#kth-largest-element-in-an-array)
 
 
 ### References

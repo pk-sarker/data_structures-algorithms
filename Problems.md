@@ -34,6 +34,7 @@
     - [Get container with most water](#get-container-with-most-water)
     - [Find if one can attend all the meetings](#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](#find-minimum-meeting-room-required)
+    - [Kth Largest Element in an Array](#kth-largest-element-in-an-array)
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -1120,7 +1121,7 @@ Before allocating a new room we just need to check the root of the min-heap, if 
 that means that there is a room available to reuse/reallocate, otherwise allocate a new room.
 
 **Time complexity**: *O(n log n)*\
-**Space complexity**: *O(n)*\
+**Space complexity**: *O(n)*
 
 **Solution 2**:
 We can use chronological ordering of the meetings. We can split the meeting start and end time in separate array and sort them in ascending order.
@@ -1129,6 +1130,21 @@ For each start time we check the if the end pointer is pointing to a end time wh
 a new room needs to allocate. 
 
 **Time complexity**: *O(n log n)*\
-**Space complexity**: *O(n)*\
+**Space complexity**: *O(n)*
 
 [Implementation](./java/src/com/ds/practice/MinMeetingRoom/MinMeetingRoom.java)
+
+### Kth Largest Element in an Array
+Find the *k*-th largest element in an unsorted array. Note that it is the *k*-th largest element in the sorted order, not the *k*-th distinct element.
+
+Example:
+```
+Input: [3,2,1,5,6,4] and k = 2
+Output: 5
+
+Input: [3,2,3,1,2,4,5,5,6] and k = 4
+Output: 4
+```
+
+**Solution**:
+
