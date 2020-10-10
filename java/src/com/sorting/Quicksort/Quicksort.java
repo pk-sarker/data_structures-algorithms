@@ -5,6 +5,7 @@ public class Quicksort {
     public void sort(int[] ar, int low, int high) {
         if (low < high) {
             int p = partition(ar, low, high);
+            System.out.println("Partition " + p);
             sort(ar, low, p-1);
             sort(ar, p+1, high);
         }
@@ -37,7 +38,7 @@ public class Quicksort {
         ar[high] = tmp;
         return i;
     }
-
+// 5,9,3,8,4,7,1
     static void print(int arr[])
     {
         int n = arr.length;
@@ -53,5 +54,11 @@ public class Quicksort {
         qs.sort(ar, 0, ar.length-1);
         System.out.println("Sorted array: ");
         print(ar);
+
+        int[] arr = new int[]{5,9,3,8,4,7,1};
+        qs.sort(arr, 0, arr.length-1);
+        System.out.println("Sorted array: ");
+        print(arr);
+
     }
 }
