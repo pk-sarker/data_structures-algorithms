@@ -33,6 +33,7 @@ Mostly used Data Structures and Algorithms
         - [Breadth-first search](./searching/README.md#breadth-first-search)   
         - [Depth-first search](./searching/README.md#depth-first-search)       
         - [Binary Search](./searching/README.md#binary-search)
+        - [Quickselect](./searching/README.md#quickselect)
         
 - [Sorting Algorithm](./sorting/README.md)
     - [Merge Sort](./sorting/README.md#merge-sort)
@@ -75,6 +76,7 @@ Mostly used Data Structures and Algorithms
     - [Get container with most water](./Problems.md#get-container-with-most-water)
     - [Find if one can attend all the meetings](./Problems.md#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](./Problems.md#find-minimum-meeting-room-required)
+    - [Kth Largest Element in an Array](./Problems.md#kth-largest-element-in-an-array)
 
 
 ### References

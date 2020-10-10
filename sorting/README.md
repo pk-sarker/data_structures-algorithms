@@ -97,7 +97,8 @@ Best case: `n log n`, average: `n log n`, worse: `n^2`
 **Space Complexity**
 Quicksort is usually done in-place with `O(log n)` stack space
 
-[Implementation](./quick_sort.py)
+[Implementation - Python](./quick_sort.py)\
+[Implementation - Java](../java/src/com/sorting/Quicksort/Quicksort.java)
 
 ### Selection Sort
 Selection sort is an in-place comparison sorting algorithm. It has an `O(n^2)` time complexity, which makes it inefficient on large lists, and generally performs worse.

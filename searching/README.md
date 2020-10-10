@@ -5,6 +5,7 @@
 - [Interpolation Search](#interpolation-search)
 - [Exponential Search](#exponential-search)
 - [Jump Search](#jump-search)
+- [Quickselect](#quickselect)
 
 ### Breadth-first search
 
@@ -125,3 +126,24 @@ Given an array *A* of *n* numbers where <img src="https://render.githubuserconte
 ```
 
 [Implementation](./binary_search.py)
+
+
+### Quickselect
+Quickselect is a selection algorithm to find the *k*-th smallest element in an unordered list. It is related to the quicksort sorting algorithm.
+
+Quickselect search is almost same as quick sort. Chose an element as pivot and partitioning data into two sets based on pivot, onset contains
+all the elements less than the pivot and another set contain the elements that are greater than the pivot. Finally, fix the position of the pivot. 
+In quick short it does the recursion on each set/array/side, but in quickselect it only recurses into one side – the side with the element it is searching for.
+
+As it searches one side, the average complexity reduces from *O(n log n)* to *O(n)*, with a worst case of *O(n^2)*.
+
+```
+// Algorithm:
+SELECT(arr, left, right, k):
+    1. Check if left and right is same, single element in the array. Return that
+    2. Get pivot index using partitioning algorithm, same as quick sort
+    3. if the pivot index is same as 'k' then return k-th element in the array
+    4. if the pivot index is less than 'k' then recursively call the same search function with low value = pivot + 1 and high = high, SELECT(arr, pivot+1, high, k)
+    5. if the pivot index is greater than 'k' then recursively call the same search function with low value = low and high = pivot - 1, SELECT(arr, low, pivot-1, k)
+```
+[Implementation - Java](../java/src/com/searching/QuickSelect/QuickSelect.java)
