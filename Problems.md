@@ -1109,10 +1109,26 @@ Input: [[9, 12], [10, 11], [10, 12], [8, 11]]
 Output: 4 
 ```
 **Solution**:
+The problem is about optimizing number of rooms required to arrange all the meetings. If not optimized then we could have 
+assigned a new room to each meeting.
+
+How to optimize the number of rooms ? Reuse the rooms. How to reuse the rooms? To reuse the rooms we need to find rooms which was
+occupied before but now free. A meeting room is free or not is identified by the end time.
+
 Use min-heap data structure to store the end time of meetings. The root of the min-heap will be the meeting that will be ending at the earliest.
 Before allocating a new room we just need to check the root of the min-heap, if the root of min-heap contains a time which is less than current meeting start time then
 that means that there is a room available to reuse/reallocate, otherwise allocate a new room.
 
 **Time complexity**: *O(n log n)*\
 **Space complexity**: *O(n)*\
+
+**Solution 2**:
+We can use chronological ordering of the meetings. We can split the meeting start and end time in separate array and sort them in ascending order.
+We can use two pointers to indicate current start and end times.
+For each start time we check the if the end pointer is pointing to a end time which is greater than or equal to start time, then we can reuse the room; otherwise
+a new room needs to allocate. 
+
+**Time complexity**: *O(n log n)*\
+**Space complexity**: *O(n)*\
+
 [Implementation](./java/src/com/ds/practice/MinMeetingRoom/MinMeetingRoom.java)
