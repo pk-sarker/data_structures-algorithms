@@ -77,6 +77,8 @@ Mostly used Data Structures and Algorithms
     - [Find if one can attend all the meetings](./Problems.md#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](./Problems.md#find-minimum-meeting-room-required)
     - [Kth Largest Element in an Array](./Problems.md#kth-largest-element-in-an-array)
+    - [Merge two sorted linked lists](./Problems.md#merge-two-sorted-lists)
+    - [Merge k sorted linked lists](./Problems.md#merge-k-sorted-linked-lists)
 
 
 ### References

@@ -35,6 +35,7 @@
     - [Find if one can attend all the meetings](#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](#find-minimum-meeting-room-required)
     - [Kth Largest Element in an Array](#kth-largest-element-in-an-array)
+    - [Merge two sorted linked lists](#merge-two-sorted-lists)
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -1179,8 +1180,40 @@ it only works on one side. So the time complexity reduces to *O(n)*.
 [Implementation - Java](./java/src/com/ds/practice/KthLargestElement/KthLargestElementWithQuickSelect.java)
 
 
+### Merge two sorted linked lists
+Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
+
+Example:
+```
+Input: l1 = [1, 3, 6, 8], l2 = [2, 3, 7]
+Output: [1, 2, 3, 6, 7, 8]
+```
+
+**Solution 1**:
+We can solve this problem recursively by using the following formula: 
+```
+if list1[0]<list2[0]:
+    list1[0]+merge(list1[1:],list2)
+else:
+    list2[0]+merge(list1,list2[1:])
+```
+**Time Complexity:**\
+*O( m + n)*, *m* and *n* are number of items in two lists
+
+**Space Complexity:**\
+*O(m + n)*. The first call to mergeTwoLists does not return until the ends of both *list1* and *list2* have been reached, so *n + m* stack frames consume *O(n + m)* space.
+
+[Implementation - Java](./java/src/com/ds/practice/MergeSortedList/MergeSortedList.java)
+
+**Solution 2:**
+We can solve this problem by using two pointers, one each at each linked list. 
+Loop over until reach end of any list. 
 
 
- 
+**Time Complexity:**\
+*O( m + n)*, *m* and *n* are number of items in two lists
+
+**Space Complexity:**\
+*O(1)*. 
 
 
