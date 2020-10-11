@@ -1146,5 +1146,41 @@ Input: [3,2,3,1,2,4,5,5,6] and k = 4
 Output: 4
 ```
 
-**Solution**:
+**Solution 1**:
+In brute force approach we need to sort the array in descending order and get the value from *k-1*-th index. Time complexity
+of sorting will be *O(n lon n)* and *O(1)* to find the *k*-th largest element in the list. And space complexity will be *O(1)*.
+
+**Solution 2**:
+We can solve this problem using *heap*, more precisely *min-heap* where each node contains a value which is less than its child and the root 
+node contains the smallest value.
+
+The idea is to have heap of fixed size which is equal to *k*. Iterate over the array and start creating the heap.
+Check heap size every time a new value added in the heap. If the heap size is more than *k* then *poll* from heap or remove the top 
+node/value. When reaches at the end of the array then in the heap there will be *k* nodes and the root/top node will contain
+*k*-th largest value.
+
+Time complexity of adding a new element in the heap is *O(log k)*, and we will be adding *N* times,
+so the complexity will be *O(N log k)*. As we are maintaining a heap of size *k* the space complexity will be
+*O(k)*
+
+[Implementation - Java](./java/src/com/ds/practice/KthLargestElement/KthLargestElement.java)
+
+**Solution 3**:
+There is an algorithm, [Quickselect](https://en.wikipedia.org/wiki/Quickselect) which return *k*-th smallest number from a given unordered list/array. The algorithm 
+is very same as [Quicksort](https://en.wikipedia.org/wiki/Quicksort). The only difference is that Quickselect only searches one side of the list where Quicksort sorts both 
+sides.
+
+In this problem we have to return *k*-th largest number. If we sort an array of *n* element then *(n-k)*-th smallest element is *k*-th largest element.
+To solve this problem using Quickselect we will search for *(n-k)*-th smallest number.
+
+In quicksort the time complexity is *O( n log n)* where it sorts both sides of a pivot, but in Quickselect
+it only works on one side. So the time complexity reduces to *O(n)*.
+
+[Implementation - Java](./java/src/com/ds/practice/KthLargestElement/KthLargestElementWithQuickSelect.java)
+
+
+
+
+ 
+
 

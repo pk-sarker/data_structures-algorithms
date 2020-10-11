@@ -42,30 +42,6 @@ public class QuickSelect {
         return pivotLoc;
     }
 
-    public int partition1 (int[] arr, int low, int high)
-    {
-        int pivot = arr[high], pivotloc = low;
-        for (int i = low; i <= high; i++)
-        {
-            // inserting elements of less value
-            // to the left of the pivot location
-            if(arr[i] < pivot)
-            {
-                int temp = arr[i];
-                arr[i] = arr[pivotloc];
-                arr[pivotloc] = temp;
-                pivotloc++;
-            }
-        }
-
-        // swapping pivot to the final pivot location
-        int temp = arr[high];
-        arr[high] = arr[pivotloc];
-        arr[pivotloc] = temp;
-
-        return pivotloc;
-    }
-
 
     static void print(int arr[])
     {
@@ -81,7 +57,6 @@ public class QuickSelect {
         int second = qs.select(arr, 0, arr.length-1, 2);
         System.out.println("Input: [5, 9, 3, 8, 4, 7, 1], k=2 \n kth: "+second);
         print(arr);
-        
         int fourth = qs.select(arr, 0, arr.length-1, 4);
         System.out.println("Input: [5, 9, 3, 8, 4, 7, 1], k=4 \n kth: "+fourth);
         print(arr);
