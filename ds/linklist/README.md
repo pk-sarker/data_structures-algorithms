@@ -298,13 +298,30 @@ Creating array will be `O(N)`, here *N* can be expressed as *N = k*n*, where *k*
 Then creating the linked list will be `O(N)`.
 So the time complexity will be `O(N log N) = O(n log n)`. And space complexity will be liner, `O(n)`.
 
+[Implementation](./merge_k_sorted_linked_list.py)
+
 **Solution 2**\
-We can solve this problem by progressing on all the linked lists in parallel. 
+We can use a Min-Heap to solve this problem. A Min-Heap is a complete binary tree in which the value in each internal node is smaller than or equal to the values in the children of that node.
+First create a Min-Heap and add all the first node of each list. If the heap is not empty then:
+* Remove the top element of the min-heap, and added that to the result linked list.
+* If the next node of the top element is not empty then add the next node to the heap.
 
 **Time Complexity**\
-`O(k * n)` 
+`O(n log k )`, *k* is total number of linked lists and *n* total number of nodes.
 
 **Space Complexity**\
-Space complexity is constant, `O(1)`
+Space complexity is `O(k)`.
+[Implementation - Java](../../java/src/com/ds/practice/MergeKSortedList/MergeKSortedListUsingMinHeap.java)
 
-[Implementation](./merge_k_sorted_linked_list.py)
+**Solution 3**\
+We can use Divide and Conquer approach, recursively merge two linked list until all of them are merged.
+
+```
+lists = [l1, l2, l3, l4]
+Iteration 1: merge lists[0]/l1 and lists[1]/l2, keep the result in lists[0]
+Iteration 2: merge lists[2]/l3 and lists[3]/l4, keep the result in lists[2]
+Iteration 3: merge lists[0] and lists[2], and keep the result lists[0] 
+```
+In this approach extra space is not required. Time complexity is *O(n log k)*.\
+[Implementation - Java](../../java/src/com/ds/practice/MergeKSortedList/MergeKSortedList.java)
+
