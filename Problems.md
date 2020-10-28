@@ -22,6 +22,7 @@
     - [Find word in grid](#find-word-in-grid)
     - [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
+    - [Binary Tree Right Side View](#binary-tree-right-side-view)
     - [Least Recently Used cache](#least-recently-used-cache)
     - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
     - [Validate Parentheses in a expression](#validate-parentheses-in-a-expression)
@@ -36,6 +37,17 @@
     - [Find minimum meeting room required](#find-minimum-meeting-room-required)
     - [Kth Largest Element in an Array](#kth-largest-element-in-an-array)
     - [Merge two sorted linked lists](#merge-two-sorted-lists)
+    - [Rotate List by K](#rotate-list-by-k)
+    - [Search in Rotated Sorted Array](#search-in-rotated-sorted-array)
+    - [Serialize and Deserialize Binary Tree](#serialize-and-deserialize-binary-tree)
+    - [Top K Frequent Elements](#top-k-frequent-elements)
+    - [Boundary of Binary Tree](#boundary-of-binary-tree)
+    - [Binary Tree Right Side View](#binary-tree-right-side-view)
+    - [Count Islands](#count-islands)
+    - [Cameras in Binary Tree](#cameras-in-binary-tree)
+    - [Count Univalue Subtrees](#count-univalue-subtrees)
+    - [Insert Delete GetRandom in constant time](#insert-delete-getrandom-in-constant-time)
+    - [Design In-Memory File System](#design-in-memory-file-system)
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -881,6 +893,36 @@ Given a string, find the longest palindromic substring in the string.
 ### Boundary of Binary Tree
 Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
 
+**Solution**
+We can divide the problem to 3 smaller problems, 1) find left boundary of the tree. 2) Find leaves of the tree 3) find
+right boundary of the tree. 
+
+**Time Complexity** *O(n)*\
+**Space Complexity** *O(n)*
+[Implementation](./java/src/com/ds/practice/TreeBoundary/BoundaryOfBinaryTree.java)
+
+###  Binary Tree Right Side View
+Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+**Solution**
+We can use either BFS or DFS to solve this problem.
+There will be only one node in right boundary visible at each level. If we are using BFS the we go level by level and add right most node to the result.
+
+ 
+
+**Time Complexity** *O(n)*\
+**Space Complexity** *O(D)*, *D* is the diameter of the tree. 
+[Implementation - BFS + Queue](./java/src/com/ds/practice/BTreeRightView/BTreeRightSide.java)
+
+Using DFS:
+The idea is the keep exploring right child as farther as possible, and update level.
+At each level we will add one node to the result list, if right child is available we explore right otherwise left.
+At each level we compare the result list size vs level value, 
+if the level value is same as the result list size(0-indexed) then we add the node in the result list.
+If the level value is less then that result list size, which means we are backtracking and one node (right or left) node has been already added.
+ 
+[Implementation - DFS](./java/src/com/ds/practice/BTreeRightView/BTreeRightSideDFS.java)
+
 
 ### Least Recently Used cache
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
@@ -1044,6 +1086,32 @@ Therefore, the size of the longest subarray is 3.
 Used sliding window with keeping track of maximum and minimum number in the list.
 
 [Implementation](./java/src/com/ds/practice/SubarrayWithAbsoluteDiff/SubarrayWithAbsoluteDiff.java)
+
+### Find Top K Frequent Elements
+Given a non-empty array of integers and a number *k*, return the *k* most frequent elements.
+You may assume *k* is always valid, *1 ≤ k ≤* number of unique elements.
+
+**Solution 1**:\
+We can use hash map and heap to solve this problem.
+First count frequency of the number in the array and store in a hash map. 
+Then create a heap and start pushing the number in hashmap. We will maintain a fixed size heap, *k*.
+While pushing the the numbers in heap we need to check if the heap size is more that *k*, if so then 
+poll the top element from the heap. The complexity of this step is *O(n log k)*, *n* is number of items in the 
+list. Complexity to add element in *k* size heap  is *O(log k)*.
+Then we poll the elements from k size heap and store in a array and return. Complexity for this step is *O(k)*.
+
+**Time complexity**: *O(n log k)* where *k < n* and *O(1)* if *n = k*.  
+**Space complexity**: *O(n+k)*, *O(n)* for storing elements in hashmap, and *O(k)* for string elements 
+the heap.
+
+[Implementation](./java/src/com/ds/practice/TopKFrequentElements/TopKFrequentElements.java)
+
+**Solution 2**:
+We may use Quickselect to solve this problem. Lets transform the problem. Quickselect algorithm finds *k*-th smallest/largest element in a given
+array.
+
+[Implementation](./java/src/com/ds/practice/TopKFrequentElements/TopKFrequentElementsQuickselect.java)
+
 
 ### Get container with most water
 Given n non-negative integers *a_1, a_2, ..., a_n*, where each represents a point at coordinate *(i, a_i)*. 
@@ -1216,4 +1284,241 @@ Loop over until reach end of any list.
 **Space Complexity:**\
 *O(1)*. 
 
+### Rotate List by K
+Given a linked list, rotate the list to the right by *k* places, where *k* is non-negative.
 
+```
+Example 1:
+
+Input: 1->2->3->4->5->NULL, k = 2
+Output: 4->5->1->2->3->NULL
+Explanation:
+rotate 1 steps to the right: 5->1->2->3->4->NULL
+rotate 2 steps to the right: 4->5->1->2->3->NULL
+
+Example 2:
+
+Input: 0->1->2->NULL, k = 4
+Output: 2->0->1->NULL
+Explanation:
+rotate 1 steps to the right: 2->0->1->NULL
+rotate 2 steps to the right: 1->2->0->NULL
+rotate 3 steps to the right: 0->1->2->NULL
+rotate 4 steps to the right: 2->0->1->NULL
+```
+[Implementation - Java](./java/src/com/ds/practice/RotateLiinkedListByK/RotateLiinkedListByK.java)
+
+### Search in Rotated Sorted Array
+You are given an integer array nums sorted in ascending order, and an integer target.
+Suppose that nums is rotated at some pivot unknown to you beforehand (i.e., *[0,1,2,4,5,6,7]* might become *[4,5,6,7,0,1,2]*).
+* If target is found in the array return its index, otherwise, return -1.
+
+```
+Example 1:
+
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+Example 2:
+
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+Example 3:
+
+Input: nums = [1], target = 0
+Output: -1
+```
+[Implementation - Java](./java/src/com/ds/practice/SearchInRotatedArray/SearchInRotatedArray.java)
+
+### Serialize and Deserialize Binary Tree
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+
+```
+Example: 
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
+
+Input: root = []
+Output: []
+
+Input: root = [1]
+Output: [1]
+
+Input: root = [1,2]
+Output: [1,2]
+```
+[Implementation - Java](./java/src/com/ds/practice/SerializeDeserializeTree/SerializeDeserializeTree.java)
+
+### Top K Frequent Elements
+Given a non-empty array of integers, return the *k* most frequent elements.
+
+Note:
+* You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
+* Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+* It's guaranteed that the answer is unique, in other words the set of the top k frequent elements is unique.
+* You can return the answer in any order.
+
+```
+Example 1:
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+Example 2:
+
+Input: nums = [1], k = 1
+Output: [1]
+```
+
+[Implementation - Java](./java/src/com/ds/practice/TopKFrequentElements/TopKFrequentElements.java)
+[Implementation - Quickselect - Java](./java/src/com/ds/practice/TopKFrequentElements/TopKFrequentElementsQuickselect.java)
+
+### Boundary of Binary Tree
+Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
+
+Left boundary is defined as the path from root to the left-most node. Right boundary is defined as the path from root to the right-most node. If the root doesn't have left subtree or right subtree, then the root itself is left boundary or right boundary. Note this definition only applies to the input binary tree, and not applies to any subtrees.
+
+The left-most node is defined as a leaf node you could reach when you always firstly travel to the left subtree if exists. If not, travel to the right subtree. Repeat until you reach a leaf node.
+
+The right-most node is also defined by the same way with left and right exchanged.
+
+**Example 1**
+```
+Input:
+  1
+   \
+    2
+   / \
+  3   4
+
+Ouput:
+[1, 3, 4, 2]
+
+Explanation:
+The root doesn't have left subtree, so the root itself is left boundary.
+The leaves are node 3 and 4.
+The right boundary are node 1,2,4. Note the anti-clockwise direction means you should output reversed right boundary.
+So order them in anti-clockwise without duplicates and we have [1,3,4,2].
+```
+
+**Example 2**
+```
+
+
+Input:
+    ____1_____
+   /          \
+  2            3
+ / \          / 
+4   5        6   
+   / \      / \
+  7   8    9  10  
+       
+Ouput:
+[1,2,4,7,8,9,10,6,3]
+
+Explanation:
+The left boundary are node 1,2,4. (4 is the left-most node according to definition)
+The leaves are node 4,7,8,9,10.
+The right boundary are node 1,3,6,10. (10 is the right-most node).
+So order them in anti-clockwise without duplicate nodes we have [1,2,4,7,8,9,10,6,3].
+```
+
+[Implementation - Java](./java/src/com/ds/practice/TreeBoundary/BoundaryOfBinaryTree.java)
+
+### Binary Tree Right Side View
+Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+**Example 1**
+```
+Input: [1,2,3,null,5,null,4]
+Output: [1, 3, 4]
+Explanation:
+
+   1            <---
+ /   \
+2     3         <---
+ \     \
+  5     4       <---
+```
+
+[Implementation - Java](./java/src/com/ds/practice/BTreeRightView/BTreeRightSide.java)
+[Implementation - DFS - Java](./java/src/com/ds/practice/BTreeRightView/BTreeRightSideDFS.java)
+
+### Count Islands
+Given an *m x n* 2d grid map of `'1's` (land) and `'0's` (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+[Implementation - Java](./java/src/com/ds/practice/CountIslands/CountIslands.java)
+
+### Sum of 3 number
+Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+Notice that the solution set must not contain duplicate triplets.
+
+**Example**
+``` 
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+
+Input: nums = []
+Output: []
+
+Input: nums = [0]
+Output: []
+```
+[Implementation - Java](./java/src/com/ds/practice/SumOfThree/SumOfThree.java)
+
+
+### Cameras in Binary Tree
+Given a binary tree, we install cameras on the nodes of the tree. 
+
+Each camera at a node can monitor *its parent*, *itself*, and *its immediate children*.
+
+Calculate the minimum number of cameras needed to monitor all nodes of the tree.
+
+
+[Implementation - Java](./java/src/com/ds/practice/CamerasOnBinaryTree/CamerasOnBinaryTree.java)
+
+
+### Count Univalue Subtrees
+
+Given the root of a binary tree, return the number of uni-value subtrees.
+
+A uni-value subtree means all nodes of the subtree have the same value.
+
+[Implementation - Java](./java/src/com/ds/practice/CountUnivalueSubtrees/CountUnivalueSubtrees.java)
+
+
+### Insert Delete GetRandom in constant time
+Implement the RandomizedSet class:
+
+* `bool insert(int val)` Inserts an item *val* into the set if not present. Returns *true* if the item was not present, *false* otherwise.
+* `bool remove(int val)` Removes an item *val* from the set if present. Returns *true* if the item was present, *false* otherwise.
+* `int getRandom()` Returns a random element from the current set of elements (it's guaranteed that at least one element exists when this method is called). Each element must have the same probability of being returned.
+Follow up: Could you implement the functions of the class with each function works in average O(1) time?
+
+[Implementation - Java](./java/src/com/design/RandomizedSet/RandomizedSet.java)
+
+
+### Design In-Memory File System
+Design an in-memory file system to simulate the following functions:
+
+* `ls`: Given a path in string format. If it is a file path, return a list that only contains this file's name. If it is a directory path, return the list of file and directory names in this directory. Your output (file and directory names together) should in lexicographic order.
+* `mkdir`: Given a directory path that does not exist, you should make a new directory according to the path. If the middle directories in the path don't exist either, you should create them as well. This function has void return type.
+* `addContentToFile`: Given a file path and file content in string format. If the file doesn't exist, you need to create that file containing given content. If the file already exists, you need to append given content to original content. This function has void return type.
+* `readContentFromFile`: Given a file path, return its content in string format.
+
+**Example**
+```
+Input: 
+["FileSystem","ls","mkdir","addContentToFile","ls","readContentFromFile"]
+[[],["/"],["/a/b/c"],["/a/b/c/d","hello"],["/"],["/a/b/c/d"]]
+
+Output:
+[null,[],null,null,["a"],"hello"]
+```
+[Implementation - Java](./java/src/com/design/InMemoryFileSystem/InMemoryFileSystem.java)

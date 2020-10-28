@@ -64,6 +64,7 @@ Mostly used Data Structures and Algorithms
     - [Find word in grid](./Problems.md#find-word-in-grid)
     - [Check if a given string is Palindrome](./Problems.md#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](./Problems.md#boundary-of-binary-tree)
+    - [Binary Tree Right Side View](./Problems.md#binary-tree-right-side-view)
     - [Least Recently Used cache](./Problems.md#least-recently-used-cache)
     - [Find if linked list has cycle](./Problems.md#find-if-linked-list-has-cycle)
     - [Validate Parentheses in a expression](./Problems.md#validate-parentheses-in-a-expression)
@@ -79,7 +80,18 @@ Mostly used Data Structures and Algorithms
     - [Kth Largest Element in an Array](./Problems.md#kth-largest-element-in-an-array)
     - [Merge two sorted linked lists](./Problems.md#merge-two-sorted-lists)
     - [Merge k sorted linked lists](./Problems.md#merge-k-sorted-linked-lists)
-
+    - [Rotate List by K](./Problems.md#rotate-list-by-k)
+    - [Search in Rotated Sorted Array](./Problems.md#search-in-rotated-sorted-array)
+    - [Serialize and Deserialize Binary Tree](./Problems.md#serialize-and-deserialize-binary-tree)
+    - [Top K Frequent Elements](./Problems.md#top-k-frequent-elements)
+    - [Boundary of Binary Tree](./Problems.md#boundary-of-binary-tree)
+    - [Binary Tree Right Side View](./Problems.md#binary-tree-right-side-view)
+    - [Count Islands](./Problems.md#count-islands)
+    - [Cameras in Binary Tree](./Problems.md#cameras-in-binary-tree)
+    - [Count Univalue Subtrees](./Problems.md#count-univalue-subtrees)
+    - [Insert Delete GetRandom in constant time](./Problems.md#insert-delete-getrandom-in-constant-time)
+    - [Design In-Memory File System](./Problems.md#design-in-memory-file-system)
+    
 
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*
