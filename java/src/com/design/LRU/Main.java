@@ -1,6 +1,7 @@
 package com.ds.practice.LRU;
 
 public class Main {
+
     public static void main(String args[]) {
         LRUCacheDoubleLinkedList lru = new LRUCacheDoubleLinkedList(2);
         lru.put(1,5);

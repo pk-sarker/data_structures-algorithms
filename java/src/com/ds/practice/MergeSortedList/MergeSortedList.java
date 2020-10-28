@@ -1,7 +1,5 @@
 package com.ds.practice.MergeSortedList;
 
-import sun.dc.pr.PRError;
-
 public class MergeSortedList {
 
     public Node mergeTwoLists(Node l1, Node l2) {
