@@ -1,4 +1,4 @@
-package com.ds.practice.LRU;
+package com.design.LRU;
 import java.util.Map;
 import java.util.HashMap;
 import java.lang.StringBuilder;

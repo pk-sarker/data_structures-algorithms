@@ -1,4 +1,4 @@
-package com.ds.practice.LRU;
+package com.design.LRU;
 
 public class Main {
 
