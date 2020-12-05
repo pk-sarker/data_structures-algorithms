@@ -30,13 +30,17 @@
     - [Find first bad version](#find-first-bad-version)
     - [Find Max Consecutive Ones](#find-max-consecutive-ones)
     - [Find Max Consecutive Ones with K changes](#find-max-consecutive-ones-with-k-changes)
-    - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
-    - [Find Top K Frequent Elements](#top-k-frequent-elements)
+    - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
+    - [Find Top K Frequent Elements](#find-top-k-frequent-elements)
     - [Get container with most water](#get-container-with-most-water)
     - [Find if one can attend all the meetings](#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](#find-minimum-meeting-room-required)
     - [Kth Largest Element in an Array](#kth-largest-element-in-an-array)
     - [Merge two sorted linked lists](#merge-two-sorted-linked-lists)
+    - [Rotate List by K](#rotate-list-by-k)
+    - [Search in Rotated Sorted Array](#search-in-rotated-sorted-array)
+    - [Serialize and Deserialize Binary Tree](#serialize-and-deserialize-binary-tree)
+    
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -1287,3 +1291,122 @@ Step 4: Add remaining elements
 
 **Space Complexity:**\
 *O(1)*
+
+### Rotate List by K
+Given a linked list, rotate the list to the right by *k* places, where *k* is non-negative.
+
+Solution:
+The value of *k* is the key in this problem, There could be three cases: *k=n*, *k>n* and *k<n* where *n* is the length of the list.
+For linked list we don't know *n*, we only have the head. We need to find the *tail* and number of elements in the list.
+Then we can form a ring by pointing *tail.next* to the *head*. Then find the new tail position:
+
+```
+New tails position(tailPos) = n - k % n - 1, n = total node count 
+```
+Then loop *tailPos* times over the list and move the *head* to next. Next node after *tailPos* will be new *head*.
+
+```
+Example 1:
+
+Input: 0->1->2->3->4->NULL, k = 2
+Output: 3->4->0->1->2->NULL
+Explanation:
+rotate 1 steps to the right: 4->0->1->2->3->NULL
+rotate 2 steps to the right: 3->4->0->1->2->NULL
+
+Example 2:
+
+Input: 0->1->2->NULL, k = 4
+Output: 2->0->1->NULL
+Explanation:
+rotate 1 steps to the right: 2->0->1->NULL
+rotate 2 steps to the right: 1->2->0->NULL
+rotate 3 steps to the right: 0->1->2->NULL
+rotate 4 steps to the right: 2->0->1->NULL
+```
+[Implementation - Java](./java/src/com/ds/practice/RotateLiinkedListByK/RotateLiinkedListByK.java)
+
+**Time Complexity:**\
+*O(n)*, *n* is the number of items in the list
+
+**Space Complexity:**\
+*O(1)*
+
+
+### Search in Rotated Sorted Array
+You are given an integer array nums sorted in ascending order, and an integer target.
+Suppose that nums is rotated at some pivot unknown to you beforehand (i.e., *[0,1,2,4,5,6,7]* might become *[4,5,6,7,0,1,2]*).
+* If target is found in the array return its index, otherwise, return *-1*.
+
+```
+Example 1:
+Input: nums = [7,8,0,1,2,4,6], target = 0
+Output: 2
+
+Example 2:
+Input: nums = [7,8,0,1,2,4,6], target = 5
+Output: -1
+
+Example 3:
+Input: nums = [0], target = 1
+Output: -1
+```
+
+**Solution**:
+First think about how a rotated and sorted array looks like. For simplicity lets consider list is sorted in ascending order. Then 
+if we compare any two consecutive position(i,j) it could be one of these:
+* `ar[i] = ar[j]` - both numbers are same: *(i,j)=(2,3); ar=[5,7,1,1,3,4]*
+* `ar[i] < ar[j]` - incrementing *(i,j)=(2,3); ar=[5,7,1,2,3,4]*
+* `ar[i] > ar[j]` - at pivot, where the list started or ended. *(i,j)=(1,2); ar=[5,7,1,1,3,4]*
+
+We can use binary search to find the elements, the complexity will be *O(log n)*. 
+Initialize *start=0* and *end=n-1* then find the middle element, \
+*mid = start + (end - start)/2*
+
+We will compare *ar[mid]*:
+* if *ar[mid]==target*: return *mid*
+* if *ar[start] < ar[mid]*: Elements from *start* to *mid* is non-rotating.
+  - if *target < ar[mid] and target > ar[start]* then set *end = mid - 1* else set *start = mid + 1*
+* Otherwise(ar[start] > ar[mid]): Elements from *start* to *mid* is rotating and elements from *mid* to *end* is non-rotating.
+  - if *target > ar[mid] and target < ar[end]* then set *start = mid + 1* else *end = mid - 1*
+
+**Time Complexity:**\
+*O(log n)*
+
+**Space Complexity:**\
+*O(1)*
+[Implementation - Java](./java/src/com/ds/practice/SearchInRotatedArray/SearchInRotatedArray.java)
+
+
+### Serialize and Deserialize Binary Tree
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+
+```
+Example:
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
+
+Input: root = []
+Output: []
+
+Input: root = [1]
+Output: [1]
+
+Input: root = [1,2]
+Output: [1,2]
+```
+
+**Solution**:
+We can use DFS to serialize the tree.
+
+**Time Complexity:**\
+*O(n)*
+
+**Space Complexity:**\
+*O(n)*
+
+[Implementation - Java](./java/src/com/ds/practice/SerializeDeserializeTree/SerializeDeserializeTree.java)
