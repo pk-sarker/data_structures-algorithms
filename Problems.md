@@ -22,6 +22,7 @@
     - [Find word in grid](#find-word-in-grid)
     - [Check if a given string is Palindrome](#check-if-a-given-string-is-palindrome)
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
+    - [Binary Tree Right Side View](#binary-tree-right-side-view)
     - [Least Recently Used cache](#least-recently-used-cache)
     - [Find if linked list has cycle](#find-if-linked-list-has-cycle)
     - [Validate Parentheses in a expression](#validate-parentheses-in-a-expression)
@@ -35,6 +36,7 @@
     - [Find if one can attend all the meetings](#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](#find-minimum-meeting-room-required)
     - [Kth Largest Element in an Array](#kth-largest-element-in-an-array)
+    - [Merge two sorted linked lists](#merge-two-sorted-linked-lists)
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -880,6 +882,36 @@ Given a string, find the longest palindromic substring in the string.
 ### Boundary of Binary Tree
 Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
 
+**Solution**
+We can divide the problem to 3 smaller problems, 1) find left boundary of the tree. 2) Find leaves of the tree 3) find
+right boundary of the tree. 
+
+**Time Complexity** *O(n)*\
+**Space Complexity** *O(n)*
+[Implementation](./java/src/com/ds/practice/TreeBoundary/BoundaryOfBinaryTree.java)
+
+###  Binary Tree Right Side View
+Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+**Solution**
+We can use either BFS or DFS to solve this problem.
+There will be only one node in right boundary visible at each level. If we are using BFS the we go level by level and add right most node to the result.
+
+ 
+
+**Time Complexity** *O(n)*\
+**Space Complexity** *O(D)*, *D* is the diameter of the tree. 
+[Implementation - BFS + Queue](./java/src/com/ds/practice/BTreeRightView/BTreeRightSide.java)
+
+Using DFS:
+The idea is the keep exploring right child as farther as possible, and update level.
+At each level we will add one node to the result list, if right child is available we explore right otherwise left.
+At each level we compare the result list size vs level value, 
+if the level value is same as the result list size(0-indexed) then we add the node in the result list.
+If the level value is less then that result list size, which means we are backtracking and one node (right or left) node has been already added.
+ 
+[Implementation - DFS](./java/src/com/ds/practice/BTreeRightView/BTreeRightSideDFS.java)
+
 
 ### Least Recently Used cache
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
@@ -1044,6 +1076,32 @@ Used sliding window with keeping track of maximum and minimum number in the list
 
 [Implementation](./java/src/com/ds/practice/SubarrayWithAbsoluteDiff/SubarrayWithAbsoluteDiff.java)
 
+### Find Top K Frequent Elements
+Given a non-empty array of integers and a number *k*, return the *k* most frequent elements.
+You may assume *k* is always valid, *1 ≤ k ≤* number of unique elements.
+
+**Solution 1**:\
+We can use hash map and heap to solve this problem.
+First count frequency of the number in the array and store in a hash map. 
+Then create a heap and start pushing the number in hashmap. We will maintain a fixed size heap, *k*.
+While pushing the the numbers in heap we need to check if the heap size is more that *k*, if so then 
+poll the top element from the heap. The complexity of this step is *O(n log k)*, *n* is number of items in the 
+list. Complexity to add element in *k* size heap  is *O(log k)*.
+Then we poll the elements from k size heap and store in a array and return. Complexity for this step is *O(k)*.
+
+**Time complexity**: *O(n log k)* where *k < n* and *O(1)* if *n = k*.  
+**Space complexity**: *O(n+k)*, *O(n)* for storing elements in hashmap, and *O(k)* for string elements 
+the heap.
+
+[Implementation](./java/src/com/ds/practice/TopKFrequentElements/TopKFrequentElements.java)
+
+**Solution 2**:
+We may use Quickselect to solve this problem. Lets transform the problem. Quickselect algorithm finds *k*-th smallest/largest element in a given
+array.
+
+[Implementation](./java/src/com/ds/practice/TopKFrequentElements/TopKFrequentElementsQuickselect.java)
+
+
 ### Get container with most water
 Given n non-negative integers *a_1, a_2, ..., a_n*, where each represents a point at coordinate *(i, a_i)*. 
 *n* vertical lines are drawn such that the two endpoints of the line *i* is at *(i, a_i)* and *(i, 0)*. Find 
@@ -1179,8 +1237,53 @@ it only works on one side. So the time complexity reduces to *O(n)*.
 [Implementation - Java](./java/src/com/ds/practice/KthLargestElement/KthLargestElementWithQuickSelect.java)
 
 
+### Merge two sorted linked lists
+Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
 
+Example:
+```
+Input: l1 = [1, 3, 6, 8], l2 = [2, 3, 7]
+Output: [1, 2, 3, 6, 7, 8]
+```
 
- 
+**Solution 1**:
+We can solve this problem recursively by using the following formula: 
+```
+if list1[0]<list2[0]:
+    list1[0]+merge(list1[1:],list2)
+else:
+    list2[0]+merge(list1,list2[1:])
+```
+**Time Complexity:**\
+*O( m + n)*, *m* and *n* are number of items in two lists
 
+**Space Complexity:**\
+*O(m + n)*. The first call to mergeTwoLists does not return until the ends of both *list1* and *list2* have been reached, so *n + m* stack frames consume *O(n + m)* space.
 
+[Implementation - Java](./java/src/com/ds/practice/MergeSortedLinkedList/MergeSortedList.java)
+
+**Solution 2:**
+We can solve this problem by using two pointers, one each at each linked list. 
+Loop over until reach end of any list. Consider *l1* be a pointer in one of the linked list and *l2* be a pointer of other linked list.
+Both of them are pointing at the head of linked lists. There will be two other pointers, *head*, *previous*. *head* will be initialized 
+with -1, then the next node will be the smallest. *previous* pointer will be the previous node of last smallest node.
+
+```
+Step 1: Initialize head and previous pointer, point to a node with value -1 
+Step 2: compare node at l1 and l2, find the lowest node. 
+        a) point previous.next to the lowest node
+        b) move pointer with lowest value to next. If l1 had the lowest element then move l1 
+            to next and point previous to l1 previous value, the last lowest value
+         
+Step 3: Repeat until any one of the linked list reaches to the end.
+        a) At the end of a linked list the node will be null.
+Step 4: Add remaining elements 
+        a) If l1 ended then point last lowest nodes next to l2.
+        b) If l2 ended then point last lowest nodes next to l1.
+```
+
+**Time Complexity:**\
+*O( m + n)*, *m* and *n* are number of items in two lists
+
+**Space Complexity:**\
+*O(1)*
