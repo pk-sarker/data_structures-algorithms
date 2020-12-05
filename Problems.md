@@ -30,13 +30,15 @@
     - [Find first bad version](#find-first-bad-version)
     - [Find Max Consecutive Ones](#find-max-consecutive-ones)
     - [Find Max Consecutive Ones with K changes](#find-max-consecutive-ones-with-k-changes)
-    - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
-    - [Find Top K Frequent Elements](#top-k-frequent-elements)
+    - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
+    - [Find Top K Frequent Elements](#find-top-k-frequent-elements)
     - [Get container with most water](#get-container-with-most-water)
     - [Find if one can attend all the meetings](#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](#find-minimum-meeting-room-required)
     - [Kth Largest Element in an Array](#kth-largest-element-in-an-array)
     - [Merge two sorted linked lists](#merge-two-sorted-linked-lists)
+    - [Rotate List by K](#rotate-list-by-k)
+    
     
 ### Validate Binary Search Tree
 *Problem:*\
@@ -1287,3 +1289,37 @@ Step 4: Add remaining elements
 
 **Space Complexity:**\
 *O(1)*
+
+### Rotate List by K
+Given a linked list, rotate the list to the right by *k* places, where *k* is non-negative.
+
+Solution:
+The value of *k* is the key in this problem, There could be three cases: *k=n*, *k>n* and *k<n* where *n* is the length of the list.
+For linked list we don't know *n*, we only have the head. We need to find the *tail* and number of elements in the list.
+Then we can form a ring by pointing *tail.next* to the *head*. Then find the new tail position:
+
+```
+New tails position(tailPos) = n - k % n - 1, n = total node count 
+```
+Then loop *tailPos* times over the list and move the *head* to next. Next node after *tailPos* will be new *head*.
+
+```
+Example 1:
+
+Input: 0->1->2->3->4->NULL, k = 2
+Output: 3->4->0->1->2->NULL
+Explanation:
+rotate 1 steps to the right: 4->0->1->2->3->NULL
+rotate 2 steps to the right: 3->4->0->1->2->NULL
+
+Example 2:
+
+Input: 0->1->2->NULL, k = 4
+Output: 2->0->1->NULL
+Explanation:
+rotate 1 steps to the right: 2->0->1->NULL
+rotate 2 steps to the right: 1->2->0->NULL
+rotate 3 steps to the right: 0->1->2->NULL
+rotate 4 steps to the right: 2->0->1->NULL
+```
+[Implementation - Java](./java/src/com/ds/practice/RotateLiinkedListByK/RotateLiinkedListByK.java)

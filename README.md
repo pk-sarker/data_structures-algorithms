@@ -73,12 +73,13 @@ Mostly used Data Structures and Algorithms
     - [Find max consecutive ones](./Problems.md#find-max-consecutive-ones)
     - [Find Max Consecutive Ones with K changes](./Problems.md#find-max-consecutive-ones-with-k-changes)
     - [Find Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit](./Problems.md#find-longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit)
-    - [Find Top K Frequent Elements](./Problems.md#top-k-frequent-elements)
+    - [Find Top K Frequent Elements](./Problems.md#find-top-k-frequent-elements)
     - [Get container with most water](./Problems.md#get-container-with-most-water)
     - [Find if one can attend all the meetings](./Problems.md#find-if-one-can-attend-all-the-meetings)
     - [Find minimum meeting room required](./Problems.md#find-minimum-meeting-room-required)
     - [Kth Largest Element in an Array](./Problems.md#kth-largest-element-in-an-array)
     - [Merge two sorted linked lists](./Problems.md#merge-two-sorted-linked-lists)
+    - [Rotate List by K](./Problems.md#rotate-list-by-k)
     
 
 ### References
