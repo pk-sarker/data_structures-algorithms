@@ -1,5 +1,7 @@
 package com.ds.practice.BTreeRightView;
 
+import com.ds.practice.common.TreeNode;
+
 import java.util.List;
 import java.util.ArrayList;
 

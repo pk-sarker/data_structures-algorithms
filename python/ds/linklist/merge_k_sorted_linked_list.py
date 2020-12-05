@@ -10,7 +10,7 @@ class LinkedList:
 
         while any(list is not None for list in lists):
             current_min, i = min((list.data, i)
-                                 for i, list in enumerate(lists) if list is not None)
+            for i, list in enumerate(lists) if list is not None)
             lists[i] = lists[i].next
             current.next = Node(current_min)
             current = current.next
@@ -28,8 +28,8 @@ class LinkedList:
         print(ll)
 
 ll1 = Node(1, Node(2, Node(4, Node(5))))
-ll2 = Node(0, Node(1, Node(3)))
-ll3 = Node(1, Node(2, Node(3, Node(6, Node(8)))))
+ll2 = Node(2, Node(3, Node(3)))
+ll3 = Node(0, Node(2, Node(3, Node(6, Node(8)))))
 
 ll = LinkedList()
 print("List 1:")

@@ -63,7 +63,7 @@ Each node will be traversed once, so the time complexity is `O(n)`
 **Space Complexity**\
 `O(n)`
 
-[Implementation](./create_binary_tree.py)
+[Implementation](create_binary_tree.py)
 
 ### Construct a complete binary tree in level order
 **Problem**:
@@ -92,7 +92,7 @@ If parent is at index *i* then pick *2 x i + 1* as left child and *2 x i + 2* as
 **Space Complexity**\
 `O(n)`
 
-[Implementation](./create_binary_tree_in_level_order.py)
+[Implementation](create_binary_tree_in_level_order.py)
 
 ### Insert a node in a binary tree
 **Problem**:\
@@ -104,7 +104,7 @@ Given a binary tree and a key, insert the key into the binary tree at first posi
 
 **Space Complexity**\
 
-[Implementation](./insertion_in_binary_tree.py)
+[Implementation](insertion_in_binary_tree.py)
 
 ### Delete a node from binary tree
 **Problem**:\
@@ -116,7 +116,7 @@ Given a binary tree, delete a node from it by making sure that tree shrinks from
 
 **Space Complexity**\
 
-[Implementation](./delete_node_in_binary_tree.py)
+[Implementation](delete_node_in_binary_tree.py)
 
 ### Create a tree from in-order traversal and pre-order
 **Problem**:\
@@ -128,7 +128,7 @@ Given list of elements by traversing a tree in-order and pre-order, task is to c
 
 **Space Complexity**\
 
-[Implementation](./construct_tree_from_inorder_preorder_traversals.py)
+[Implementation](construct_tree_from_inorder_preorder_traversals.py)
 
 ### Create binary tree from linked list
 **Problem**:\
@@ -140,7 +140,7 @@ Construct a complete binary tree from a linked list
 
 **Space Complexity**\
 
-[Implementation](./create_complete_binary_tree_from_linked_list.py)
+[Implementation](create_complete_binary_tree_from_linked_list.py)
 
 ### Construct a binary tree from pre-order and post-order traversal
 **Problem**:\
@@ -190,7 +190,7 @@ Now in our recursion step, the left branch is represnted by `pre-order[1 : L+1]`
 **Space Complexity:** 
 `O(n^2)`
 
-[Implementation](./construct_full_binary_tree_from_post_pre_order.py)
+[Implementation](construct_full_binary_tree_from_post_pre_order.py)
 
 ### Find maximum depth of a Binary tree
 **Problem**:\
@@ -221,7 +221,7 @@ Here, we are traversing each node once, so the time complexity is `O(n)`, where 
 **Space Complexity:** 
 `O(1)`
 
-[Implementation](./depth_of_binary_tree.py)
+[Implementation](depth_of_binary_tree.py)
 
 ### Verify if a Binary tree is balanced
 **Problem**:\
@@ -273,7 +273,7 @@ As we are traversing each node exactly once the time complexity is `O(n)`.
 **Space Complexity:** 
 Constant space complexity, `O(1)`
 
-[Implementation](./balanced_binary_tree.py)
+[Implementation](balanced_binary_tree.py)
 
 # Reference
 * Wikipedia, https://en.wikipedia.org/wiki/Binary_tree

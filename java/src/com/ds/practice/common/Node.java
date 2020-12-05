@@ -1,4 +1,4 @@
-package com.ds.practice.MergeSortedList;
+package com.ds.practice.common;
 
 public class Node {
     public int value;

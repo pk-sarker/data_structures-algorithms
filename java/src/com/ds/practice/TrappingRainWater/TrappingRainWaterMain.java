@@ -28,5 +28,10 @@ public class TrappingRainWaterMain {
         System.out.println("Output: " +  trw.twoPointer(new int[]{0,1,2,3}));
         System.out.println("Input: [3,2,1,0,1,2,3]");
         System.out.println("Output: " +  trw.twoPointer(new int[]{3,2,1,0,1,2,3}));
+
+        String log1 = "let1 art can";
+        String[] split1 = log1.split(" ", 2);
+        System.out.println(split1[0]);
+        System.out.println(split1[1]);
     }
 }

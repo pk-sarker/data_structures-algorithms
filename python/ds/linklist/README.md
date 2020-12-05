@@ -22,7 +22,7 @@ First Node          2nd Node          3rd Node         4th Node
 | 5  |   o------->| 3  |   o------->|  1 |   o------->| 4  | null |
 +----+------+     +----+------+     +----+------+     +----+------+
 ```
-[Implementation](./single_linklist.py)
+[Implementation](single_linklist.py)
 
 ## Double Linked list
 ```
@@ -37,7 +37,7 @@ First Node          2nd Node          3rd Node         4th Node
        |               |     |              |    |              |
        +---------------+     +--------------+    +--------------+
 ```
-[Implementation](./doubly_linked_list.py)
+[Implementation](doubly_linked_list.py)
 
 ## Delete node in a Linked list
 Given a `key`, delete the first occurrence of this key in linked list.
@@ -47,7 +47,7 @@ To delete a node from linked list, we need to do following steps.
 2) Change the next of previous node.
 3) Free memory for the node to be deleted.
 
-[Implementation](./delete_node_in_linklist_by_key.py)
+[Implementation](delete_node_in_linklist_by_key.py)
 
 ## Middle of a linked list 
 Given a singly linked list, Find the middle node of the linked list.\
@@ -78,7 +78,7 @@ p2
             -> p1             p2
 7 -> 4 -> 6 -> 1 -> 3 -> 5 -> 2
 ```
-[Implementation](./middle_of_linked_list.py)
+[Implementation](middle_of_linked_list.py)
 
 ## Find loop in a singly link list
 Given a linked list of *n* nodes. The task is to check if the the linked list has a loop. Linked list can contain self loop.
@@ -106,7 +106,7 @@ This approach is a single pass, and the solution is linear. So time complexity w
 **Space Complexity:**
 There is no additional space is required, hence space complexity is constant.
  
-[Implementation](./find_loop_in_linked_list.py)
+[Implementation](find_loop_in_linked_list.py)
 
 ## Remove n-th node from end of linked list
 Given a linked list and an integer *N*, the task is to delete the *N-th* node from the end of the given linked list.
@@ -159,7 +159,7 @@ The approach is linear and single pass, so the time complexity is `O(n)`.
 **Space Complexity**
 Constant space complexity, `O(1)` as no additional space is required.
 
-[Implementation](./delete_nth_node_from_end.py)
+[Implementation](delete_nth_node_from_end.py)
 
 ## Remove loop from single link list if present
 You are given a linked list of *N* nodes. The task is to remove the loop from the linked list, if present.
@@ -274,7 +274,7 @@ MERGE_LINKED_LIST(L1, L2):
 **Space Complexity**\
 Space complexity is constant, `O(1)`
 
-[Implementation](./merge_two_sorted_linked_list.py)
+[Implementation](merge_two_sorted_linked_list.py)
 
 ## Merge K Sorted Linked Lists
 **Problem**:
@@ -298,7 +298,7 @@ Creating array will be `O(N)`, here *N* can be expressed as *N = k*n*, where *k*
 Then creating the linked list will be `O(N)`.
 So the time complexity will be `O(N log N) = O(n log n)`. And space complexity will be liner, `O(n)`.
 
-[Implementation](./merge_k_sorted_linked_list.py)
+[Implementation](merge_k_sorted_linked_list.py)
 
 **Solution 2**\
 We can use a Min-Heap to solve this problem. A Min-Heap is a complete binary tree in which the value in each internal node is smaller than or equal to the values in the children of that node.

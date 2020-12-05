@@ -34,6 +34,9 @@ public class CombinationSum {
     public static void main(String args[]) {
         CombinationSum cs = new CombinationSum();
         List<List<Integer>>  result = cs.combine(new int[]{1,6,3,2,7}, 5);
+
+        //List<List<Integer>>  result = cs.combine(new int[]{1,-1,6,3,2,-3,7}, 5);
+
         System.out.println("Input: [1,6,3,2,7,0] target=5");
         StringBuffer sb = new StringBuffer();
         sb.append("[");

@@ -1,4 +1,6 @@
 package com.ds.practice.CamerasOnBinaryTree;
+import com.ds.practice.common.TreeNode;
+
 import java.util.Set;
 import java.util.HashSet;
 
@@ -23,7 +25,7 @@ public class CamerasOnBinaryTree {
             DFSTraversal(node.right, node);
 
             if ((parent == null && !covered.contains(node)) || !covered.contains(node.left) || !covered.contains(node.right)){
-                System.out.println(">> "  + node.val);
+                System.out.println(">> "  + node.value);
                 count++;
                 covered.add(node);
                 covered.add(parent);

@@ -37,6 +37,6 @@ A priority queue can be implemented using common data structures like: Linkedlis
 
 ### Implementations using Linked list:
 Highest priority elements will be always at the head of the linked list.
-[Implementation](./priority_queue.py)
+[Implementation](priority_queue.py)
 
 
