@@ -80,6 +80,7 @@ Mostly used Data Structures and Algorithms
     - [Kth Largest Element in an Array](./Problems.md#kth-largest-element-in-an-array)
     - [Merge two sorted linked lists](./Problems.md#merge-two-sorted-linked-lists)
     - [Rotate List by K](./Problems.md#rotate-list-by-k)
+    - [Search in Rotated Sorted Array](./Problems.md#search-in-rotated-sorted-array)
     
 
 ### References

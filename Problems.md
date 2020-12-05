@@ -38,6 +38,7 @@
     - [Kth Largest Element in an Array](#kth-largest-element-in-an-array)
     - [Merge two sorted linked lists](#merge-two-sorted-linked-lists)
     - [Rotate List by K](#rotate-list-by-k)
+    - [Search in Rotated Sorted Array](#search-in-rotated-sorted-array)
     
     
 ### Validate Binary Search Tree
@@ -1323,3 +1324,54 @@ rotate 3 steps to the right: 0->1->2->NULL
 rotate 4 steps to the right: 2->0->1->NULL
 ```
 [Implementation - Java](./java/src/com/ds/practice/RotateLiinkedListByK/RotateLiinkedListByK.java)
+
+**Time Complexity:**\
+*O(n)*, *n* is the number of items in the list
+
+**Space Complexity:**\
+*O(1)*
+
+
+### Search in Rotated Sorted Array
+You are given an integer array nums sorted in ascending order, and an integer target.
+Suppose that nums is rotated at some pivot unknown to you beforehand (i.e., *[0,1,2,4,5,6,7]* might become *[4,5,6,7,0,1,2]*).
+* If target is found in the array return its index, otherwise, return *-1*.
+
+```
+Example 1:
+Input: nums = [7,8,0,1,2,4,6], target = 0
+Output: 2
+
+Example 2:
+Input: nums = [7,8,0,1,2,4,6], target = 5
+Output: -1
+
+Example 3:
+Input: nums = [0], target = 1
+Output: -1
+```
+
+**Solution**:
+First think about how a rotated and sorted array looks like. For simplicity lets consider list is sorted in ascending order. Then 
+if we compare any two consecutive position(i,j) it could be one of these:
+* `ar[i] = ar[j]` - both numbers are same: *(i,j)=(2,3); ar=[5,7,1,1,3,4]*
+* `ar[i] < ar[j]` - incrementing *(i,j)=(2,3); ar=[5,7,1,2,3,4]*
+* `ar[i] > ar[j]` - at pivot, where the list started or ended. *(i,j)=(1,2); ar=[5,7,1,1,3,4]*
+
+We can use binary search to find the elements, the complexity will be *O(log n)*. 
+Initialize *start=0* and *end=n-1* then find the middle element, \
+*mid = start + (end - start)/2*
+
+We will compare *ar[mid]*:
+* if *ar[mid]==target*: return *mid*
+* if *ar[start] < ar[mid]*: Elements from *start* to *mid* is non-rotating.
+  - if *target < ar[mid] and target > ar[start]* then set *end = mid - 1* else set *start = mid + 1*
+* Otherwise(ar[start] > ar[mid]): Elements from *start* to *mid* is rotating and elements from *mid* to *end* is non-rotating.
+  - if *target > ar[mid] and target < ar[end]* then set *start = mid + 1* else *end = mid - 1*
+
+**Time Complexity:**\
+*O(log n)*
+
+**Space Complexity:**\
+*O(1)*
+[Implementation - Java](./java/src/com/ds/practice/SearchInRotatedArray/SearchInRotatedArray.java)
