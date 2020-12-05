@@ -81,6 +81,7 @@ Mostly used Data Structures and Algorithms
     - [Merge two sorted linked lists](./Problems.md#merge-two-sorted-linked-lists)
     - [Rotate List by K](./Problems.md#rotate-list-by-k)
     - [Search in Rotated Sorted Array](./Problems.md#search-in-rotated-sorted-array)
+    - [Serialize and Deserialize Binary Tree](./Problems.md#serialize-and-deserialize-binary-tree)
     
 
 ### References

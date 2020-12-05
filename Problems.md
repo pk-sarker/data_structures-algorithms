@@ -39,6 +39,7 @@
     - [Merge two sorted linked lists](#merge-two-sorted-linked-lists)
     - [Rotate List by K](#rotate-list-by-k)
     - [Search in Rotated Sorted Array](#search-in-rotated-sorted-array)
+    - [Serialize and Deserialize Binary Tree](#serialize-and-deserialize-binary-tree)
     
     
 ### Validate Binary Search Tree
@@ -1375,3 +1376,37 @@ We will compare *ar[mid]*:
 **Space Complexity:**\
 *O(1)*
 [Implementation - Java](./java/src/com/ds/practice/SearchInRotatedArray/SearchInRotatedArray.java)
+
+
+### Serialize and Deserialize Binary Tree
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+
+```
+Example:
+Input: root = [1,2,3,null,null,4,5]
+Output: [1,2,3,null,null,4,5]
+
+Input: root = []
+Output: []
+
+Input: root = [1]
+Output: [1]
+
+Input: root = [1,2]
+Output: [1,2]
+```
+
+**Solution**:
+We can use DFS to serialize the tree.
+
+**Time Complexity:**\
+*O(n)*
+
+**Space Complexity:**\
+*O(n)*
+
+[Implementation - Java](./java/src/com/ds/practice/SerializeDeserializeTree/SerializeDeserializeTree.java)
