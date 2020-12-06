@@ -43,6 +43,10 @@
     - [Boundary of Binary Tree](#boundary-of-binary-tree)
     - [Count Islands](#count-islands)
     - [Cameras in Binary Tree](#cameras-in-binary-tree)
+    - [Count Univalue Subtrees](#count-univalue-subtrees)
+    - [Sum of 3 number](#sum-of-3-number)
+    - [Insert Delete GetRandom in constant time](#insert-delete-getrandom-in-constant-time)
+    - [Design In-Memory File System](#design-in-memory-file-system)
     
     
 ### Validate Binary Search Tree
@@ -1575,3 +1579,116 @@ We can use DFS and recrsively check the above conditions.
 [Implementation - Java](./java/src/com/ds/practice/CamerasOnBinaryTree/CamerasOnBinaryTree.java)
 
 
+### Count Univalue Subtrees
+Given the root of a binary tree, return the number of uni-value subtrees.
+A uni-value subtree means all nodes of the subtree have the same value.
+
+**Solution**
+Basically the problem is about finding uni-value subtree and count them. Here are the conditions for uni-value subtree
+* If node has no children, leaf node
+* All the nodes children are uni-value sub-tree and all the child nodes have the same value as the current node.
+
+We may use DFS for searching and verify if a subtree is uni-value or not.
+
+**Time Complexity:**\
+*O(n)*, *n* is number of nodes in tree.
+
+**Space Complexity:**\
+*O(h)*, *h* is the height of the tree.
+
+[Implementation - Java](./java/src/com/ds/practice/CountUnivalueSubtrees/CountUnivalueSubtrees.java)
+
+### Sum of 3 number
+Given an array nums of n integers, are there elements *a*, *b*, *c* in nums such that *a + b + c = 0*? Find all unique triplets in the array which gives the sum of zero.
+
+Notice that the solution set must not contain duplicate triplets.
+
+**Example**
+```
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+
+Input: nums = []
+Output: []
+
+Input: nums = [0]
+Output: []
+```
+
+**Solution**:
+This problem is similar to [sum  of two](./Problems.md#find-if-sum-of-two-exits-in-a-list).
+In the *sum of two* problem the target number was given and static. We can use the approach used in *sum of two* with modification,
+the target will change.
+
+We will have a loop that will iterate over the list/array. This will provide the target number.
+Then we will used the approach used in *sum of two*.
+
+**Time Complexity:**\
+*O(n^2)*, *n* is number of elements in the list. 
+
+**Space Complexity:**\
+*O(n)*, for hash set.
+
+[Implementation - Java](./java/src/com/ds/practice/SumOfThree/SumOfThree.java)
+
+
+### Insert Delete GetRandom in constant time
+Implement the RandomizedSet class:
+
+* `bool insert(int val)` Inserts an item *val* into the set if not present. Returns *true* if the item was not present, *false* otherwise.
+* `bool remove(int val)` Removes an item *val* from the set if present. Returns *true* if the item was present, *false* otherwise.
+* `int getRandom()` Returns a random element from the current set of elements (it's guaranteed that at least one element exists when this method is called). Each element must have the same probability of being returned.
+Follow up: Could you implement the functions of the class with each function works in average O(1) time?
+
+Example:
+
+```
+Input
+["RandomizedSet", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"]
+[[], [1], [2], [2], [], [1], [2], []]
+Output
+[null, true, false, true, 2, true, false, 2]
+
+Explanation
+RandomizedSet randomizedSet = new RandomizedSet();
+randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+randomizedSet.remove(2); // Returns false as 2 does not exist in the set.
+randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].
+randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
+randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
+randomizedSet.insert(2); // 2 was already in the set, so return false.
+randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
+```
+**Solution**
+For *insert*:  we can use hashing or array which will give us constant read and write, *O(1)*. Hash map key will be the 
+index of array where the number is going to be added, and value is the number.
+
+for *getRandom*: we can use any random number generator library, like *Random* class in Java. We sould 
+restrict random number generation between 0 and the hash size(available numbers). 
+
+For *remove*: if the number exists in the hash map then get the index and replace the value in the array with last number.
+
+[Implementation - Java](./java/src/com/design/RandomizedSet/RandomizedSet.java)
+
+
+### Design In-Memory File System
+Design an in-memory file system to simulate the following functions:
+
+* `ls`: Given a path in string format. If it is a file path, return a list that only contains this file's name. If it is a directory path, return the list of file and directory names in this directory. Your output (file and directory names together) should in lexicographic order.
+* `mkdir`: Given a directory path that does not exist, you should make a new directory according to the path. If the middle directories in the path don't exist either, you should create them as well. This function has void return type.
+* `addContentToFile`: Given a file path and file content in string format. If the file doesn't exist, you need to create that file containing given content. If the file already exists, you need to append given content to original content. This function has void return type.
+* `readContentFromFile`: Given a file path, return its content in string format.
+
+**Example**
+```
+Input:
+["FileSystem","ls","mkdir","addContentToFile","ls","readContentFromFile"]
+[[],["/"],["/a/b/c"],["/a/b/c/d","hello"],["/"],["/a/b/c/d"]]
+
+Output:
+[null,[],null,null,["a"],"hello"]
+```
+
+**Solution**
+
+[Implementation - Java](./java/src/com/design/InMemoryFileSystem/InMemoryFileSystem.java)

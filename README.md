@@ -84,6 +84,10 @@ Mostly used Data Structures and Algorithms
     - [Serialize and Deserialize Binary Tree](./Problems.md#serialize-and-deserialize-binary-tree)
     - [Count Islands](./Problems.md#count-islands)
     - [Cameras in Binary Tree](./Problems.md#cameras-in-binary-tree)
+    - [Count Univalue Subtrees](./Problems.md#count-univalue-subtrees)
+    - [Sum of 3 number](./Problems.md#sum-of-3-number)
+    - [Insert Delete GetRandom in constant time](./Problems.md#insert-delete-getrandom-in-constant-time)
+    - [Design In-Memory File System](./Problems.md#design-in-memory-file-system)
     
 
 ### References
