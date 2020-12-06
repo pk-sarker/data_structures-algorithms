@@ -88,6 +88,7 @@ Mostly used Data Structures and Algorithms
     - [Sum of 3 number](./Problems.md#sum-of-3-number)
     - [Insert Delete GetRandom in constant time](./Problems.md#insert-delete-getrandom-in-constant-time)
     - [Design In-Memory File System](./Problems.md#design-in-memory-file-system)
+    - [Add numbers represented in string](./Problems.md#add-numbers-represented-in-string)
     
 
 ### References
