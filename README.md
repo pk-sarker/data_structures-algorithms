@@ -89,6 +89,7 @@ Mostly used Data Structures and Algorithms
     - [Insert Delete GetRandom in constant time](./Problems.md#insert-delete-getrandom-in-constant-time)
     - [Design In-Memory File System](./Problems.md#design-in-memory-file-system)
     - [Add numbers represented in string](./Problems.md#add-numbers-represented-in-string)
+    - [Verify alien word ordering](./Problems.md#verify-alien-word-ordering)
     
 
 ### References
