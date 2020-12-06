@@ -82,6 +82,8 @@ Mostly used Data Structures and Algorithms
     - [Rotate List by K](./Problems.md#rotate-list-by-k)
     - [Search in Rotated Sorted Array](./Problems.md#search-in-rotated-sorted-array)
     - [Serialize and Deserialize Binary Tree](./Problems.md#serialize-and-deserialize-binary-tree)
+    - [Count Islands](./Problems.md#count-islands)
+    - [Cameras in Binary Tree](./Problems.md#cameras-in-binary-tree)
     
 
 ### References

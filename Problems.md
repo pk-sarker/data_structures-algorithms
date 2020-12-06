@@ -40,6 +40,9 @@
     - [Rotate List by K](#rotate-list-by-k)
     - [Search in Rotated Sorted Array](#search-in-rotated-sorted-array)
     - [Serialize and Deserialize Binary Tree](#serialize-and-deserialize-binary-tree)
+    - [Boundary of Binary Tree](#boundary-of-binary-tree)
+    - [Count Islands](#count-islands)
+    - [Cameras in Binary Tree](#cameras-in-binary-tree)
     
     
 ### Validate Binary Search Tree
@@ -882,30 +885,131 @@ Given a string, find the longest palindromic substring in the string.
 **Dynamic Programming:** Time complexity is *O(n^2)*, Space complexity is *O(n^2)*.
 [Implementation](./java/src/com/ds/practice/LongestPalindrome/LongestPalindromeDP.java)
 
-
 ### Boundary of Binary Tree
 Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.  (The values of the nodes may still be duplicates.)
 
-**Solution**
-We can divide the problem to 3 smaller problems, 1) find left boundary of the tree. 2) Find leaves of the tree 3) find
-right boundary of the tree. 
+Left boundary is defined as the path from root to the left-most node. Right boundary is defined as the path from root to the right-most node. If the root doesn't have left subtree or right subtree, then the root itself is left boundary or right boundary. Note this definition only applies to the input binary tree, and not applies to any subtrees.
 
-**Time Complexity** *O(n)*\
-**Space Complexity** *O(n)*
-[Implementation](./java/src/com/ds/practice/TreeBoundary/BoundaryOfBinaryTree.java)
+The left-most node is defined as a leaf node you could reach when you always firstly travel to the left subtree if exists. If not, travel to the right subtree. Repeat until you reach a leaf node.
+
+The right-most node is also defined by the same way with left and right exchanged.
+
+**Example 1**
+```
+Input:
+  2
+   \
+    5
+   / \
+  6   7
+
+Ouput:
+[2, 5, 6, 7]
+
+Explanation:
+The root doesn't have left subtree, so the root itself is left boundary.
+The leaves are node 3 and 4.
+The right boundary are node 1,2,4. Note the anti-clockwise direction means you should output reversed right boundary.
+So order them in anti-clockwise without duplicates and we have [1,3,4,2].
+```
+
+**Example 2**
+```
+
+
+Input:
+    ____1_____
+   /          \
+  2            3
+ / \          /
+4   5        6
+   / \      / \
+  7   8    9  10
+
+Ouput:
+[1,2,4,7,8,9,10,6,3]
+
+Explanation:
+The left boundary are node 1,2,4. (4 is the left-most node according to definition)
+The leaves are node 4,7,8,9,10.
+The right boundary are node 1,3,6,10. (10 is the right-most node).
+So order them in anti-clockwise without duplicate nodes we have [1,2,4,7,8,9,10,6,3].
+```
+
+**Solution**:
+So we can divide the boundary in to left boundary, leaf nodes and right boundary.
+
+*Left boundary* consists of nodes which are left outer most in the left sub-tree. If left sub-tree is null 
+then it will consider left outer most node in the right sub-tree.
+
+*Leaf* nodes consist of nodes which doesn't have left and right child. 
+ 
+*Right boundary* consists of the nodes which are right outer most in the right sub-tree and if right sub-tree is null
+then it will consider the right outer most node in the left sub-tree.
+
+```
+Step 1: If root node is not null add the node to result.
+Step 2: Find left boundary
+        a) Start traversing the left subtree of the root
+        b) Add curreent node to result if current node is not leaf node 
+        c) Set current node to left subtree of current node
+        d) If left subtree is null then set current node to right subtree of current node
+Step 3: Find leaves
+        a) Starting from the root node do a depth first search(in-order, pre-order). 
+           Need to make sure add left leaf node before right leaf node at same level
+        b) Add current node to result if current node doesn't have a left and right child.
+Step 4: Find right boundery. Keep pushing the right boundaries in the stack
+        a) Start traversing the right subtree of the root
+        b) Add curreent node to stack if current node is not leaf node 
+        c) Set current node to right subtree of current node
+        d) If right subtree is null then set current node to left subtree of current node
+Step 5: Pop the right boundary nodes from the stack and add them to result.
+```
+
+**Time Complexity:**\
+*O(n)*, One complete tree traversal for finding the leaves, two traversal up to the depth of
+tree to find left and right boundaries. 
+
+**Space Complexity:**\
+*O(n)*, Used stack for right boundary.
+
+[Implementation - Java](./java/src/com/ds/practice/TreeBoundary/BoundaryOfBinaryTree.java)
 
 ###  Binary Tree Right Side View
-Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+Given a binary tree, looking from the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+**Example 1**
+```
+Input: [1,2,3,null,5,null,4]
+Output: [1, 3, 4]
+Explanation:
+
+   1            <---
+ /   \
+2     3         <---
+ \     \
+  5     4       <---
+```
 
 **Solution**
-We can use either BFS or DFS to solve this problem.
-There will be only one node in right boundary visible at each level. If we are using BFS the we go level by level and add right most node to the result.
+Key observation for this problem is that we need to select one node for each level. Select the 
+right most node in outer boundary. If right subtree doesn't exists then traverse left subtree.
 
- 
+We can use both Breath first and Depth first search. BFS will be more appriopriate as it search 
+by level.
 
-**Time Complexity** *O(n)*\
-**Space Complexity** *O(D)*, *D* is the diameter of the tree. 
-[Implementation - BFS + Queue](./java/src/com/ds/practice/BTreeRightView/BTreeRightSide.java)
+At each level we need to get the right most node. The idea is for each level we 
+will push the nodes to a end of special queue(double ended queue). 
+Then iterate over the elements in the queue and poll from the front end of the queue.
+The last node in the queue will be the right most node.
+
+**Time Complexity:**\
+*O(n)*
+
+**Space Complexity:**\
+*O(D)*, *D* is tree diameter.
+
+[Implementation - BFS - Java](./java/src/com/ds/practice/BTreeRightView/BTreeRightSide.java)
 
 Using DFS:
 The idea is the keep exploring right child as farther as possible, and update level.
@@ -913,9 +1017,8 @@ At each level we will add one node to the result list, if right child is availab
 At each level we compare the result list size vs level value, 
 if the level value is same as the result list size(0-indexed) then we add the node in the result list.
 If the level value is less then that result list size, which means we are backtracking and one node (right or left) node has been already added.
- 
-[Implementation - DFS](./java/src/com/ds/practice/BTreeRightView/BTreeRightSideDFS.java)
 
+[Implementation - DFS - Java](./java/src/com/ds/practice/BTreeRightView/BTreeRightSideDFS.java)
 
 ### Least Recently Used cache
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
@@ -1383,8 +1486,6 @@ Serialization is the process of converting a data structure or object into a seq
 
 Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
 
-Clarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
-
 ```
 Example:
 Input: root = [1,2,3,null,null,4,5]
@@ -1410,3 +1511,67 @@ We can use DFS to serialize the tree.
 *O(n)*
 
 [Implementation - Java](./java/src/com/ds/practice/SerializeDeserializeTree/SerializeDeserializeTree.java)
+
+### Count Islands
+Given an *m x n* 2d grid map of `'1's` (land) and `'0's` (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+Example:
+```
+grid = [
+  ["0","1","0","1","0"],
+  ["1","1","0","1","0"],
+  ["0","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 2
+
+grid = [
+  ["1","1","0","1","0"],
+  ["1","0","0","1","1"],
+  ["0","1","0","0","1"],
+  ["0","0","1","1","0"]
+]
+Output: 4
+```
+**Solution**:
+Start from initial position(first row and first column) and start exploring if value at current position is `1` then  increment result cound and 
+explore as long as possible. From a position we can explore to the, left(*[i-1][j]*), right(*[i+1][j]*), top(*[i][j+1]*) and bottom(*[i][j-1]*) position.
+where *i* is row index  and *j* is column index. During exploration if we find `1` then we replace that with `0`.
+
+We can use DFS for exploring. It will keep exploring, the terminal case will be there is no `1` in left, right, top and bottom of current position.
+
+**Time Complexity:**\
+*O(m * n)*, *m* is number of rows and *n* is number of columns.
+
+**Space Complexity:**\
+*O(m * n)*, for recursion state for DFS.
+
+[Implementation - Java](./java/src/com/ds/practice/CountIslands/CountIslands.java)
+
+### Cameras in Binary Tree
+The problem is about installing cameras on the nodes of a binary tree. Each camera placed at a node can monitor
+*its parent*, *itself*, and *its immediate children*. The task is to calculate the minimum number of cameras required to monitor all nodes of the tree.
+
+**Solution**:
+This is a optimization problem. In the worse case situation without optimization we can install camera on each node.
+To optimize then number of cameras we need to place each camera in the nodes such that it can monitor maximum nodes.
+
+Here are the cases where we need on add a camera in current node:
+* if parent node is not null/not monitored
+* if left or right child is not monitored
+
+Discard if current node is already monitored.
+
+We can use DFS and recrsively check the above conditions.
+
+**Time Complexity:**\
+*O(n)*, *n* is number of nodes in tree.
+
+**Space Complexity:**\
+*O(h)*, *h* is the height of the tree.
+
+[Implementation - Java](./java/src/com/ds/practice/CamerasOnBinaryTree/CamerasOnBinaryTree.java)
+
+
