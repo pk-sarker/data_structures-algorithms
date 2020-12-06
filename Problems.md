@@ -48,6 +48,7 @@
     - [Insert Delete GetRandom in constant time](#insert-delete-getrandom-in-constant-time)
     - [Design In-Memory File System](#design-in-memory-file-system)
     - [Add numbers represented in string](#add-numbers-represented-in-string)
+    - [Verify alien word ordering](#verify-alien-word-ordering)
     
     
 ### Validate Binary Search Tree
@@ -1719,3 +1720,66 @@ store the result.
 *O(M)*, *M* is maximum lengths of the numbers + 1, This if for result string.
 
 [Implementation - Java](./java/src/com/ds/practice/AddTwoNumbersAsString/AddTwoNumbersAsString.java)
+
+### Verify alien word ordering
+Consider a alien language that uses the English alphabet, lowercase letters only but in a different order. The order of the alphabet
+is some permutation and known.
+Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words 
+are sorted lexicographicaly in this alien language.\
+Constraints:
+* 1 <= words[i].length <= 20
+* order.length == 26
+* All characters in words[i] and order are English lowercase letters.
+
+Example:
+```
+Example 1:
+
+Input: words = ["hello","ago"], order = "hlabcdefgijkmnopqrstuvwzxy"
+Output: true
+Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
+
+Example 2:
+Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvzxy"
+Output: false
+Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
+Example 3:
+
+Input: words = ["guest","good", "goo"], order = "abcdfghijkulmneopqrstvwzxy"
+Output: false
+Explanation: "guest" is okay. The first three characters "goo" match, and the second string is shorter (in size.) According to lexicographical rules "good" > "goo", because 'd' > '∅', where '∅' is defined as the blank character which is less than any other character (More info).
+```
+**Solution**
+If word sequence is sorted lexicographically then adjacent words are also sorted lexicographically. This is because order is transitive: a <= b and b <= c implies a <= c.
+So we can check all adjacent words *w_i* and *w_j*, for all of them *w_i <= w_j*
+
+**Time Complexity:**\
+*O(L)*, *L* is total number of letters in all words.
+
+**Space Complexity:**\
+*O(1)*
+
+[Implementation - Java](./java/src/com/ds/practice/AlienDictionary/AlienDictionary.java)
+
+### Alien Dictionary
+Consider a alien language that uses the English alphabet. However, the order among letters are unknown.\
+Given a list of strings *words* from the dictionary, where words are sorted lexicographically by the rules of this new language.
+
+Derive the order of letters in this language, and return it. If the given input is invalid, return "". If there are multiple valid solutions, return any of them.
+
+Example
+```
+Example 1:
+Input: words = ["wrt","wrf","er","ett","rftt"]
+Output: "wertf"
+
+Example 2:
+Input: words = ["z","x"]
+Output: "zx"
+
+Example 3:
+Input: words = ["z","x","z"]
+Output: ""
+
+Explanation: The order is invalid, so return "".
+```
