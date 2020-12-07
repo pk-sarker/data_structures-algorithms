@@ -90,6 +90,8 @@ Mostly used Data Structures and Algorithms
     - [Design In-Memory File System](./Problems.md#design-in-memory-file-system)
     - [Add numbers represented in string](./Problems.md#add-numbers-represented-in-string)
     - [Verify alien word ordering](./Problems.md#verify-alien-word-ordering)
+    - [Binary search tree iterator](./Problems.md#binary-search-tree-iterator)
+    - [Binary search tree validation](./Problems.md#binary-search-tree-validation)
     
 
 ### References
