@@ -49,6 +49,7 @@
     - [Design In-Memory File System](#design-in-memory-file-system)
     - [Add numbers represented in string](#add-numbers-represented-in-string)
     - [Verify alien word ordering](#verify-alien-word-ordering)
+    - [Binary search tree iterator](#binary-search-tree-iterator)
     
     
 ### Validate Binary Search Tree
@@ -1783,3 +1784,44 @@ Output: ""
 
 Explanation: The order is invalid, so return "".
 ```
+
+### Binary search tree iterator
+Implement a iterator that traverse a binary search tree in-order. The iterator  class should have the following:
+
+* Constructor will accept the root of the tree
+* Should contain a method `boolean hasNext()` that returns *true* if there exists a number in the traversal to the right of the pointer, otherwise returns *false*
+* Should contain a method `int next()` that moves the pointer to the right, then returns the number at the pointer.
+
+Notice that by initializing the pointer to a non-existent smallest number, the first call to *next()* will return the smallest element in the BST.\
+You may assume that *next()* calls will always be valid. That is, there will be at least a next number in the in-order traversal when *next()* is called.
+
+Example:
+```
+        5
+       / \
+      4   6
+         / \
+        7   8
+next() => 4
+next() => 5
+hasNext() => True
+next() => 7
+next() => 6
+hasNext() => True
+next() => 8
+hasNext() => False
+```
+**Solution**
+One of the solution is to flatten the tree. On initialization do depth first search - in-order and add the visited nodes in a 
+list. Keep a pointer to point iterator position in the flat list. When `next()` is called then increment the pointer and return the node value 
+at pointer-th position of the flat list.
+
+
+**Time Complexity:**\
+*O(1)* for next and hasNext method
+
+**Space Complexity:**\
+*O(n)* for the flat list
+
+[Implementation - Java](./java/src/com/ds/practice/BinarySearchTreeIterator/BinarySearchTreeIterator.java)
+
