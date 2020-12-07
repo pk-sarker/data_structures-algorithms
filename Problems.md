@@ -50,6 +50,7 @@
     - [Add numbers represented in string](#add-numbers-represented-in-string)
     - [Verify alien word ordering](#verify-alien-word-ordering)
     - [Binary search tree iterator](#binary-search-tree-iterator)
+    - [Binary search tree validation](#binary-search-tree-validation)
     
     
 ### Validate Binary Search Tree
@@ -1825,3 +1826,29 @@ at pointer-th position of the flat list.
 
 [Implementation - Java](./java/src/com/ds/practice/BinarySearchTreeIterator/BinarySearchTreeIterator.java)
 
+### Binary search tree validation
+Given a binary tree, task is to determine if it is a valid binary search tree (BST).
+
+A valid BST is defined as follows:
+* The left subtree of a node contains only nodes with keys less than the node's key.
+* The right subtree of a node contains only nodes with keys greater than the node's key.
+* Both the left and right subtrees must also be binary search trees.
+
+Example:
+```
+        2
+       / \
+      1   3
+Input: root = [2,1,3]
+Output: true
+
+        5
+       / \
+      1   4
+         / \
+        3   6 
+Input: root = [5,1,4,null,null,3,6]
+Output: false
+```
+
+[Implementation - Java](./java/src/com/ds/practice/BinarySearchTreeValidate/BinarySearchTree.java)

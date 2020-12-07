@@ -91,6 +91,7 @@ Mostly used Data Structures and Algorithms
     - [Add numbers represented in string](./Problems.md#add-numbers-represented-in-string)
     - [Verify alien word ordering](./Problems.md#verify-alien-word-ordering)
     - [Binary search tree iterator](./Problems.md#binary-search-tree-iterator)
+    - [Binary search tree validation](./Problems.md#binary-search-tree-validation)
     
 
 ### References
