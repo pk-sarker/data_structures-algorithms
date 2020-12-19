@@ -92,6 +92,7 @@ Mostly used Data Structures and Algorithms
     - [Verify alien word ordering](./Problems.md#verify-alien-word-ordering)
     - [Binary search tree iterator](./Problems.md#binary-search-tree-iterator)
     - [Binary search tree validation](./Problems.md#binary-search-tree-validation)
+    - [Find first non-repeating character in a string](./Problems.md#find-first-non-repeating-character-in-a-string)
     
 
 ### References
