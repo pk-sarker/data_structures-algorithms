@@ -52,6 +52,7 @@
     - [Binary search tree iterator](#binary-search-tree-iterator)
     - [Binary search tree validation](#binary-search-tree-validation)
     - [Find first non-repeating character in a string](#find-first-non-repeating-character-in-a-string)
+    - [Compress a given string](#compress-a-given-string)
     
     
 ### Validate Binary Search Tree
@@ -1855,7 +1856,7 @@ Output: false
 [Implementation - Java](./java/src/com/ds/practice/BinarySearchTreeValidate/BinarySearchTree.java)
 
 
-# Find first non-repeating character in a string
+### Find first non-repeating character in a string
 
 Given a string that contains lower case letters only. Find first non-repeating character in the 
 string and return its index; otherwise return -1
@@ -1883,3 +1884,26 @@ character.
 *O(n)* for the hash map
 
 [Implementation - Java](./java/src/com/ds/practice/NonRepeatingChar/NonRepeatingChar.java)
+
+
+### Compress a given string
+Given a character array, compress the character array based on following rule:
+- For each group of consecutive repeating characters: 
+* if group length is 1, that means no repeated consecutive characters, add the character in the string
+* if group length is more than 1, means there are repeated consecutive characters, add the character followed by the group's length.
+and return the length of compressed string.
+
+Example:
+```
+Input: ['a','a','b','b','b','c','d','d','e']
+Output: 8 // compressed string "a2b3cd2ee"
+
+Input: ['g','o','o','d']
+Output: 4 // compressed string "go2d"
+
+Input: ['p','i','j','u','s']
+Output: 5 // compressed string "pijus"
+```
+
+
+[Implementation - Java](./java/src/com/ds/practice/StringCompression/StringCompression.java)
