@@ -51,6 +51,7 @@
     - [Verify alien word ordering](#verify-alien-word-ordering)
     - [Binary search tree iterator](#binary-search-tree-iterator)
     - [Binary search tree validation](#binary-search-tree-validation)
+    - [Find first non-repeating character in a string](#find-first-non-repeating-character-in-a-string)
     
     
 ### Validate Binary Search Tree
@@ -1852,3 +1853,33 @@ Output: false
 ```
 
 [Implementation - Java](./java/src/com/ds/practice/BinarySearchTreeValidate/BinarySearchTree.java)
+
+
+# Find first non-repeating character in a string
+
+Given a string that contains lower case letters only. Find first non-repeating character in the 
+string and return its index; otherwise return -1
+
+Example:
+```
+Input: 'preparation'
+Output: 2
+
+Input: 'knowledge'
+Output: 0
+```
+
+**Solution**:
+We can count occurrence of each character in the string to find non-repeating characters. We may use hash map to store the occurrence of each 
+character. We have to read each character in the string, which will be  *O(n)*. Then again read the string from the beginning and check 
+number of occurrence in the hash map. The first character which has occurrence count 1 in the hash map will be the first non-repeating 
+character.
+
+
+**Time Complexity:**\
+*O(n) + O(n) = O(n)*
+
+**Space Complexity:**\
+*O(n)* for the hash map
+
+[Implementation - Java](./java/src/com/ds/practice/NonRepeatingChar/NonRepeatingChar.java)
