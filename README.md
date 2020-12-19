@@ -93,6 +93,7 @@ Mostly used Data Structures and Algorithms
     - [Binary search tree iterator](./Problems.md#binary-search-tree-iterator)
     - [Binary search tree validation](./Problems.md#binary-search-tree-validation)
     - [Find first non-repeating character in a string](./Problems.md#find-first-non-repeating-character-in-a-string)
+    - [Compress a given string](./Problems.md#compress-a-given-string)
     
 
 ### References
