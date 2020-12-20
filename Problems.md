@@ -53,6 +53,7 @@
     - [Binary search tree validation](#binary-search-tree-validation)
     - [Find first non-repeating character in a string](#find-first-non-repeating-character-in-a-string)
     - [Compress a given string](#compress-a-given-string)
+    - [Format phone number](#format-phone-number)
     
     
 ### Validate Binary Search Tree
@@ -1907,3 +1908,38 @@ Output: 5 // compressed string "pijus"
 
 
 [Implementation - Java](./java/src/com/ds/practice/StringCompression/StringCompression.java)
+
+
+### Format phone number
+Given a phone number represented as string. Number consists of digits, spaces `' '`, and/or dashes `'-'`.
+
+You would like to reformat the phone number in a certain manner. Firstly, remove all spaces and dashes. Then, group the digits from left to right into blocks of length 3 until there are 4 or fewer digits. 
+The final digits are then grouped as follows:
+
+* 2 digits: A single block of length 2.
+* 3 digits: A single block of length 3.
+* 4 digits: Two blocks of length 2 each.
+
+The blocks are then joined by dashes. Notice that the reformatting process should never produce any blocks of length 1 and produce at most two blocks of length 2.
+
+Return the phone number after formatting.
+
+Example:
+```
+Input: "1-2"
+Output: "12"
+
+Input: "12-3"
+Output: "123"
+
+Input: "123 4-5678"
+Output: "123-456-78"
+
+Input: "--17-5 229 35-39475" 
+Output: "175-229-353-94-75"
+```
+
+[Implementation - Java](./java/src/com/ds/practice/FormatPhoneNumber/FormatPhoneNumber.java)
+
+
+
