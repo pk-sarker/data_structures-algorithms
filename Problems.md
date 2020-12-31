@@ -55,6 +55,7 @@
     - [Compress a given string](#compress-a-given-string)
     - [Format phone number](#format-phone-number)
     - [Find diameter of binary tree](./Problems.md#find-diameter-of-binary-tree)
+    - [Group anagrams](#group-anagrams)
     
     
 ### Validate Binary Search Tree
@@ -1960,3 +1961,24 @@ or
 5 -> 1 -> 0 -> 6
 ```
 [Implementation - Java](./java/src/com/ds/practice/BinaryTreeDiameteer/BinaryTreeDiameter.java)
+
+### Group anagrams
+
+Given an array of strings, group the anagrams together. Return the answer in any order.
+
+Note:\
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+Example:
+```
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+Input: strs = [""]
+Output: [[""]]
+
+Input: strs = ["c"]
+Output: [["c"]]
+```
+
+[Implementation - Java](./java/src/com/ds/practice/GroupAnagrams/GroupAnagrams.java)

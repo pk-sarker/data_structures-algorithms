@@ -96,7 +96,7 @@ Mostly used Data Structures and Algorithms
     - [Compress a given string](./Problems.md#compress-a-given-string)
     - [Format phone number](./Problems.md#format-phone-number)
     - [Find diameter of binary tree](./Problems.md#find-diameter-of-binary-tree)
-    
+    - [Group anagrams](./Problems.md#group-anagrams)
     
 
 ### References
