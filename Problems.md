@@ -54,6 +54,7 @@
     - [Find first non-repeating character in a string](#find-first-non-repeating-character-in-a-string)
     - [Compress a given string](#compress-a-given-string)
     - [Format phone number](#format-phone-number)
+    - [Find diameter of binary tree](./Problems.md#find-diameter-of-binary-tree)
     
     
 ### Validate Binary Search Tree
@@ -1942,4 +1943,20 @@ Output: "175-229-353-94-75"
 [Implementation - Java](./java/src/com/ds/practice/FormatPhoneNumber/FormatPhoneNumber.java)
 
 
+### Find diameter of binary tree
+Given a binary tree, you need to compute the length of the diameter of the tree. 
+The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
 
+Example:
+```
+          0
+         / \
+        1   6
+       / \     
+      3   5 
+Length: 3
+3 -> 1 -> 0 -> 6
+or 
+5 -> 1 -> 0 -> 6
+```
+[Implementation - Java](./java/src/com/ds/practice/BinaryTreeDiameteer/BinaryTreeDiameter.java)
