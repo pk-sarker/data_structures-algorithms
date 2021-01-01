@@ -98,6 +98,7 @@ Mostly used Data Structures and Algorithms
     - [Find diameter of binary tree](./Problems.md#find-diameter-of-binary-tree)
     - [Group anagrams](./Problems.md#group-anagrams)
     - [Binary Tree Level Order Traversal](./Problems.md#binary-tree-level-order-traversal)
+    - [Best Time to Buy and Sell](./Problems.md#best-time-to-buy-and-sell)
     
 
 ### References

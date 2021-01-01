@@ -57,6 +57,7 @@
     - [Find diameter of binary tree](#find-diameter-of-binary-tree)
     - [Group anagrams](#group-anagrams)
     - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
+    - [Best Time to Buy and Sell](#best-time-to-buy-and-sell)
     
     
 ### Validate Binary Search Tree
@@ -2003,6 +2004,26 @@ Output: [ [3], [9,20], [15,7] ]
 ```
 
 [Implementation - Java](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
+
+### Best Time to Buy and Sell
+Given an array for which the *i-th* element is the price of a given stock on day *i*.
+
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), 
+design an algorithm to find the maximum profit.
+
+Note that you cannot sell a stock before you buy one.
+
+Example:
+```
+Input: [7,1,5,3,6,4]
+Output: 5
+
+Input: [7,6,4,3,1]
+Output: 0
+```
+
+[Implementation - Java](./java/src/com/ds/practice/BuyAndSell/BuyAndSell.java)
+
 
 
 
