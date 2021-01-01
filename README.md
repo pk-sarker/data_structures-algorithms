@@ -97,6 +97,7 @@ Mostly used Data Structures and Algorithms
     - [Format phone number](./Problems.md#format-phone-number)
     - [Find diameter of binary tree](./Problems.md#find-diameter-of-binary-tree)
     - [Group anagrams](./Problems.md#group-anagrams)
+    - [Binary Tree Level Order Traversal](./Problems.md#binary-tree-level-order-traversal)
     
 
 ### References

@@ -54,8 +54,9 @@
     - [Find first non-repeating character in a string](#find-first-non-repeating-character-in-a-string)
     - [Compress a given string](#compress-a-given-string)
     - [Format phone number](#format-phone-number)
-    - [Find diameter of binary tree](./Problems.md#find-diameter-of-binary-tree)
+    - [Find diameter of binary tree](#find-diameter-of-binary-tree)
     - [Group anagrams](#group-anagrams)
+    - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
     
     
 ### Validate Binary Search Tree
@@ -1982,3 +1983,27 @@ Output: [["c"]]
 ```
 
 [Implementation - Java](./java/src/com/ds/practice/GroupAnagrams/GroupAnagrams.java)
+
+### Binary Tree Level Order Traversal
+Given a binary tree, return the level order traversal of its nodes' values.
+ (ie, from left to right, level by level).
+
+Example: 
+```
+
+Input: [3,9,20,null,null,15,7]
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+Output: [ [3], [9,20], [15,7] ]
+```
+
+[Implementation - Java](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
+
+
+
+
