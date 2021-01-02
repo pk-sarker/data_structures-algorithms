@@ -62,6 +62,7 @@
     - [Combination Sum](#combination-sum)
     - [Combination Sum 2](#combination-sum-2)
     - [Combination Sum 3](#combination-sum-3)
+    - [Decode String](#decode-string)
     
     
 ### Validate Binary Search Tree
@@ -2175,5 +2176,39 @@ There are no other valid combinations.
 
 
 [Implementation - Java](./java/src/com/ds/practice/CombinationSum/CombinationSumThree.java)
+
+
+### Decode String
+Given an encoded string, task is to return its decoded string. The encoding rule is: `k[encoded_string]`, 
+where the `encoded_string` inside the square brackets is being repeated exactly `k` times. Note that `k` 
+is guaranteed to be a positive integer.\
+You may assume that the input string is always valid; No extra white spaces, square brackets are well-formed, etc.
+
+Example:
+```
+Input: s = "3[a]2[bc]d"
+Output: "aaabcbcd"
+
+Input: s = "3[a2[c]]"
+Output: "accaccacc"
+
+Input: s = "2[abc]3[cd]ef"
+Output: "abcabccdcdcdef"
+
+Input: s = "abc3[cd]xyz"
+Output: "abccdcdcdxyz"
+```
+
+**Solution**:
+Simple solution will be to use stack, keep pushing eveery character in the stack except `]`. So we will keep pushing to stack until we find a `]`.
+When we find `]` then we elaborate the substring. 
+For example: `3[a]2[bc]d`, First we push 3 in stack, then `[`, then `a` and then we find `]`. Now we will pop characters until we find the opening `[`.
+so the characters between  `[` and `]` needs to repeate. The number before `[`  is  `k` and we should  repeate *k* times.
+
+
+[Implementation - Java](./java/src/com/ds/practice/DecodeString/DecodeString.java)
+
+
+
 
 

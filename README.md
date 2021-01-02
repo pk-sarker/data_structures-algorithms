@@ -103,6 +103,7 @@ Mostly used Data Structures and Algorithms
     - [Combination Sum](./Problems.md#combination-sum)
     - [Combination Sum 2](./Problems.md#combination-sum-2)
     - [Combination Sum 3](./Problems.md#combination-sum-3)
+    - [Decode String](./Problems.md#decode-string)
     
 
 ### References
