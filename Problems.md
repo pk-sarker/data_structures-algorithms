@@ -2003,7 +2003,37 @@ Input: [3,9,20,null,null,15,7]
 Output: [ [3], [9,20], [15,7] ]
 ```
 
-[Implementation - Java](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
+**Solution**
+We may use DFS or BFS traversal to solve this problem. 
+We can use both recursion or iterative approach to solve this problem. 
+
+Let's solve with recursion and DFS. The idea is to go as deeper as possible, until left child node is not *null*, and then traverse
+right child. Add the nodes value to result array, also increase the level as we go deeper. At each new level we will add a new array to 
+result array. Initially result  array  will be empty or size is *0*, and the initial level will be
+*0* as well. Then we add a new array to result `[[]]` and add nodes value `[[value]]`. Then go to next level
+now size of result will be same as level, `len(result) == level => 1 == 1`.
+
+**Time Complexity:**\
+*O(n) = O(n)*; each node is traversed once only
+
+**Space Complexity:**\
+*O(n)* to store result nodes.
+
+[Implementation - Recursive - Java  - method: levelOrder](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
+
+**Solution: Iterative**:
+In iterative approach we will explore all the nodes in current level then increase the level and explore. 
+We will repeat this way until all the node get explored. 
+
+We will use a queue to keep the nodes of each tree level. The termination condition will be on the size of queue, we will 
+keep iterating until the queue is empty.
+
+**Time Complexity:**\
+*O(n) = O(n)*; each node is traversed once only
+
+**Space Complexity:**\
+*O(n)* to store result nodes.
+[Implementation - Iterative - Java - method: levelOrderItr](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
 
 ### Best Time to Buy and Sell
 Given an array for which the *i-th* element is the price of a given stock on day *i*.
