@@ -100,6 +100,9 @@ Mostly used Data Structures and Algorithms
     - [Binary Tree Level Order Traversal](./Problems.md#binary-tree-level-order-traversal)
     - [Best Time to Buy and Sell](./Problems.md#best-time-to-buy-and-sell)
     - [Binary Tree Zigzag Level Order Traversal](./Problems.md#binary-tree-zigzag-level-order-traversal)
+    - [Combination Sum](./Problems.md#combination-sum)
+    - [Combination Sum 2](./Problems.md#combination-sum-2)
+    - [Combination Sum 3](./Problems.md#combination-sum-3)
     
 
 ### References
