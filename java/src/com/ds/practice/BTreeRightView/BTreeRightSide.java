@@ -13,7 +13,7 @@ public class BTreeRightSide {
             return result;
         }
 
-        ArrayDeque<TreeNode> queue = new ArrayDeque<>(){{ offer(root); }};
+        ArrayDeque<TreeNode> queue = new ArrayDeque<TreeNode>(){{ offer(root); }};
 
         while(!queue.isEmpty()) {
             int levelSpan = queue.size();

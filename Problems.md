@@ -59,6 +59,9 @@
     - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
     - [Best Time to Buy and Sell](#best-time-to-buy-and-sell)
     - [Binary Tree Zigzag Level Order Traversal](#binary-tree-zigzag-level-order-traversal)
+    - [Combination Sum](#combination-sum)
+    - [Combination Sum 2](#combination-sum-2)
+    - [Combination Sum 3](#combination-sum-3)
     
     
 ### Validate Binary Search Tree
@@ -2101,7 +2104,76 @@ If current level order is from right to left then we add the nodes at the beginn
 
 **Space Complexity:**\
 *O(n)*
-[Implementation - Java](./java/src/com/ds/practice/BinaryTreeZigzagLevelOrder/BinaryTreeZigzagLevelOrder.java)
 
+[Implementation - Java](./java/src/com/ds/practice/BinaryTreeZigzagLevelOrder/BinaryTreeZigzagLevelOrder.java)
+    
+### Combination Sum
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations 
+of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if 
+the frequency of at least one of the chosen numbers is different.
+
+It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations 
+for the given input.
+
+Example:
+```
+Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
+
+Input: candidates = [2,3,5], target = 8
+Output: [[2,2,2,2],[2,3,3],[3,5]]
+
+Input: candidates = [2], target = 1
+Output: []
+```
+
+[Implementation - Java](./java/src/com/ds/practice/CombinationSum/CombinationSumOne.java)
+
+
+### Combination Sum 2
+Given a collection of candidate numbers (candidates) and a target number (target), find all unique
+combinations in candidates where the candidate numbers sum to target.
+
+Each number in candidates may only be used once in the combination.
+
+Example:
+```
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output: [[1,1,6], [1,2,5], [1,7], [2,6]]
+
+Input: candidates = [2,5,2,1,2], target = 5
+Output: [ [1,2,2], [5] ]
+```
+[Implementation - Java](./java/src/com/ds/practice/CombinationSum/CombinationSumTwo.java)
+
+
+### Combination Sum 3
+Find all valid combinations of k numbers that sum up to n such that the following conditions are true:\
+* Only numbers 1 through 9 are used.
+* Each number is used at most once.
+Return a list of all possible valid combinations. The list must not contain the same combination twice, 
+and the combinations may be returned in any order.
+
+Example:
+```
+Input: k = 3, n = 7
+Output: [[1,2,4]]
+Explanation:
+1 + 2 + 4 = 7
+There are no other valid combinations.
+
+Input: k = 3, n = 9
+Output: [[1,2,6],[1,3,5],[2,3,4]]
+Explanation:
+1 + 2 + 6 = 9
+1 + 3 + 5 = 9
+2 + 3 + 4 = 9
+There are no other valid combinations.
+```
+
+
+[Implementation - Java](./java/src/com/ds/practice/CombinationSum/CombinationSumThree.java)
 
 
