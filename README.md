@@ -99,6 +99,7 @@ Mostly used Data Structures and Algorithms
     - [Group anagrams](./Problems.md#group-anagrams)
     - [Binary Tree Level Order Traversal](./Problems.md#binary-tree-level-order-traversal)
     - [Best Time to Buy and Sell](./Problems.md#best-time-to-buy-and-sell)
+    - [Binary Tree Zigzag Level Order Traversal](./Problems.md#binary-tree-zigzag-level-order-traversal)
     
 
 ### References

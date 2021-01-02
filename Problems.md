@@ -58,6 +58,7 @@
     - [Group anagrams](#group-anagrams)
     - [Binary Tree Level Order Traversal](#binary-tree-level-order-traversal)
     - [Best Time to Buy and Sell](#best-time-to-buy-and-sell)
+    - [Binary Tree Zigzag Level Order Traversal](#binary-tree-zigzag-level-order-traversal)
     
     
 ### Validate Binary Search Tree
@@ -2003,7 +2004,37 @@ Input: [3,9,20,null,null,15,7]
 Output: [ [3], [9,20], [15,7] ]
 ```
 
-[Implementation - Java](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
+**Solution**
+We may use DFS or BFS traversal to solve this problem. 
+We can use both recursion or iterative approach to solve this problem. 
+
+Let's solve with recursion and DFS. The idea is to go as deeper as possible, until left child node is not *null*, and then traverse
+right child. Add the nodes value to result array, also increase the level as we go deeper. At each new level we will add a new array to 
+result array. Initially result  array  will be empty or size is *0*, and the initial level will be
+*0* as well. Then we add a new array to result `[[]]` and add nodes value `[[value]]`. Then go to next level
+now size of result will be same as level, `len(result) == level => 1 == 1`.
+
+**Time Complexity:**\
+*O(n) = O(n)*; each node is traversed once only
+
+**Space Complexity:**\
+*O(n)* to store result nodes.
+
+[Implementation - Recursive - Java  - method: levelOrder](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
+
+**Solution: Iterative**:
+In iterative approach we will explore all the nodes in current level then increase the level and explore. 
+We will repeat this way until all the node get explored. 
+
+We will use a queue to keep the nodes of each tree level. The termination condition will be on the size of queue, we will 
+keep iterating until the queue is empty.
+
+**Time Complexity:**\
+*O(n) = O(n)*; each node is traversed once only
+
+**Space Complexity:**\
+*O(n)* to store result nodes.
+[Implementation - Iterative - Java - method: levelOrderItr](./java/src/com/ds/practice/BinaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal.java)
 
 ### Best Time to Buy and Sell
 Given an array for which the *i-th* element is the price of a given stock on day *i*.
@@ -2024,7 +2055,53 @@ Output: 0
 
 [Implementation - Java](./java/src/com/ds/practice/BuyAndSell/BuyAndSell.java)
 
+### Binary Tree Zigzag Level Order Traversal
+Given a binary tree, return the zigzag level order traversal of its nodes' values.
+ (ie, from left to right, then right to left for the next level and alternate between).
 
+Example:
+```
+Input: [3,9,20,null,null,15,7]
+
+The tree is  
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+Output: 
+[
+  [3],
+  [20,9],   * right to left
+  [15,7]    * left  to  right
+]
+```
+
+**Solution**
+We can use BFS (Breadth-First Search) to travers the tree in level by level. But default order of BFS is from left to right, so we 
+need to add some logic to make the order dynamic which alters at each level. We will maintain a flag to store the ordering, and change the flag when
+nodes at current level has been explored. 
+
+We will use a linked list to store the nodes, and terminate when the linked list is empty. To have zigzag we need have some rules about how we
+add the nodes in the node linked list and how we order nodes at each level.
+
+How to identify end of current level, we can add a *null* at the end of the linked list. We see current node is null that means we have reached at the end
+of current level. We will keep the nodes at current level in another linked list and add those to actual result at the end of current level and reset.
+
+We iterate over the node linked list until its empty.
+
+If current level order is from left to right then we add the nodes at the end of linked list for current level.
+If current level order is from right to left then we add the nodes at the beginning of linked list for current level.
+ 
+
+
+**Time Complexity:**\
+*O(n) = O(n)*; each node is traversed once only
+
+**Space Complexity:**\
+*O(n)*
+[Implementation - Java](./java/src/com/ds/practice/BinaryTreeZigzagLevelOrder/BinaryTreeZigzagLevelOrder.java)
 
 
 
