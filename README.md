@@ -111,6 +111,8 @@ Mostly used Data Structures and Algorithms
     - [Happy Number](./Problems.md#happy-number)
     - [Intersection of two linked lists](./Problems.md#intersection-of-two-linked-lists)
     - [Find k closest points to origin](./Problems.md#find-k-closest-points-to-origin)
+    - [Merge two sorted lists](./Problems.md#merge-two-sorted-lists)
+    - [Merge k Sorted Lists](./Problems.md#merge-k-sorted-lists)
 
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*

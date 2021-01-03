@@ -70,6 +70,8 @@
     - [Happy Number](#happy-number)
     - [Intersection of two linked lists](#intersection-of-two-linked-lists)
     - [Find k closest points to origin](#find-k-closest-points-to-origin)
+    - [Merge two sorted lists](#merge-two-sorted-lists)
+    - [Merge k Sorted Lists](#merge-k-sorted-lists)
     
     
 ### Validate Binary Search Tree
@@ -2471,4 +2473,50 @@ We only want the closest K = 1 points from the origin, so the answer is just [[-
 ```
 
 [Implementation - Java](./java/src/com/ds/practice/KClosestPointsToOrigin/KClosestPointsToOrigin.java)
+
+
+### Merge two sorted lists
+Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
+
+Example:
+```
+Input: l1 = [1,2,4], l2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+
+Input: l1 = [], l2 = []
+Output: []
+
+Input: l1 = [], l2 = [0]
+Output: [0]
+```
+
+[Implementation - Java](./java/src/com/ds/practice/MergeSortedLinkedList/MergeSortedList.java)\
+[Implementation - Java (Iterative)](./java/src/com/ds/practice/MergeSortedLinkedList/MergeSortedListItr.java)
+
+### Merge k Sorted Lists
+Given an array of *k* linked-lists lists, each linked-list is sorted in ascending order.\
+Merge all the linked-lists into one sorted linked-list and return it.
+
+Example:
+```
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted list:
+1->1->2->3->4->4->5->6
+
+Input: lists = []
+Output: []
+
+Input: lists = [[]]
+Output: []
+```
+
+[Implementation - Java](./java/src/com/ds/practice/MergeKSortedLinkedList/MergeKSortedList.java)\
+[Implementation - Java (using heap)](./java/src/com/ds/practice/MergeKSortedLinkedList/MergeKSortedListUsingMinHeap.java)
 
