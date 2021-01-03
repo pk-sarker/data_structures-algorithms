@@ -113,6 +113,7 @@ Mostly used Data Structures and Algorithms
     - [Find k closest points to origin](./Problems.md#find-k-closest-points-to-origin)
     - [Merge two sorted lists](./Problems.md#merge-two-sorted-lists)
     - [Merge k Sorted Lists](./Problems.md#merge-k-sorted-lists)
+    - [Merge Sorted Array](./Problems.md#merge-sorted-array)
 
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*
