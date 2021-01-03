@@ -66,6 +66,8 @@
     - [Decode Ways](#decode-ways)
     - [Copy List with Random Pointer](#copy-list-with-random-pointer)
     - [Divide Array in Sets of K Consecutive Numbers](#divide-array-in-sets-of-k-consecutive-numbers)
+    - [Count connected component](#count-connected-component)
+    - [Happy Number](#happy-number)
     
     
 ### Validate Binary Search Tree
@@ -2316,5 +2318,79 @@ Output: false
 Explanation: Each array should be divided in subarrays of size 3.
 ```
 
-
 [Implementation - Java](./java/src/com/ds/practice/DivideKConsecutiveNumbers/DivideKConsecutiveNumbers.java)
+
+### Count connected component
+Lets say we have to count number of provinces, where each province will contain a number of cities.
+There are *n* cities. Some of them are connected, while some are not. If city *a* is connected directly with city *b*, and city *b* is 
+connected directly with city *c*, then city *a* is connected indirectly with city *c*.
+
+A province is a group of directly or indirectly connected cities and no other cities outside of the group.
+
+You are given an *n x n* matrix *isConnected* where *isConnected[i][j] = 1* if the *i*-th city and the *j*-th city are directly connected, 
+and *isConnected[i][j] = 0* otherwise.
+
+Return the total number of provinces.
+
+Example:
+```
+Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
+Output: 2
+
+Input: isConnected = [[1,0,0],[0,1,0],[0,0,1]]
+Output: 3
+```
+
+**Solution**
+We can represent the given connectivity matrix to adjacency list, then we can represent a graph where nodes will be cities. It will be a undirected graph
+where city *i* and *j* is directly connected if *isConnected[i][j]=1* and indirectly connected if there is a path between node *i* and node *j*.
+
+It will be good to use DFS to find cycles/connected components. We may use a array of visited node, everytime we visit a node *i*, set *visited[i]=1*.
+
+We need to run DFS from each node to find all the connected components. When DFS starting from any node completes we increment connected component count.
+
+
+**Time Complexity:**\
+*O(n^2)* each node is traversed max n-1 times as we were running DFS from each node.
+
+**Space Complexity:**\
+*O(n)*, for visited array
+
+[Implementation - Java](./java/src/com/ds/practice/NumberOfProvinces/NumberOfProvinces.java)
+
+### Happy Number
+Given a number *n*, determine if the number is happy.
+
+A happy number is a number defined by the following process:
+
+* Starting with any positive integer, replace the number by the sum of the squares of its digits.
+* Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+*  Those numbers for which this process ends in 1 are happy.\
+Return true if n is a happy number, and false if not.
+
+Example:
+```
+Input: n = 19
+Output: true
+Explanation:
+12 + 92 = 82
+82 + 22 = 68
+62 + 82 = 100
+12 + 02 + 02 = 1
+
+Input: n = 58
+Output: false
+Explanation:
+25 + 64 = 89
+64 + 81 = 145
+1 + 16 + 25 = 42
+16 + 4 = 20
+4 + 0 = 4
+16 = 16
+1 + 36 = 37
+9 + 49 = 58
+25 + 64 = 89
+```
+
+[Implementation - Java](./java/src/com/ds/practice/HappyNumber/HappyNumber.java)
+
