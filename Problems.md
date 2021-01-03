@@ -64,6 +64,7 @@
     - [Combination Sum 3](#combination-sum-3)
     - [Decode String](#decode-string)
     - [Decode Ways](#decode-ways)
+    - [Copy List with Random Pointer](#copy-list-with-random-pointer)
     
     
 ### Validate Binary Search Tree
@@ -2098,8 +2099,6 @@ We iterate over the node linked list until its empty.
 
 If current level order is from left to right then we add the nodes at the end of linked list for current level.
 If current level order is from right to left then we add the nodes at the beginning of linked list for current level.
- 
-
 
 **Time Complexity:**\
 *O(n) = O(n)*; each node is traversed once only
@@ -2247,5 +2246,47 @@ Output: 1
 
 [Implementation - Java](./java/src/com/ds/practice/DecodingWays/DecodingWays.java)
 
+### Copy List with Random Pointer
 
+Given a linked list, where each node has a value, a pointer to next node, and a random pointer which could point 
+to any node in the list or null.
 
+Return a deep copy of the list.
+
+The Linked List is represented in the input/output as a list of n nodes. Each node is represented as a pair of `[val, random_index]` where:
+* val: an integer representing Node.val
+* random_index: the index of the node (range from 0 to n-1) where random pointer points to, or null if it does not point to any node.
+
+Example:
+```
+Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
+
+Input: head = [[1,1],[2,1]]
+Output: [[1,1],[2,1]]
+
+Input: head = [[3,null],[3,0],[3,null]]
+Output: [[3,null],[3,0],[3,null]]
+
+Input: head = []
+Output: []
+Explanation: Given linked list is empty (null pointer), so return null.
+```
+
+**Solution**:
+Key point in this problem is that we should only traverse the linked list linearly by using next pointer only.
+Combination of random pointer and next pointer will create a loop.
+
+Another key point is random pointer always points to a node in the linked list, if we keep the nodes in hash table
+then we can reuse it easily, constant read time.
+
+There will be cases when a random pointer will point a future node which is not in the
+hash table, in this case we will create the node and keep in the hashtable. 
+
+**Time Complexity:**\
+*O(n) = O(n)*; each node is traversed once only
+
+**Space Complexity:**\
+*O(n)*, for hash table.
+
+[Implementation - Java](./java/src/com/ds/practice/CopyListWithRandomPointer/CopyListWithRandomPointer.java)

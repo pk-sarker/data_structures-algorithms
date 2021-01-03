@@ -105,6 +105,7 @@ Mostly used Data Structures and Algorithms
     - [Combination Sum 3](./Problems.md#combination-sum-3)
     - [Decode String](./Problems.md#decode-string)
     - [Decode Ways](./Problems.md#decode-ways)
+    - [Copy List with Random Pointer](./Problems.md#copy-list-with-random-pointer)
 
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*
