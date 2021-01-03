@@ -106,6 +106,7 @@ Mostly used Data Structures and Algorithms
     - [Decode String](./Problems.md#decode-string)
     - [Decode Ways](./Problems.md#decode-ways)
     - [Copy List with Random Pointer](./Problems.md#copy-list-with-random-pointer)
+    - [Divide Array in Sets of K Consecutive Numbers](./Problems.md#divide-array-in-sets-of-k-consecutive-numbers)
 
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*
