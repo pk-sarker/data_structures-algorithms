@@ -73,6 +73,7 @@
     - [Merge two sorted lists](#merge-two-sorted-lists)
     - [Merge k Sorted Lists](#merge-k-sorted-lists)
     - [Merge Sorted Array](#merge-sorted-array)
+    - [Partition labels](#partition-labels)
     
     
 ### Validate Binary Search Tree
@@ -2537,3 +2538,42 @@ Output: [1]
 
 [Implementation - Java](./java/src/com/ds/practice/MergeSortedArray/MergeSortedArray.java)
 
+### Partition labels
+Given a string *S* with letters *[a-z]*. We want to partition this string into as many parts as possible so that each letter appears in at most one part, 
+and return a list of integers representing the size of these parts.
+
+Example:
+```
+Input: S = "ababcbacadefegdehijhklij"
+Output: [9,7,8]
+Explanation:
+The partition is "ababcbaca", "defegde", "hijhklij".
+```
+**Solution**:
+Lets try to understand this problem little better. Consider that given a string of length *n*, and
+we splited them to two substrings, one from *0*-th char to *m*-th character and another one 
+from *m+1*-th character to *n-1*-th character. The split will be valid if all the 
+characters in first substring appears only in first substring(*0*-th char to *m*-th char), and all the characters in 
+second substring appears in second substring(*m+1*-th char to *n*-th char) only. 
+
+Take a small example: `S='ababcd'`. Pick the first letter, `a`, to keep `a` in a substring
+we need to keep `aba` in a group. Then we have `b` in the group which will be in another group
+if we create the first group with `aba`. So the valid first group will be `abab`.
+
+Another example `S='aaaa'`. In this case there is only one substring as all the characters are same.
+
+So we need to decide if we pick a character how long we should go to keep all the occurence of the character 
+in same substring. For example if we pick `a` from position 0 then we need to check last occurence of the character.
+If the last occurence of `a` is at position 5 then the substring should be at least from 0-th index  to 5-th index.
+Substring length will increase if there are other characters before 5-th index and their last occurence is after 5-th index.
+
+So first we can scan the string and save last occurence of each (unique) character in a hash table or a array.
+Then we start picking characters and  check their last occurence to decide how long the substring length will be.
+
+**Time Complexity:**\
+*O(n) + O(n) = O(n)* in first pass we store last occurence of the characters, and in 2nd pass we decided the substring lengths. 
+
+**Space Complexity:**\
+*O(n)*, for array or hash table to keep last occurence of the characters.
+
+[Implementation - Java](./java/src/com/ds/practice/LabelPartition/LabelPartition.java)

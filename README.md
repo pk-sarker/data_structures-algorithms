@@ -114,7 +114,9 @@ Mostly used Data Structures and Algorithms
     - [Merge two sorted lists](./Problems.md#merge-two-sorted-lists)
     - [Merge k Sorted Lists](./Problems.md#merge-k-sorted-lists)
     - [Merge Sorted Array](./Problems.md#merge-sorted-array)
-
+    - [Partition labels](./Problems.md#partition-labels)
+    
+    
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*
 * LeetCode
