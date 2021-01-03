@@ -109,6 +109,7 @@ Mostly used Data Structures and Algorithms
     - [Divide Array in Sets of K Consecutive Numbers](./Problems.md#divide-array-in-sets-of-k-consecutive-numbers)
     - [Count connected component](./Problems.md#count-connected-component)
     - [Happy Number](./Problems.md#happy-number)
+    - [Intersection of two linked lists](./Problems.md#intersection-of-two-linked-lists)
 
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*
