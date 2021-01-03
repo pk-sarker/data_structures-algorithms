@@ -65,6 +65,7 @@
     - [Decode String](#decode-string)
     - [Decode Ways](#decode-ways)
     - [Copy List with Random Pointer](#copy-list-with-random-pointer)
+    - [Divide Array in Sets of K Consecutive Numbers](#divide-array-in-sets-of-k-consecutive-numbers)
     
     
 ### Validate Binary Search Tree
@@ -2290,3 +2291,30 @@ hash table, in this case we will create the node and keep in the hashtable.
 *O(n)*, for hash table.
 
 [Implementation - Java](./java/src/com/ds/practice/CopyListWithRandomPointer/CopyListWithRandomPointer.java)
+
+
+### Divide Array in Sets of K Consecutive Numbers
+Given an array of integers nums and a positive integer *k*, find whether it's possible to divide this array 
+into sets of *k* consecutive numbers.\
+Return *True* if its possible otherwise return *False*.
+
+Example:
+```
+Input: nums = [1,2,3,3,4,4,5,6], k = 4
+Output: true
+Explanation: Array can be divided into [1,2,3,4] and [3,4,5,6].
+
+Input: nums = [3,2,1,2,3,4,3,4,5,9,10,11], k = 3
+Output: true
+Explanation: Array can be divided into [1,2,3] , [2,3,4] , [3,4,5] and [9,10,11].
+
+Input: nums = [3,3,2,2,1,1], k = 3
+Output: true
+
+Input: nums = [1,2,3,4], k = 3
+Output: false
+Explanation: Each array should be divided in subarrays of size 3.
+```
+
+
+[Implementation - Java](./java/src/com/ds/practice/DivideKConsecutiveNumbers/DivideKConsecutiveNumbers.java)
