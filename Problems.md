@@ -68,6 +68,10 @@
     - [Divide Array in Sets of K Consecutive Numbers](#divide-array-in-sets-of-k-consecutive-numbers)
     - [Count connected component](#count-connected-component)
     - [Happy Number](#happy-number)
+    - [Intersection of two linked lists](#intersection-of-two-linked-lists)
+    - [Find k closest points to origin](#find-k-closest-points-to-origin)
+    - [Merge two sorted lists](#merge-two-sorted-lists)
+    - [Merge k Sorted Lists](#merge-k-sorted-lists)
     
     
 ### Validate Binary Search Tree
@@ -2393,4 +2397,126 @@ Explanation:
 ```
 
 [Implementation - Java](./java/src/com/ds/practice/HappyNumber/HappyNumber.java)
+
+### Intersection of two linked lists
+Given starting node of two linked list, both linked lists merges at a node. The task is to find the common node where both linked
+list merges. 
+
+Example:
+```
+Input: listA = [4,1,7,3,9], listB = [5,6,1,7,3,9]
+Output: 7
+
+Input: listA = [1,9,1,2,4], listB = [3,2,4]
+Output: 2
+
+Input: listA = [2,6,4], listB = [1,5]
+Output: null
+```
+
+**Solution**
+We can use hashmap to keep track of the visited nodes. Start traversing both linked list, when a visited node is reached then return that node.
+It will be linear solution, *O(n)*, and *O(n)* space complexity.
+
+We can also use two pointer. The idea is to move both pointer across the linked lists. When one pointer reach at the end of the list it will 
+start from the head of other linked list. If there is common node where both linkes list meets then at some point both pointer will point 
+at the joining node. Let's try to understand why is that.
+
+Consider *LL1* and *LL2* two linked list and they join/merges *m-th* node. So there will be nodes before common node which may be different or same for 
+both linked list. After the common node there will be some nodes which will be same for both linked list.
+
+```
+node1 -> node2 -> node3 -> node4
+                                 \   
+                                  node5 -> node6 -> node7
+                                 /  
+                  node8 -> node9 
+```
+
+nodes in linked list 1 before common node + common node and common remaining node/
+nodes in linked list 2 before common node + common node and common remaining node
+
+count1 + common node + remaining node, count1 = number of nodes in linked list 1 before common node\
+count2 + common node + remaining node, count2 = number of nodes in linked list 2 before common node
+
+Consider *p1* pointer is moving through linked list 1 and *p2* through linked list 2. Both pointer will move one step 
+ahead on each step.
+
+if *count1*=*count2* then *p1* and *p2* pointer will point to same node after *count1* step.
+
+if *count1*!=*count2* then at some point either *p1* or *p2* pointer will reach to end before other, and then it 
+will start from the other linked list. Will do the same for other pointer.
+When both the pointer traversing on other linked list then they will meet at common node, because\
+
+```
+*count1* + common node + remaining + *count2* + common node = *count2* + common node + remaining + *count1* + common node
+```
+
+[Implementation - Java](./java/src/com/ds/practice/IntersectionOfTwoLinkedLists/IntersectionOfTwoLinkedLists.java)
+
+
+### Find k closest points to origin
+Given a list of points on the plane. Find the *k* closest points to the origin (0, 0).
+(Here, the distance between two points on a plane is the Euclidean distance.)
+
+The answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.)
+
+Example:
+```
+Input: points = [[1,3],[-2,2]], K = 1
+Output: [[-2,2]]
+Explanation: 
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
+```
+
+[Implementation - Java](./java/src/com/ds/practice/KClosestPointsToOrigin/KClosestPointsToOrigin.java)
+
+
+### Merge two sorted lists
+Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
+
+Example:
+```
+Input: l1 = [1,2,4], l2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+
+Input: l1 = [], l2 = []
+Output: []
+
+Input: l1 = [], l2 = [0]
+Output: [0]
+```
+
+[Implementation - Java](./java/src/com/ds/practice/MergeSortedLinkedList/MergeSortedList.java)\
+[Implementation - Java (Iterative)](./java/src/com/ds/practice/MergeSortedLinkedList/MergeSortedListItr.java)
+
+### Merge k Sorted Lists
+Given an array of *k* linked-lists lists, each linked-list is sorted in ascending order.\
+Merge all the linked-lists into one sorted linked-list and return it.
+
+Example:
+```
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted list:
+1->1->2->3->4->4->5->6
+
+Input: lists = []
+Output: []
+
+Input: lists = [[]]
+Output: []
+```
+
+[Implementation - Java](./java/src/com/ds/practice/MergeKSortedLinkedList/MergeKSortedList.java)\
+[Implementation - Java (using heap)](./java/src/com/ds/practice/MergeKSortedLinkedList/MergeKSortedListUsingMinHeap.java)
 
