@@ -69,6 +69,7 @@
     - [Count connected component](#count-connected-component)
     - [Happy Number](#happy-number)
     - [Intersection of two linked lists](#intersection-of-two-linked-lists)
+    - [Find k closest points to origin](#find-k-closest-points-to-origin)
     
     
 ### Validate Binary Search Tree
@@ -2450,3 +2451,24 @@ When both the pointer traversing on other linked list then they will meet at com
 ```
 
 [Implementation - Java](./java/src/com/ds/practice/IntersectionOfTwoLinkedLists/IntersectionOfTwoLinkedLists.java)
+
+
+### Find k closest points to origin
+Given a list of points on the plane. Find the *k* closest points to the origin (0, 0).
+(Here, the distance between two points on a plane is the Euclidean distance.)
+
+The answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.)
+
+Example:
+```
+Input: points = [[1,3],[-2,2]], K = 1
+Output: [[-2,2]]
+Explanation: 
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
+```
+
+[Implementation - Java](./java/src/com/ds/practice/KClosestPointsToOrigin/KClosestPointsToOrigin.java)
+

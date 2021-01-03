@@ -110,6 +110,7 @@ Mostly used Data Structures and Algorithms
     - [Count connected component](./Problems.md#count-connected-component)
     - [Happy Number](./Problems.md#happy-number)
     - [Intersection of two linked lists](./Problems.md#intersection-of-two-linked-lists)
+    - [Find k closest points to origin](./Problems.md#find-k-closest-points-to-origin)
 
 ### References
 * Introduction to Algorithms by *Thomas H. Cormen*
