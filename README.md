@@ -119,6 +119,7 @@ Mostly used Data Structures and Algorithms
     - [Find longest continuous subarray with absolute difference](./Problems.md#find-longest-continuous-subarray-with-absolute-difference)
     - [Find lowest common ancestor of a binary tree](./Problems.md#find-lowest-common-ancestor-of-a-binary-tree)
     - [Maximum subarray](./Problems.md#maximum-subarray)
+    - [Find median from Data stream](./Problems.md#find-median-from-data-stream)
     
     
 ### References
