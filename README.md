@@ -115,6 +115,7 @@ Mostly used Data Structures and Algorithms
     - [Merge k Sorted Lists](./Problems.md#merge-k-sorted-lists)
     - [Merge Sorted Array](./Problems.md#merge-sorted-array)
     - [Partition labels](./Problems.md#partition-labels)
+    - [Find longest common prefix](./Problems.md#find-longest-common-prefix)
     
     
 ### References

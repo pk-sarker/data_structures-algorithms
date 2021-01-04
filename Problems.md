@@ -74,6 +74,7 @@
     - [Merge k Sorted Lists](#merge-k-sorted-lists)
     - [Merge Sorted Array](#merge-sorted-array)
     - [Partition labels](#partition-labels)
+    - [Find longest common prefix](#find-longest-common-prefix)
     
     
 ### Validate Binary Search Tree
@@ -2577,3 +2578,67 @@ Then we start picking characters and  check their last occurence to decide how l
 *O(n)*, for array or hash table to keep last occurence of the characters.
 
 [Implementation - Java](./java/src/com/ds/practice/LabelPartition/LabelPartition.java)
+
+
+### Find longest common prefix
+Given a list of strings, the task is to find the longest common prefix string amongst all the strings.
+If there is no common prefix, return an empty string "".
+
+Example:
+```
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+```
+**Solution**:\
+There are different ways we can solve this problem.
+
+Solution 1: As the longest common prefix will be common for all the strings we can first find longest compare prefix for first two string, then find 
+longest common prefix of the first result and next word as long as we get a result other than empty string.
+
+```
+LCP(S1...Sn) = LCP(LCP(LCP(S1,S2),S3),..Sn)
+
+Example: [good, google, goo, god]
+LCP(good, google) = goo
+LCP(goo, goo) = goo
+LCP(goo, god) = go
+
+Example: [good, google, goo, god, dog]
+LCP(good, google) = goo
+LCP(goo, goo) = goo
+LCP(goo, god) = go
+LCP(go, dog) = ""
+```
+
+Worse case result will be when you have some common prefix in n-1 strings and the last string doesn't 
+have any common prefix, if n is large it will be worse.
+
+Solution 2: We can use divide and concuire approach. Keep split the strings until there are two strings in a 
+gropu. As soon as there are one/two strings, find longest common prefix. Then merge the results by finding 
+longest common prefix of those results.
+
+```
+[good, gold, gone, google, goo, god]
+
+Divide -> [good, gold, gone]       [google, goo, god]
+Divide -> [good, gold] [gone]      [google, goo] [god]
+LCP           [go]     [gone]          [goo]     [god]
+Conquer ->        [go]                       [go]
+Conquer ->                     [go]
+``` 
+
+Solution 3: We can check characters of all the given string vertically. Like first compare first 
+character of all the strings. If first character is common for all then we move to next character at 2nd postion; otherwise
+terminate the check and return result. The result will be from beginning to last common character.
+
+**Time Complexity:**\
+*O(N)* N is sum of all the string length.
+
+**Space Complexity:**\
+*O(1)*
+
+[Implementation - Java](./java/src/com/ds/practice/LongestCommonPrefix/LongestCommonPrefix.java)
+ 
