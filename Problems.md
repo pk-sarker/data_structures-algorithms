@@ -75,6 +75,7 @@
     - [Merge Sorted Array](#merge-sorted-array)
     - [Partition labels](#partition-labels)
     - [Find longest common prefix](#find-longest-common-prefix)
+    - [Find longest continuous subarray with absolute difference](#find-longest-continuous-subarray-with-absolute-difference)
     
     
 ### Validate Binary Search Tree
@@ -2641,4 +2642,25 @@ terminate the check and return result. The result will be from beginning to last
 *O(1)*
 
 [Implementation - Java](./java/src/com/ds/practice/LongestCommonPrefix/LongestCommonPrefix.java)
- 
+
+### Find longest continuous subarray with absolute difference
+Given an array of integers nums and an integer limit, return the size of the longest non-empty 
+subarray such that the absolute difference between any two elements of this subarray is less than or equal to limit.
+
+Example: 
+```
+Input: nums = [10,1,2,4,7,2], limit = 5
+Output: 4 
+Explanation: The subarray [2,4,7,2] is the longest since the maximum absolute diff is |2-7| = 5 <= 5.
+```
+
+**Solution**
+We can use two pointer approach, create a window by those pointers. One pointer will ba anchor and another will be moving. 
+Here the key point is to keep track of minimum and maximum number in the window. Absolute difference between maximum and minimum number 
+needs to be less than the limit. Continue moving end pointer if the difference is less than or equal to the limit. If the difference is greater 
+than the limit then either current number is the new maximum or minimum number. If its new maximum then move the start pointer to the number next to
+minimum number and loop over to find the new minimum.
+
+[Implementation - Java](./java/src/com/ds/practice/LongestContinuousSubarrayWithAbsoluteDiff/SubarrayWithAbsoluteDiff.java)
+
+
