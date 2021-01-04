@@ -117,6 +117,7 @@ Mostly used Data Structures and Algorithms
     - [Partition labels](./Problems.md#partition-labels)
     - [Find longest common prefix](./Problems.md#find-longest-common-prefix)
     - [Find longest continuous subarray with absolute difference](./Problems.md#find-longest-continuous-subarray-with-absolute-difference)
+    - [Find lowest common ancestor of a binary tree](./Problems.md#find-lowest-common-ancestor-of-a-binary-tree)
     
     
 ### References
