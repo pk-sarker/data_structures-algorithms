@@ -1,15 +1,15 @@
 package com.design.LRU;
 
 public class DoubleLinkedListNode {
-    int value;
-    int key;
-    DoubleLinkedListNode next;
-    DoubleLinkedListNode prev;
+    public int value;
+    public int key;
+    public DoubleLinkedListNode next;
+    public DoubleLinkedListNode prev;
 
-    DoubleLinkedListNode(){
+    public DoubleLinkedListNode(){
 
     }
-    DoubleLinkedListNode(int key, int value) {
+    public DoubleLinkedListNode(int key, int value) {
         this.key = key;
         this.value = value;
     }

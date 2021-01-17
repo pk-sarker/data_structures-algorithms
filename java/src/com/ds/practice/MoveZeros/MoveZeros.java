@@ -10,14 +10,18 @@ public class MoveZeros {
                 int tmp = nums[i];
                 nums[i] = nums[lastNonZeroPos];
                 nums[lastNonZeroPos] = tmp;
+                lastNonZeroPos++;
             }
         }
-
+        System.out.println(nums.toString());
         StringBuilder sb = new StringBuilder();
         for(int i =0 ; i< nums.length; i++) {
-            sb.append(i+", ");
+            sb.append(i);
+            if (i<nums.length-1) {
+                sb.append(", ");
+            }
         }
-        System.out.println(sb.toString());
+        System.out.println(sb.reverse().toString());
     }
     public static void main(String args[]) {
         MoveZeros mz = new MoveZeros();
